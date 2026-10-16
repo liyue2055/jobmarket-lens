@@ -63,6 +63,10 @@
     "nodeTests": 44,
     "nodeTestsPassed": 44,
     "productionBuild": "passed",
-    "browserSuite": "final frozen-source run in progress"
+    "browserSuite": "passed: 22/22, single frozen-source run",
+    "browserTests": 22,
+    "browserTestsPassed": 22,
+    "runtimeCommit": "bb38970db1ed9ac976f3d691c5e78c6b0242aa4e",
+    "previewReceipt": "V2_5_1_COMPLETION_PREVIEW.json"
   }
 }

@@ -40,6 +40,13 @@ is additive with method `exact-shown-node-pairs-v1`. The
 
 ## Validation and release gate
 
+Observed validation: 44/44 Node tests, TypeScript and production build passed; a single frozen-source
+browser run passed 22/22 scenarios, including mobile/accessibility, authentication, analytics, tour,
+selection/export, fallback and the new analytical views. The
+[authenticated Vercel preview receipt](V2_5_1_COMPLETION_PREVIEW.json) records the runtime commit,
+all four panels, 780 exact skill pairs, three coverage projections and a 46-row diagnostic export
+whose count and contributor hash matched the applied selection. No page errors were observed.
+
 See [completion measurements](V2_5_1_COMPLETION_MEASUREMENTS.json) for observed local payload and
 production-bundle sizes, lazy-loading and idle-render checks. These are local observations, not CDN,
 production p95 or physical-device measurements. The renderer is close to its proposed 250 KiB gzip
