@@ -110,20 +110,6 @@ export function validSelection(
       r.support.minimumShare > 1)
   )
     return false;
-  if (s.kind === "diagnostic")
-    return (
-      Object.keys(s).every((k) => ["kind", "issue"].includes(k)) &&
-      r.lens === "coverage_cube" &&
-      [
-        "basis_difference",
-        "state_disagreement",
-        "date_difference",
-        "location_difference",
-        "invalid_bounds",
-        "unknown_country",
-        "unknown_arrangement",
-      ].includes(String(s.issue))
-    );
   return s.kind === "cell_union"
     ? Object.keys(s).every((k) => ["kind", "cellIds"].includes(k)) &&
         strings(s.cellIds, 1024)

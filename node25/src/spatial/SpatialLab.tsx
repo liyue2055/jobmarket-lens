@@ -3,7 +3,6 @@ import {
   Suspense,
   lazy,
   useEffect,
-  useCallback,
   useMemo,
   useRef,
   useState,
@@ -34,7 +33,6 @@ import type {
   Comparison,
   Edge,
   Lens,
-  Issue,
   Mark,
   Pin,
   Scene,
@@ -45,9 +43,6 @@ import type {
 } from "./types";
 import "./spatial.css";
 import LassoShelf from "./LassoShelf";
-import DemandPanels from "./DemandPanels";
-import CoverageAnalysis from "./CoverageAnalysis";
-import SkillMatrix from "./SkillMatrix";
 import { parseStudy } from "./study";
 import { skillAngle } from "./layout";
 import type { SpatialStudy } from "./study";
@@ -203,17 +198,7 @@ export default function SpatialLab() {
     [inspectedIds, setInspectedIds] = useState<string[]>([]),
     [exporting, setExporting] = useState(false),
     [listing, setListing] = useState(false),
-    [lasso, setLasso] = useState(false),
-    [demandView, setDemandView] = useState("combined"),
-    [sortGroups, setSortGroups] = useState("source"),
-    [matrixOpen, setMatrixOpen] = useState(false),
-    [draftIssue, setDraftIssue] = useState<Issue | null>(null),
-    [issueColor, setIssueColor] = useState<Issue | "none">("none"),
-    [inspectedIssue, setInspectedIssue] = useState<Issue | null>(null),
-    [inspectedPair, setInspectedPair] = useState<Edge | null>(null),
-    [cameraName, setCameraName] = useState("overview"),
-    [overlapIds, setOverlapIds] = useState<string[]>([]);
-  const selectionOpener = useRef<HTMLElement | null>(null);
+    [lasso, setLasso] = useState(false);
   const restoring = useRef(false),
     requestCounter = useRef(0),
     importSequence = useRef(0),
@@ -298,11 +283,6 @@ export default function SpatialLab() {
     setOffset(0);
     setInspected("");
     setInspectedIds([]);
-    setInspectedIssue(null);
-    setInspectedPair(null);
-    setDraftIssue(null);
-    setOverlapIds([]);
-    setDetail(null);
   }, [request]);
   useEffect(() => {
     const target = root.current;
@@ -331,8 +311,6 @@ export default function SpatialLab() {
         setPair(null);
         setInteraction("inspect");
         setLasso(false);
-        setDraftIssue(null);
-        selectionOpener.current?.focus();
         setNotice("Draft selection cancelled. Applied cohort is unchanged.");
       }
     };
@@ -371,55 +349,6 @@ export default function SpatialLab() {
             .filter((c) => c.count > 0)
             .map((c) => ({ id: c.id, label: c.label, count: c.count }))
         : nodes;
-  const sortedItems = [...shownItems].sort((a, b) =>
-    sortGroups === "count"
-      ? b.count - a.count || a.label.localeCompare(b.label)
-      : sortGroups === "label"
-        ? a.label.localeCompare(b.label)
-        : 0,
-  );
-  const previewMarks = useCallback(
-    (ids: string[]) =>
-      setOverlapIds((old) => (old.join("\0") === ids.join("\0") ? old : ids)),
-    [],
-  );
-  const manualCamera = useCallback(() => setCameraName("custom"), []);
-  const inspectOnly = (id: string) => {
-    setInspected(id);
-    setInspectedIds([id]);
-    setInspectedIssue(null);
-    setInspectedPair(null);
-  };
-  const inspectEnvelope = useMemo<SelectionRequest | null>(() => {
-    if (
-      !scene ||
-      (!inspected && !inspectedIds.length && !inspectedIssue && !inspectedPair)
-    )
-      return null;
-    const selection: Selection = inspectedIssue
-      ? { kind: "diagnostic", issue: inspectedIssue }
-      : inspectedPair
-        ? { kind: "skill_pair", skillIds: [inspectedPair.a, inspectedPair.b] }
-        : lens === "skill_neighborhood"
-          ? { kind: "skill_set", operator: "any", skillIds: [inspected] }
-          : {
-              kind: "cell_union",
-              cellIds: inspectedIds.length ? inspectedIds : [inspected],
-            };
-    return {
-      sceneRequest: {
-        ...scene.sceneRequest,
-        requestId: "inspect:" + scene.requestId,
-      },
-      sceneQueryHash: scene.queryHash,
-      selection,
-    };
-  }, [scene, inspected, inspectedIds, inspectedIssue, inspectedPair, lens]);
-  const inspectPage = useSpatial<SelectedResponse>(
-    "/api/spatial/selection",
-    { ...inspectEnvelope, page: { offset: 0, limit: 5 } },
-    !!inspectEnvelope,
-  );
   const allDraft = lens === "skill_neighborhood" ? skillDraft : draft;
   function changeMode(next: Mode) {
     if (next !== mode) {
@@ -434,10 +363,9 @@ export default function SpatialLab() {
     }
   }
   function choose(id: string) {
-    inspectOnly(id);
+    setInspected(id);
+    setInspectedIds([id]);
     if (interaction === "select") {
-      setDraftIssue(null);
-      selectionOpener.current = document.activeElement as HTMLElement;
       if (lens === "skill_neighborhood") {
         setPair(null);
         setSkillDraft((old) =>
@@ -450,8 +378,6 @@ export default function SpatialLab() {
     }
   }
   function selection(): Selection | null {
-    if (draftIssue && lens === "coverage_cube")
-      return { kind: "diagnostic", issue: draftIssue };
     return lens === "skill_neighborhood"
       ? pair
         ? { kind: "skill_pair", skillIds: pair }
@@ -680,12 +606,6 @@ export default function SpatialLab() {
               .map((c) => ({
                 id: c.id,
                 label: c.label,
-                color:
-                  issueColor !== "none" &&
-                  (c.issueGroups?.find((g) => g.issue === issueColor)
-                    ?.numerator || 0) > 0
-                    ? "#b06813"
-                    : "#28776d",
                 count: c.count,
                 position: [
                   (c.knownCountryCount / c.count) * 20 - 10,
@@ -706,7 +626,7 @@ export default function SpatialLab() {
                 Math.sin(skillAngle(n.id) * 2.4) * 3,
               ],
             })),
-    [scene, shelf, lens, issueColor],
+    [scene, shelf, lens],
   );
   const inspectedCells = inspectedIds.length
     ? cells.filter((c) => inspectedIds.includes(c.id))
@@ -714,23 +634,12 @@ export default function SpatialLab() {
   const inspectedCell = inspectedCells[0],
     inspectedCompany = companies.find((c) => c.id === inspected),
     inspectedNode = nodes.find((c) => c.id === inspected);
-  const inspectedDiagnostic = scene?.data.issueGroups?.find(
-    (g) => g.issue === inspectedIssue,
-  );
-  const inspectedLabel =
-    inspectedDiagnostic?.label ||
-    (inspectedPair
-      ? `${label(inspectedPair.a)} + ${label(inspectedPair.b)}`
-      : undefined) ||
-    (inspectedCell
-      ? `${inspectedCell.occupationLabel} · ${inspectedCell.level} · ${inspectedCells.length > 1 ? "All arrangements" : inspectedCell.arrangement}`
-      : inspectedCompany?.label || inspectedNode?.label);
-  const inspectCount =
-    inspectedDiagnostic?.numerator ??
-    inspectedPair?.count ??
-    (inspectedCells.length
-      ? inspectedCells.reduce((sum, c) => sum + c.count, 0)
-      : (inspectedCompany?.count ?? inspectedNode?.count));
+  const inspectedLabel = inspectedCell
+    ? `${inspectedCell.occupationLabel} · ${inspectedCell.level} · ${inspectedCells.length > 1 ? "All arrangements" : inspectedCell.arrangement}`
+    : inspectedCompany?.label || inspectedNode?.label;
+  const inspectCount = inspectedCells.length
+    ? inspectedCells.reduce((sum, c) => sum + c.count, 0)
+    : (inspectedCompany?.count ?? inspectedNode?.count);
   const can3d = () => {
     try {
       const canvas = document.createElement("canvas");
@@ -1120,38 +1029,6 @@ export default function SpatialLab() {
                         </label>
                       </>
                     )}
-                    {lens === "coverage_cube" && view === "3d" && (
-                      <label>
-                        Issue class color
-                        <select
-                          value={issueColor}
-                          onChange={(e) =>
-                            setIssueColor(e.target.value as Issue | "none")
-                          }
-                        >
-                          <option value="none">No diagnostic emphasis</option>
-                          {scene?.data.issueGroups?.map((g) => (
-                            <option key={g.issue} value={g.issue}>
-                              {g.label}
-                            </option>
-                          ))}
-                        </select>
-                      </label>
-                    )}
-                    {lens === "demand_shelves" && view === "2d" && !lasso && (
-                      <label>
-                        Demand presentation
-                        <select
-                          value={demandView}
-                          onChange={(e) => setDemandView(e.target.value)}
-                        >
-                          <option value="combined">Combined matrix</option>
-                          <option value="panels">
-                            Four arrangement panels
-                          </option>
-                        </select>
-                      </label>
-                    )}
                     {view === "3d" && (
                       <div
                         className="spatial-camera"
@@ -1160,22 +1037,14 @@ export default function SpatialLab() {
                         {["overview", "front", "top", "side"].map((p) => (
                           <button
                             key={p}
-                            aria-pressed={cameraName === p}
-                            onClick={() => {
-                              setPreset(`${p}:${Date.now()}`);
-                              setCameraName(p);
-                            }}
+                            onClick={() => setPreset(`${p}:${Date.now()}`)}
                           >
                             {p}
                           </button>
                         ))}
-                        <span role="status">Camera: {cameraName}</span>
                         <button
                           aria-label="Reset camera"
-                          onClick={() => {
-                            setPreset(`overview:${Date.now()}`);
-                            setCameraName("overview");
-                          }}
+                          onClick={() => setPreset(`overview:${Date.now()}`)}
                         >
                           <RotateCcw size={14} />
                         </button>
@@ -1230,8 +1099,6 @@ export default function SpatialLab() {
                                   marks={marks}
                                   selected={allDraft}
                                   onPick={choose}
-                                  onPreview={previewMarks}
-                                  onCameraInteraction={manualCamera}
                                   preset={preset}
                                   selecting={interaction === "select"}
                                   lens={lens}
@@ -1262,65 +1129,27 @@ export default function SpatialLab() {
                                 );
                               }}
                             />
-                          ) : lens === "demand_shelves" &&
-                            demandView === "panels" ? (
-                            <DemandPanels
-                              cells={cells}
-                              axes={axes}
-                              draft={draft}
-                              onPick={(ids) => {
-                                inspectOnly(ids[0] || "");
-                                setInspectedIds(ids);
-                                if (interaction === "select") {
-                                  selectionOpener.current =
-                                    document.activeElement as HTMLElement;
-                                  setDraft((old) =>
-                                    ids.every((id) => old.includes(id))
-                                      ? old.filter((id) => !ids.includes(id))
-                                      : [...new Set([...old, ...ids])],
-                                  );
-                                }
-                              }}
-                            />
                           ) : lens === "demand_shelves" ? (
                             <DemandMatrix
                               cells={activeCells}
                               axes={axes}
                               draft={draft}
                               onPick={(ids) => {
-                                inspectOnly(ids[0] || "");
+                                setInspected(ids[0] || "");
                                 setInspectedIds(ids);
-                                if (interaction === "select") {
-                                  selectionOpener.current =
-                                    document.activeElement as HTMLElement;
+                                if (interaction === "select")
                                   setDraft((old) =>
                                     ids.every((id) => old.includes(id))
                                       ? old.filter((id) => !ids.includes(id))
                                       : [...new Set([...old, ...ids])],
                                   );
-                                }
                               }}
                             />
                           ) : lens === "coverage_cube" ? (
-                            <CoverageAnalysis
+                            <CoveragePlot
                               companies={companies}
-                              emptyCompanies={scene.data.emptyCompanies || []}
                               selected={draft}
-                              inspectedId={inspected}
-                              interaction={interaction}
                               onPick={choose}
-                              onInspect={inspectOnly}
-                              onToggle={(id) => {
-                                setDraftIssue(null);
-                                setInteraction("select");
-                                selectionOpener.current =
-                                  document.activeElement as HTMLElement;
-                                setDraft((old) =>
-                                  old.includes(id)
-                                    ? old.filter((x) => x !== id)
-                                    : [...old, id],
-                                );
-                              }}
                             />
                           ) : (
                             <SkillPlot
@@ -1339,31 +1168,6 @@ export default function SpatialLab() {
                             />
                           )}
                         </div>
-                        {view === "3d" && overlapIds.length > 0 && (
-                          <div className="spatial-overlap-list">
-                            <p>
-                              Last pointer ray: {overlapIds.length} intersected
-                              marks, including hidden marks along the ray. Hover
-                              does not change the applied cohort.
-                            </p>
-                            <details open={overlapIds.length > 1}>
-                              <summary>Inspect overlapping marks</summary>
-                              {overlapIds.map((id) => {
-                                const item = shownItems.find(
-                                  (x) => x.id === id,
-                                );
-                                return item ? (
-                                  <button
-                                    key={id}
-                                    onClick={() => inspectOnly(id)}
-                                  >
-                                    {item.label} · {count(item.count)}
-                                  </button>
-                                ) : null;
-                              })}
-                            </details>
-                          </div>
-                        )}
                         {view === "3d" && (
                           <div className="spatial-3d-key">
                             <strong>AXIS KEY</strong>
@@ -1437,25 +1241,6 @@ export default function SpatialLab() {
                             </>
                           )}
                         </div>
-                        {lens === "coverage_cube" &&
-                          view === "3d" &&
-                          issueColor !== "none" && (
-                            <p className="spatial-caution">
-                              Amber marks have recorded contributors in{" "}
-                              {
-                                scene.data.issueGroups?.find(
-                                  (g) => g.issue === issueColor,
-                                )?.label
-                              }
-                              . A basis or unknown-coverage difference is not a
-                              validation error.{" "}
-                              {
-                                scene.data.issueGroups?.find(
-                                  (g) => g.issue === issueColor,
-                                )?.meaning
-                              }
-                            </p>
-                          )}
                         <div className="spatial-coverage-strip">
                           <span>
                             {count(scene.data.coverage.shownGroups)} /{" "}
@@ -1493,9 +1278,7 @@ export default function SpatialLab() {
                       <strong>
                         {pair
                           ? "1 skill pair"
-                          : draftIssue
-                            ? `Issue: ${scene?.data.issueGroups?.find((g) => g.issue === draftIssue)?.label || draftIssue}`
-                            : `${allDraft.length} ${lens === "skill_neighborhood" ? "skills" : "aggregate cells"}`}
+                          : `${allDraft.length} ${lens === "skill_neighborhood" ? "skills" : "aggregate cells"}`}
                       </strong>{" "}
                       in draft · changes apply explicitly
                     </span>
@@ -1516,7 +1299,6 @@ export default function SpatialLab() {
                     <button
                       className="button"
                       onClick={() => {
-                        setDraftIssue(null);
                         setDraft([]);
                         setSkillDraft([]);
                         setPair(null);
@@ -1565,65 +1347,6 @@ export default function SpatialLab() {
                           known analyzed text
                         </p>
                       )}
-                      {inspectedDiagnostic && (
-                        <p>
-                          {count(inspectedDiagnostic.numerator)} /{" "}
-                          {count(inspectedDiagnostic.denominator)}{" "}
-                          {inspectedDiagnostic.denominatorLabel}.{" "}
-                          {inspectedDiagnostic.meaning} Unavailable:{" "}
-                          {count(inspectedDiagnostic.unavailableCount)}.
-                        </p>
-                      )}
-                      {inspectedPair && (
-                        <p>
-                          Jaccard {(inspectedPair.jaccard * 100).toFixed(1)}% ·
-                          P(B | A) {(inspectedPair.aShare * 100).toFixed(1)}% ·
-                          P(A | B) {(inspectedPair.bShare * 100).toFixed(1)}%
-                        </p>
-                      )}
-                      {inspectedCompany && (
-                        <dl className="spatial-pay-evidence">
-                          {[
-                            ["Raw pay ranges", inspectedCompany.rawRangeCount],
-                            [
-                              "Known currency",
-                              inspectedCompany.knownCurrencyCount,
-                            ],
-                            [
-                              "Valid non-USD pay",
-                              inspectedCompany.validNonUsdCount,
-                            ],
-                            [
-                              "Invalid bounds",
-                              inspectedCompany.invalidBoundCount,
-                            ],
-                            [
-                              "Bounds assessable",
-                              inspectedCompany.payAssessableCount,
-                            ],
-                            [
-                              "Suspicious pay · review",
-                              inspectedCompany.suspiciousPayCount,
-                            ],
-                          ].map(([name, value]) => (
-                            <div key={String(name)}>
-                              <dt>{name}</dt>
-                              <dd>{count(Number(value))}</dd>
-                            </div>
-                          ))}
-                          <p>
-                            Invalid-bound assessment:{" "}
-                            {count(inspectedCompany.invalidBoundCount)} /{" "}
-                            {count(inspectedCompany.payAssessableCount)}{" "}
-                            assessable;{" "}
-                            {count(
-                              inspectedCompany.count -
-                                inspectedCompany.payAssessableCount,
-                            )}{" "}
-                            not assessable. Valid non-USD is not invalid.
-                          </p>
-                        </dl>
-                      )}
                       {inspectedCompany && (
                         <p>
                           Known country{" "}
@@ -1641,16 +1364,7 @@ export default function SpatialLab() {
                       <button
                         className="button"
                         onClick={() => {
-                          selectionOpener.current =
-                            document.activeElement as HTMLElement;
-                          setDraftIssue(null);
-                          if (inspectedIssue) {
-                            setDraftIssue(inspectedIssue);
-                            setDraft([]);
-                          } else if (inspectedPair) {
-                            setPair([inspectedPair.a, inspectedPair.b]);
-                            setSkillDraft([]);
-                          } else if (lens === "skill_neighborhood") {
+                          if (lens === "skill_neighborhood") {
                             setSkillDraft([inspected]);
                             setPair(null);
                           } else
@@ -1662,35 +1376,6 @@ export default function SpatialLab() {
                       >
                         Use this group as draft
                       </button>
-                      {inspectPage.loading ? (
-                        <p role="status">Loading inspected evidence…</p>
-                      ) : inspectPage.error ? (
-                        <p role="alert">{inspectPage.error}</p>
-                      ) : (
-                        inspectPage.data && (
-                          <div className="spatial-inspect-records">
-                            <p>
-                              Inspection only ·{" "}
-                              {count(inspectPage.data.matchedCount)}{" "}
-                              contributors. Applied cohort and pins are
-                              unchanged.
-                            </p>
-                            <ul>
-                              {inspectPage.data.data.records.rows.map((row) => (
-                                <li key={row.id}>
-                                  <button onClick={() => setDetail(row.id)}>
-                                    {row.title}
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                            <small>
-                              First five public records; Apply to page/export
-                              the complete set.
-                            </small>
-                          </div>
-                        )
-                      )}
                     </div>
                   ) : (
                     <div className="spatial-inspect-hint">
@@ -1701,49 +1386,6 @@ export default function SpatialLab() {
                         contributors.
                       </p>
                     </div>
-                  )}
-                  {lens === "coverage_cube" && (
-                    <details className="spatial-issue-groups">
-                      <summary>Issue classes and exact contributors</summary>
-                      <p>
-                        Classes overlap; counts must not be added into a score.
-                        Recorded differences are not necessarily errors.
-                      </p>
-                      {scene?.data.issueGroups?.map((group) => (
-                        <div key={group.issue}>
-                          <strong>{group.label}</strong>
-                          <p>
-                            {count(group.numerator)} /{" "}
-                            {count(group.denominator)} {group.denominatorLabel}{" "}
-                            · {count(group.unavailableCount)} unavailable
-                          </p>
-                          <p>{group.meaning}</p>
-                          <button
-                            className="button"
-                            onClick={() => {
-                              setInspectedIssue(group.issue);
-                              setInspected("");
-                              setInspectedIds([]);
-                              setInspectedPair(null);
-                            }}
-                          >
-                            Inspect {group.label}
-                          </button>
-                          <button
-                            className="button"
-                            onClick={() => {
-                              selectionOpener.current =
-                                document.activeElement as HTMLElement;
-                              setDraftIssue(group.issue);
-                              setDraft([]);
-                              setInteraction("select");
-                            }}
-                          >
-                            Draft {group.label}
-                          </button>
-                        </div>
-                      ))}
-                    </details>
                   )}
                   <div className="spatial-applied">
                     <small>APPLIED COHORT</small>
@@ -1857,55 +1499,9 @@ export default function SpatialLab() {
                   visible record pages.
                 </p>
                 {listing && (
-                  <label className="spatial-list-sort">
-                    Sort exact groups
-                    <select
-                      value={sortGroups}
-                      onChange={(e) => setSortGroups(e.target.value)}
-                    >
-                      <option value="source">Source order</option>
-                      <option value="count">Posting count</option>
-                      <option value="label">Name</option>
-                    </select>
-                  </label>
-                )}
-                {lens === "skill_neighborhood" && (
-                  <>
-                    <button
-                      className="button"
-                      aria-expanded={matrixOpen}
-                      onClick={() => setMatrixOpen(!matrixOpen)}
-                    >
-                      {matrixOpen ? "Close" : "Open"} exact co-mention matrix
-                    </button>
-                    {matrixOpen && scene && (
-                      <SkillMatrix
-                        key={scene.queryHash}
-                        nodes={nodes}
-                        matrix={scene.data.matrix}
-                        analysisCount={scene.analysisCount}
-                        onInspectNode={inspectOnly}
-                        onInspectPair={(edge) => {
-                          setInspectedPair(edge);
-                          setInspected("");
-                          setInspectedIds([]);
-                          setInspectedIssue(null);
-                        }}
-                        onDraftPair={(edge) => {
-                          selectionOpener.current =
-                            document.activeElement as HTMLElement;
-                          setPair([edge.a, edge.b]);
-                          setSkillDraft([]);
-                          setInteraction("select");
-                        }}
-                      />
-                    )}
-                  </>
-                )}
-                {listing && (
                   <div className="spatial-group-list">
                     {shownItems.length ? (
-                      sortedItems.map((item) => (
+                      shownItems.map((item) => (
                         <div
                           key={item.id}
                           className={
@@ -1917,10 +1513,7 @@ export default function SpatialLab() {
                             aria-label={`Select ${item.label}`}
                             checked={allDraft.includes(item.id)}
                             onChange={() => {
-                              selectionOpener.current =
-                                document.activeElement as HTMLElement;
                               setInteraction("select");
-                              setDraftIssue(null);
                               if (lens === "skill_neighborhood") {
                                 setPair(null);
                                 setSkillDraft((old) =>
@@ -1938,7 +1531,8 @@ export default function SpatialLab() {
                           />
                           <button
                             onClick={() => {
-                              inspectOnly(item.id);
+                              setInspected(item.id);
+                              setInspectedIds([item.id]);
                             }}
                           >
                             {item.label}
@@ -2291,6 +1885,73 @@ function DemandMatrix({
         </tbody>
       </table>
     </div>
+  );
+}
+function CoveragePlot({
+  companies,
+  selected,
+  onPick,
+}: {
+  companies: NonNullable<Scene["data"]["companies"]>;
+  selected: string[];
+  onPick: (id: string) => void;
+}) {
+  const max = Math.max(1, ...companies.map((c) => c.count));
+  return (
+    <svg
+      viewBox="0 0 900 460"
+      role="img"
+      aria-labelledby="coverage-title coverage-description"
+      className="spatial-svg"
+    >
+      <title id="coverage-title">Employer coverage comparison</title>
+      <desc id="coverage-description">
+        X is known-country share, Y is eligible USD-pay share. Circle area
+        encodes posting count. Use the exact employer list below for keyboard
+        inspection and selection.
+      </desc>
+      {[0, 25, 50, 75, 100].map((n) => (
+        <g key={n}>
+          <path
+            d={`M70 ${390 - n * 3.2}H850 M${70 + n * 7.8} 70V390`}
+            stroke="#dce7df"
+          />
+          <text x="55" y={394 - n * 3.2} textAnchor="end">
+            {n}%
+          </text>
+          <text x={70 + n * 7.8} y="415" textAnchor="middle">
+            {n}%
+          </text>
+        </g>
+      ))}
+      <text x="460" y="449" textAnchor="middle">
+        Postings with at least one known country / employer postings
+      </text>
+      <text transform="translate(18 230) rotate(-90)" textAnchor="middle">
+        Eligible USD pay / employer postings
+      </text>
+      {companies
+        .filter((c) => c.count > 0)
+        .map((c) => (
+          <circle
+            key={c.id}
+            cx={70 + (c.knownCountryCount / c.count) * 780}
+            cy={390 - (c.eligiblePayCount / c.count) * 320}
+            r={17 * Math.sqrt(c.count / max)}
+            fill={selected.includes(c.id) ? "#b06813" : "#28776d"}
+            fillOpacity=".75"
+            stroke={selected.includes(c.id) ? "#633a09" : "#f4f7f2"}
+            strokeWidth={selected.includes(c.id) ? 3 : 1}
+            onClick={() => onPick(c.id)}
+          >
+            <title>
+              {c.label}: {count(c.count)} postings; known country{" "}
+              {pct(c.knownCountryCount, c.count)}; USD eligible{" "}
+              {pct(c.eligiblePayCount, c.count)}
+            </title>
+          </circle>
+        ))}
+    </svg>
   );
 }
 function SkillPlot({

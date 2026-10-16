@@ -1,7 +1,7 @@
 name: V2.5 Node checks
 on:
   push:
-    branches: [main, feat/v2.5-node-canvas, feat/v2.5.1-spatial-lab, feat/v2.5.1-design-completion]
+    branches: [main, feat/v2.5-node-canvas, feat/v2.5.1-spatial-lab]
     paths: ['node25/**', '.github/workflows/v25-checks.yml']
   pull_request:
     paths: ['node25/**', '.github/workflows/v25-checks.yml']

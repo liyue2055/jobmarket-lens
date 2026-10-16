@@ -37,6 +37,3 @@ node25/.env*
 # Isolated renderer experiments
 research/**/node_modules/
 research/**/dist/
-
-# Local exploratory browser runs
-node25/out/

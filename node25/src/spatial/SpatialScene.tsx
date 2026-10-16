@@ -1,18 +1,10 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { BufferGeometry, Color, InstancedMesh, Object3D, Vector3 } from "three";
 import type { Mark } from "./types";
 
-function Camera({
-  preset,
-  selecting,
-  onCameraInteraction,
-}: {
-  preset: string;
-  selecting: boolean;
-  onCameraInteraction: () => void;
-}) {
+function Camera({ preset, selecting }: { preset: string; selecting: boolean }) {
   const { camera, gl, invalidate } = useThree();
   const controls = useMemo(
     () => new OrbitControls(camera, gl.domElement),
@@ -26,23 +18,16 @@ function Camera({
     controls.target.set(0, 0, 0);
     const changed = () => invalidate();
     controls.addEventListener("change", changed);
-    controls.addEventListener("start", onCameraInteraction);
     return () => {
       controls.removeEventListener("change", changed);
-      controls.removeEventListener("start", onCameraInteraction);
       controls.dispose();
     };
-  }, [controls, invalidate, onCameraInteraction]);
+  }, [controls, invalidate]);
   useEffect(() => {
     controls.enabled = !selecting;
   }, [controls, selecting]);
   useEffect(() => {
     const view = preset.split(":")[0];
-    controls.target.set(0, 0, 0);
-    if ("zoom" in camera) {
-      camera.zoom = 23;
-      camera.updateProjectionMatrix();
-    }
     camera.position.set(
       ...((view === "front"
         ? [0, 0, 40]
@@ -74,25 +59,22 @@ function Marks({
   selected,
   onPick,
   maxCount,
-  onPreview,
 }: {
   marks: Mark[];
   selected: string[];
   onPick: (id: string) => void;
   maxCount: number;
-  onPreview: (ids: string[]) => void;
 }) {
   const mesh = useRef<InstancedMesh>(null),
-    { invalidate, camera, raycaster } = useThree();
+    { invalidate } = useThree();
   const max = Math.max(1, maxCount);
-  const rotation = useRef(camera.quaternion.clone());
-  const updateInstances = useCallback(() => {
+  useEffect(() => {
     if (!mesh.current) return;
     const dummy = new Object3D();
     marks.forEach((mark, i) => {
       dummy.position.set(...mark.position);
-      dummy.quaternion.copy(camera.quaternion);
-      dummy.scale.setScalar(0.55 * Math.sqrt(mark.count / max));
+      const radius = 0.55 * Math.sqrt(mark.count / max);
+      dummy.scale.setScalar(radius);
       dummy.updateMatrix();
       mesh.current!.setMatrixAt(i, dummy.matrix);
       mesh.current!.setColorAt(
@@ -106,44 +88,19 @@ function Marks({
     if (mesh.current.instanceColor)
       mesh.current.instanceColor.needsUpdate = true;
     mesh.current.computeBoundingSphere();
-    rotation.current.copy(camera.quaternion);
-  }, [marks, selected, max, camera]);
-  useEffect(() => {
-    updateInstances();
     invalidate();
-  }, [updateInstances, invalidate]);
-  useFrame(() => {
-    if (!rotation.current.equals(camera.quaternion)) updateInstances();
-  });
-  const hitIds = () =>
-    mesh.current
-      ? [
-          ...new Set(
-            raycaster
-              .intersectObject(mesh.current)
-              .flatMap((hit) =>
-                hit.instanceId === undefined ? [] : [marks[hit.instanceId]?.id],
-              )
-              .filter((id): id is string => !!id),
-          ),
-        ]
-      : [];
+  }, [marks, selected, max, invalidate]);
   return (
     <instancedMesh
       ref={mesh}
       args={[undefined, undefined, marks.length]}
-      onPointerMove={(e) => {
-        e.stopPropagation();
-        onPreview(hitIds());
-      }}
       onClick={(e) => {
         e.stopPropagation();
-        onPreview(hitIds());
         if (e.instanceId !== undefined && marks[e.instanceId])
           onPick(marks[e.instanceId].id);
       }}
     >
-      <circleGeometry args={[1, 24]} />
+      <sphereGeometry args={[1, 12, 8]} />
       <meshBasicMaterial />
     </instancedMesh>
   );
@@ -157,8 +114,6 @@ export default function SpatialScene({
   lens,
   links,
   maxCount,
-  onPreview,
-  onCameraInteraction,
 }: {
   marks: Mark[];
   selected: string[];
@@ -168,8 +123,6 @@ export default function SpatialScene({
   lens: string;
   links: { a: string; b: string }[];
   maxCount: number;
-  onPreview: (ids: string[]) => void;
-  onCameraInteraction: () => void;
 }) {
   return (
     <Canvas
@@ -181,11 +134,7 @@ export default function SpatialScene({
       aria-label="Optional three-dimensional aggregate view. Use the exact cell list below for keyboard selection."
       style={{ height: "100%", background: "#f2f6f1" }}
     >
-      <Camera
-        preset={preset}
-        selecting={selecting}
-        onCameraInteraction={onCameraInteraction}
-      />
+      <Camera preset={preset} selecting={selecting} />
       {lens === "demand_shelves" && <ShelfLines />}
       {lens === "skill_neighborhood" && (
         <GraphLinks marks={marks} links={links} />
@@ -197,7 +146,6 @@ export default function SpatialScene({
         selected={selected}
         onPick={onPick}
         maxCount={maxCount}
-        onPreview={onPreview}
       />
     </Canvas>
   );

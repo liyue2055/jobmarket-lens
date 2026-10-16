@@ -90,10 +90,3 @@ production protections were not disabled. The feature remains separate from publ
 
 Actual captures: [desktop 3D](v251-spatial-desktop.png), [focused skills](v251-spatial-skills.png),
 [mobile 2D](v251-spatial-mobile.png). They show public snapshot fields only.
-
-## Follow-up after PR #6
-
-PR #6 was merged onto `main`. The new `feat/v2.5.1-design-completion` branch starts from `6bb8f91`
-and completes the equal-data panels/projections/matrix, diagnostic contributors, inspection and camera
-work described in the [completion report](V2_5_1_DESIGN_COMPLETION.md). Historical measurements above
-refer to the initial build; use the separate completion receipt for the new bundle and payload sizes.

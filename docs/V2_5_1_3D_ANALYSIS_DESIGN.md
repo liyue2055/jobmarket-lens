@@ -1,9 +1,5 @@
 # V2.5.1 — spatial analysis and evidence design
 
-Implementation status: the user subsequently authorized the build. See the
-[completion report](V2_5_1_DESIGN_COMPLETION.md) for current behavior and remaining evaluation gates.
-The design-stage statements below are preserved as the original review contract.
-
 Design for review, 2026-10-16. The user's “3d.js” is interpreted as **Three.js or a comparable browser
 visualization library**. This document authorizes no implementation, dependency installation, paid
 service or production replacement. V2 remains at `jobmarket.feedos.si`; the completed Node V2.5 remains

@@ -82,7 +82,7 @@ test("default demand scene, inspect/draft/apply, exact contributors, CSV and A/B
   expect(Number(initialDraft)).toBeGreaterThan(1);
   await expect(page.locator(".spatial-applied strong")).toHaveText("—");
   const selectedResponse = page.waitForResponse(
-    (response) => response.url().includes("/api/spatial/selection") && response.request().method() === "POST" && response.request().postDataJSON()?.page?.limit === 100,
+    (response) => response.url().includes("/api/spatial/selection") && response.request().method() === "POST",
   );
   await page.getByRole("button", { name: "Apply selection" }).click();
   const selected = await (await selectedResponse).json();
@@ -113,7 +113,7 @@ test("default demand scene, inspect/draft/apply, exact contributors, CSV and A/B
   const broaderDraft = Number((await draftSummary.innerText()).match(/^(\d+)/)?.[1]);
   expect(Number(broaderDraft)).toBeGreaterThan(1);
   const secondSelectionResponse = page.waitForResponse(
-    (response) => response.url().includes("/api/spatial/selection") && response.request().method() === "POST" && response.request().postDataJSON()?.page?.limit === 100,
+    (response) => response.url().includes("/api/spatial/selection") && response.request().method() === "POST",
   );
   await page.getByRole("button", { name: "Apply selection" }).click();
   const secondSelection = await (await secondSelectionResponse).json();
@@ -143,7 +143,8 @@ test("coverage and skill lenses preserve the matched population while changing b
   const coverageResponse = await coverageWait;
   expect(coverageResponse.status()).toBe(200);
   expect((await coverageResponse.json()).matchedCount).toBe(82_851);
-  await expect(page.locator(".coverage-projection svg")).toHaveCount(3);
+  await expect(page.locator(".spatial-svg")).toHaveAttribute("role", "img");
+  await expect(page.locator("#coverage-title")).toHaveText("Employer coverage comparison");
   await expect(release).toContainText("82,851 matching postings");
 
   const skillsWait = nextSceneResponse(page, "skill_neighborhood");

@@ -27,16 +27,9 @@ canonical `queryHash`, normalized `sceneRequest`, exact population counts/hashes
 - Demand: complete `cells`, including zero/Unknown/Unclassified category tuples, plus ordered `axes`.
   Each positive cell has a stable ID, occupation label/ID, level, arrangement and distinct count.
 - Coverage: all matched `companies`, labeled counts, coverage numerators, pay comparability/diagnostic
-  counts and explicit coordinate transforms. `emptyCompanies` lists catalog employers without contributors.
-  Global and employer `issueGroups` expose class, numerator, denominator, denominator label, unavailable
-  count and meaning. Date/location comparability and exclusions remain explicit. A valid non-USD range
-  is not a pay error.
+  counts and explicit coordinate transforms. A valid non-USD range is not a pay error.
 - Skills: at most 40 `nodes` and 120 `edges`. Each edge has both marginals, co-mention count,
   Jaccard and conditional shares. Qualifying node/edge counts before caps remain visible.
-  `matrix` contains every unordered pair among the shown node IDs (at most 780), including actual zero
-  counts and below-threshold or graph-omitted pairs. Each pair includes both marginals, count, Jaccard,
-  conditional shares, `qualifies` and `shownEdge`. Its additive method is `exact-shown-node-pairs-v1`;
-  it does not redefine graph membership or the original scene/selection hash.
 - Every lens includes `coverage`, contributor omissions computed as distinct set differences, and
   coordinate metadata distinguishing categorical slots, quantitative axes and non-metric layout.
 
@@ -53,14 +46,7 @@ are bounded accelerators, never the sole record of a saved selection.
 {kind: 'cell_union', cellIds: string[]} // up to 1,024 registered demand/employer cell IDs
 {kind: 'skill_pair', skillIds: [string, string]} // both distinct skills required
 {kind: 'skill_set', operator: 'any' | 'all', skillIds: string[]} // up to 40 skills
-{kind: 'diagnostic', issue: Issue} // coverage scenes only, fixed server predicates
 ```
-
-`Issue` is exactly `basis_difference`, `state_disagreement`, `date_difference`,
-`location_difference`, `invalid_bounds`, `unknown_country` or `unknown_arrangement`.
-Diagnostic selectors intersect the original scene population and source mode; they never accept raw
-posting ID lists. They use the same paging, comparison, export and contributor-hash checks as cells.
-A read-only inspection uses this endpoint with five records and does not commit a client cohort.
 
 The envelope carries the canonical scene request, so another function instance can reconstruct its
 scope. Stale releases, forged IDs and mismatched hashes fail closed. Duplicate IDs never duplicate
