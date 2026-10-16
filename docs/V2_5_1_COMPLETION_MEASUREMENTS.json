@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-16T21:03:09.094Z",
+  "datasetVersion": "2d18d6d0d99a370a7ebc6a7d0d637cbca917682b504110427727ba76a339041b",
+  "scope": "Single local development-server requests; gzip measured with Node default gzip, not transferred CDN bytes or device performance. Scene payload includes complete exact matrix and diagnostic evidence.",
+  "scenes": [
+    {
+      "lens": "demand_shelves",
+      "matchedCount": 82851,
+      "rawBytes": 159212,
+      "gzipBytes": 22476,
+      "singleLocalRoundTripMs": 64,
+      "marks": 736
+    },
+    {
+      "lens": "coverage_cube",
+      "matchedCount": 82851,
+      "rawBytes": 993509,
+      "gzipBytes": 38951,
+      "singleLocalRoundTripMs": 67,
+      "marks": 311
+    },
+    {
+      "lens": "skill_neighborhood",
+      "matchedCount": 82851,
+      "rawBytes": 252168,
+      "gzipBytes": 59091,
+      "singleLocalRoundTripMs": 28,
+      "marks": 40,
+      "matrixPairs": 780
+    }
+  ],
+  "productionBrowser": {
+    "checkedAt": "2026-10-16T21:04:09.967Z",
+    "environment": "Local production server, headless Chromium/software WebGL; one 1.2-second idle interval. No physical-device fps, thermal, memory or human task inference.",
+    "baselineRendererRequests": [],
+    "beforeOptIn": {
+      "canvas": 0,
+      "rendererRequests": []
+    },
+    "drawsBefore": 4,
+    "drawsAfter": 4,
+    "pageErrors": [],
+    "chunks": [
+      {
+        "name": "SpatialLab-DermjrNg.js",
+        "bytes": 75654,
+        "gzipBytes": 22893
+      },
+      {
+        "name": "SpatialScene-BXGTjQJ6.js",
+        "bytes": 952784,
+        "gzipBytes": 255782
+      },
+      {
+        "name": "index-COyw31O5.js",
+        "bytes": 270988,
+        "gzipBytes": 82446
+      }
+    ],
+    "bundleCheckedAt": "2026-10-16T21:07:43.507Z"
+  },
+  "validation": {
+    "nodeTests": 44,
+    "nodeTestsPassed": 44,
+    "productionBuild": "passed",
+    "browserSuite": "passed: 22/22, single frozen-source run",
+    "browserTests": 22,
+    "browserTestsPassed": 22,
+    "runtimeCommit": "bb38970db1ed9ac976f3d691c5e78c6b0242aa4e",
+    "previewReceipt": "V2_5_1_COMPLETION_PREVIEW.json"
+  }
+}

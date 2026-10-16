@@ -1,0 +1,32 @@
+{
+  "sourceCommit": "bb38970db1ed9ac976f3d691c5e78c6b0242aa4e",
+  "url": "https://jobmarket-lens-node25-agta4ffoi-self-59d1.vercel.app",
+  "checkedAt": "2026-10-16T21:10:27.604Z",
+  "access": "Vercel-authenticated preview; protections unchanged, private CLI cookie not published",
+  "health": {
+    "ready": true,
+    "version": "2.5.1",
+    "datasetVersion": "2d18d6d0d99a370a7ebc6a7d0d637cbca917682b504110427727ba76a339041b"
+  },
+  "demandPanels": 4,
+  "exactSkillPairs": 780,
+  "coverageProjections": 3,
+  "employers": 311,
+  "basisDifference": {
+    "issue": "basis_difference",
+    "label": "Observation/reporting basis differences",
+    "class": "evidence_basis_difference",
+    "numerator": 46,
+    "denominator": 46,
+    "denominatorLabel": "same-day comparable source pairs",
+    "unavailableCount": 0,
+    "meaning": "Same normalized availability state; differing evidence basis."
+  },
+  "selection": {
+    "count": 46,
+    "contributorHash": "a929d829d7e81846d692ede4f1396bcfd296cd2bdab27464aa614a1a8a17d739"
+  },
+  "csvIdentityVerified": true,
+  "tourDialog": true,
+  "pageErrors": []
+}

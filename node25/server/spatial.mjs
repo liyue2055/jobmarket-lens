@@ -66,7 +66,18 @@ export const SpatialRequest = z.discriminatedUnion("lens", [
     })
     .strict(),
 ]);
+const ISSUES = [
+  "basis_difference",
+  "state_disagreement",
+  "date_difference",
+  "location_difference",
+  "invalid_bounds",
+  "unknown_country",
+  "unknown_arrangement",
+];
+const INVALID_PAY_SQL = `coalesce(list_has_any(from_json(json_extract("detailJSON",'$.pay.flags'),'["VARCHAR"]'),['inverted_range','inverted_annual_range','invalid_numeric_pay']),false)`;
 const selection = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("diagnostic"), issue: z.enum(ISSUES) }).strict(),
   z
     .object({
       kind: z.literal("cell_union"),
@@ -205,68 +216,146 @@ async function withConnection(fn) {
     free();
   }
 }
-const state = (v) =>
-  ["local_observed", "upstream_reported_open"].includes(v)
-    ? "open"
-    : v === "closed"
-      ? "closed"
-      : v === "possibly_closed"
-        ? "possibly_closed"
-        : "unverified";
-async function diagnostics(conn, p) {
-  const pairs = await rows(
-    conn,
-    `SELECT u."detailJSON" AS upstream,l."detailJSON" AS localRow FROM postings u JOIN postings l USING(id) WHERE u.mode='upstream' AND l.mode='local' AND u.id IN (SELECT id FROM postings WHERE ${p.sql})`,
-    p.values,
-  );
-  const result = {
-    totalPairs: pairs.length,
-    comparablePairs: 0,
-    rawStatusDifferences: 0,
-    basisDifferences: 0,
-    semanticStateDisagreements: 0,
-    uncomparablePairs: 0,
-    dateDifferences: 0,
-    locationDifferences: 0,
-  };
-  for (const pair of pairs) {
-    const u = JSON.parse(pair.upstream),
-      l = JSON.parse(pair.localRow);
-    if (u.availability !== l.availability) result.rawStatusDifferences++;
-    const a = state(u.availability),
-      b = state(l.availability);
-    const comparable =
-      u.availabilityAsOf &&
-      l.availabilityAsOf &&
-      u.availabilityAsOf.slice(0, 10) === l.availabilityAsOf.slice(0, 10) &&
-      a !== "unverified" &&
-      b !== "unverified";
-    if (comparable) {
-      result.comparablePairs++;
-      if (a === b && u.availability !== l.availability)
-        result.basisDifferences++;
-      if (a !== b) result.semanticStateDisagreements++;
-    } else result.uncomparablePairs++;
-    if (
-      u.sourcePostedDate &&
-      l.sourcePostedDate &&
-      u.sourcePostedDate !== l.sourcePostedDate
-    )
-      result.dateDifferences++;
-    if (
-      u.locations.some((x) => x.country || x.region || x.city) &&
-      l.locations.some((x) => x.country || x.region || x.city) &&
-      canonical(u.locations) !== canonical(l.locations)
-    )
-      result.locationDifferences++;
-  }
+function pairRelation() {
+  const nativeState = (alias) =>
+    `CASE json_extract_string(${alias}."detailJSON",'$.availability') WHEN 'local_observed' THEN 'open' WHEN 'upstream_reported_open' THEN 'open' WHEN 'closed' THEN 'closed' WHEN 'possibly_closed' THEN 'possibly_closed' ELSE 'unverified' END`;
+  const locations = (alias) =>
+    `from_json(json_extract(${alias}."detailJSON",'$.locations'),'[{"country":"VARCHAR","region":"VARCHAR","city":"VARCHAR"}]')`;
+  return `WITH facts AS (SELECT u.id,u."companyId",
+    json_extract_string(u."detailJSON",'$.availability') AS ua,json_extract_string(l."detailJSON",'$.availability') AS la,
+    ${nativeState("u")} AS us,${nativeState("l")} AS ls,
+    json_extract_string(u."detailJSON",'$.availabilityAsOf') AS ud,json_extract_string(l."detailJSON",'$.availabilityAsOf') AS ld,
+    json_extract_string(u."detailJSON",'$.sourcePostedDate') AS up,json_extract_string(l."detailJSON",'$.sourcePostedDate') AS lp,
+    ${locations("u")} AS ul,${locations("l")} AS ll
+    FROM postings u JOIN postings l USING(id) WHERE u.mode='upstream' AND l.mode='local'),
+  eligible AS (SELECT *,coalesce(ud IS NOT NULL AND ld IS NOT NULL AND left(ud,10)=left(ld,10) AND us<>'unverified' AND ls<>'unverified',false) AS comparable,
+    up IS NOT NULL AND lp IS NOT NULL AS dateComparable,
+    coalesce(len(list_filter(ul,x -> x.country IS NOT NULL OR x.region IS NOT NULL OR x.city IS NOT NULL))>0 AND len(list_filter(ll,x -> x.country IS NOT NULL OR x.region IS NOT NULL OR x.city IS NOT NULL))>0,false) AS locationComparable FROM facts)
+  SELECT id,"companyId",comparable,coalesce(ua<>la,false) AS rawStatusDifference,
+    comparable AND us=ls AND ua<>la AS basisDifference,comparable AND us<>ls AS stateDisagreement,
+    dateComparable,dateComparable AND up<>lp AS dateDifference,
+    locationComparable,locationComparable AND ul<>ll AS locationDifference FROM eligible`;
+}
+function summarizePairs(pairs) {
+  const n = (key) => pairs.filter((p) => p[key] === true).length;
   return {
-    ...result,
+    totalPairs: pairs.length,
+    comparablePairs: n("comparable"),
+    rawStatusDifferences: n("rawStatusDifference"),
+    basisDifferences: n("basisDifference"),
+    semanticStateDisagreements: n("stateDisagreement"),
+    uncomparablePairs: pairs.length - n("comparable"),
+    dateComparablePairs: n("dateComparable"),
+    dateExcludedPairs: pairs.length - n("dateComparable"),
+    dateDifferences: n("dateDifference"),
+    locationComparablePairs: n("locationComparable"),
+    locationExcludedPairs: pairs.length - n("locationComparable"),
+    locationDifferences: n("locationDifference"),
     comparability:
       "Same source as-of calendar day and both normalized states known; not exact timestamp equivalence.",
     differenceMeaning:
-      "Recorded differences require review; basis differences are not contradictory availability.",
+      "Dates/locations are raw recorded-value comparisons among pairs with known fields, not semantic adjudication. Differences require review; basis differences are not contradictory availability.",
   };
+}
+async function diagnosticPairs(conn, p) {
+  return rows(
+    conn,
+    `SELECT pairs.* EXCLUDE("companyId"),active."companyId" FROM (${pairRelation()}) pairs JOIN (SELECT id,"companyId" FROM postings WHERE ${p.sql}) active USING(id)`,
+    p.values,
+  );
+}
+function issueGroups(r, d) {
+  const entry = (
+    issue,
+    label,
+    cls,
+    numerator,
+    denominator,
+    denominatorLabel,
+    unavailableCount,
+    meaning,
+  ) => ({
+    issue,
+    label,
+    class: cls,
+    numerator,
+    denominator,
+    denominatorLabel,
+    unavailableCount,
+    meaning,
+  });
+  return [
+    entry(
+      "basis_difference",
+      "Observation/reporting basis differences",
+      "evidence_basis_difference",
+      d.basisDifferences,
+      d.comparablePairs,
+      "same-day comparable source pairs",
+      d.uncomparablePairs,
+      "Same normalized availability state; differing evidence basis.",
+    ),
+    entry(
+      "state_disagreement",
+      "Normalized state disagreements",
+      "semantic_state_disagreement",
+      d.semanticStateDisagreements,
+      d.comparablePairs,
+      "same-day comparable source pairs",
+      d.uncomparablePairs,
+      "Different normalized availability states under the declared same-day rule; needs review.",
+    ),
+    entry(
+      "date_difference",
+      "Recorded date differences",
+      "recorded_value_difference",
+      d.dateDifferences,
+      d.dateComparablePairs,
+      "source pairs with both posted-date fields known",
+      d.dateExcludedPairs,
+      "Raw date values differ; precision and date meaning are not adjudicated.",
+    ),
+    entry(
+      "location_difference",
+      "Recorded location differences",
+      "recorded_value_difference",
+      d.locationDifferences,
+      d.locationComparablePairs,
+      "source pairs with known location fields on both sides",
+      d.locationExcludedPairs,
+      "Raw recorded location lists differ; precision and order are not adjudicated.",
+    ),
+    entry(
+      "invalid_bounds",
+      "Invalid supported pay values",
+      "invalid_supported_value",
+      r.invalidBoundCount,
+      r.payAssessableCount,
+      "postings with native pay fields or concrete validation failures",
+      r.count - r.payAssessableCount,
+      "Concrete numeric/range validation flags; suspicious valid values and valid non-USD ranges are separate.",
+    ),
+    entry(
+      "unknown_country",
+      "Country not established",
+      "unknown_coverage",
+      r.count - r.knownCountryCount,
+      r.count,
+      "matched postings",
+      0,
+      "Missing country coverage is not evidence of a market problem.",
+    ),
+    entry(
+      "unknown_arrangement",
+      "Arrangement not established",
+      "unknown_coverage",
+      r.unknownArrangementCount,
+      r.count,
+      "matched postings",
+      0,
+      "Missing arrangement coverage is not an on-site or remote classification.",
+    ),
+  ];
 }
 function coverage(
   total,
@@ -361,8 +450,26 @@ async function companies(conn, p, s, ctx) {
   );
   if (result.length > 1024)
     throw error("Employer scene exceeds budget; use 2D", 413);
+  const pairs = await diagnosticPairs(conn, p),
+    diagnostics = summarizePairs(pairs);
+  const totals = Object.fromEntries(
+    [
+      "count",
+      "knownCountryCount",
+      "unknownArrangementCount",
+      "invalidBoundCount",
+      "payAssessableCount",
+    ].map((k) => [k, result.reduce((n, r) => n + r[k], 0)]),
+  );
   return {
     companies: result.map((r) => ({
+      diagnostics: summarizePairs(
+        pairs.filter((pair) => pair.companyId === r.companyId),
+      ),
+      issueGroups: issueGroups(
+        r,
+        summarizePairs(pairs.filter((pair) => pair.companyId === r.companyId)),
+      ),
       ...r,
       id: companyId(r.companyId),
       label: ctx.labels.companies.get(r.companyId) ?? r.companyId,
@@ -373,7 +480,8 @@ async function companies(conn, p, s, ctx) {
     emptyCompanies: [...ctx.labels.companies]
       .filter(([id]) => !result.some((r) => r.companyId === id))
       .map(([id, label]) => ({ id, label })),
-    diagnostics: await diagnostics(conn, p),
+    diagnostics,
+    issueGroups: issueGroups(totals, diagnostics),
     coverage: coverage(s.count, result.length, result.length, s.count),
     coordinateMetadata: {
       kind: "quantitative",
@@ -462,6 +570,33 @@ async function skillGraph(conn, p, s, req, ctx) {
   const edges = qualifying
     .filter((e) => shownSet.has(e.a) && shownSet.has(e.b))
     .slice(0, 120);
+  const observedPairs = new Map(
+    pairs.map((r) => [canonical([r.a, r.b]), r.count]),
+  );
+  const shownEdgeIds = new Set(edges.map((e) => e.id));
+  const matrixPairs = [];
+  for (let i = 0; i < shownIds.length; i++)
+    for (let j = i + 1; j < shownIds.length; j++) {
+      const [a, b] = [shownIds[i], shownIds[j]].sort(),
+        count = observedPairs.get(canonical([a, b])) ?? 0;
+      const aCount = counts.get(a) ?? 0,
+        bCount = counts.get(b) ?? 0,
+        id = "edge-" + hash(canonical([a, b])).slice(0, 32);
+      matrixPairs.push({
+        id,
+        a,
+        b,
+        count,
+        aCount,
+        bCount,
+        jaccard:
+          aCount + bCount - count ? count / (aCount + bCount - count) : 0,
+        aShare: aCount ? count / aCount : 0,
+        bShare: bCount ? count / bCount : 0,
+        qualifies: count >= threshold,
+        shownEdge: shownEdgeIds.has(id),
+      });
+    }
   const vals = [...p.values];
   const clauses = shownIds.map((id) => {
     vals.push(id);
@@ -481,6 +616,16 @@ async function skillGraph(conn, p, s, req, ctx) {
       share: s.count ? (counts.get(id) ?? 0) / s.count : 0,
     })),
     edges,
+    matrix: {
+      methodVersion: "exact-shown-node-pairs-v1",
+      nodeIds: shownIds,
+      pairs: matrixPairs,
+      possiblePairs: matrixPairs.length,
+      qualifyingPairs: matrixPairs.filter((p) => p.qualifies).length,
+      shownEdges: edges.length,
+      scope:
+        "All unordered pairs among returned nodes; zero counts are observed query results, not missing rendered edges.",
+    },
     support: {
       ...req.support,
       effectiveMinimumCount: threshold,
@@ -611,7 +756,22 @@ async function selectionPredicate(conn, ctx, envelope, values = []) {
     p = analysisPredicate(req, values),
     sel = envelope.selection;
   const add = (value) => bind(p, value);
-  if (sel.kind === "cell_union") {
+  if (sel.kind === "diagnostic") {
+    if (req.lens !== "coverage_cube")
+      throw error("Diagnostic selectors require coverage cube");
+    const pairField = {
+      basis_difference: "basisDifference",
+      state_disagreement: "stateDisagreement",
+      date_difference: "dateDifference",
+      location_difference: "locationDifference",
+    }[sel.issue];
+    if (pairField)
+      p.sql += ` AND id IN (SELECT id FROM (${pairRelation()}) diagnosticPairs WHERE "${pairField}")`;
+    else if (sel.issue === "invalid_bounds") p.sql += ` AND ${INVALID_PAY_SQL}`;
+    else if (sel.issue === "unknown_country") p.sql += " AND len(countries)=0";
+    else if (sel.issue === "unknown_arrangement")
+      p.sql += " AND arrangement IS NULL";
+  } else if (sel.kind === "cell_union") {
     if (req.lens === "skill_neighborhood")
       throw error("Cell selection is not valid for a skill scene");
     const dictionary = new Map(

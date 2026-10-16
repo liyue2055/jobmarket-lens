@@ -13,7 +13,26 @@ export interface SceneRequest {
   support?: { minimumCount: number; minimumShare: number };
   layoutScope?: string;
 }
+export type Issue =
+  | "basis_difference"
+  | "state_disagreement"
+  | "date_difference"
+  | "location_difference"
+  | "invalid_bounds"
+  | "unknown_country"
+  | "unknown_arrangement";
+export interface IssueGroup {
+  issue: Issue;
+  label: string;
+  class: string;
+  numerator: number;
+  denominator: number;
+  denominatorLabel: string;
+  unavailableCount: number;
+  meaning: string;
+}
 export type Selection =
+  | { kind: "diagnostic"; issue: Issue }
   | { kind: "cell_union"; cellIds: string[] }
   | { kind: "skill_pair"; skillIds: [string, string] }
   | { kind: "skill_set"; operator: "any" | "all"; skillIds: string[] };
@@ -40,6 +59,27 @@ export interface Employer {
   knownCountryCount: number;
   eligiblePayCount: number;
   unknownArrangementCount: number;
+  rawRangeCount: number;
+  payAssessableCount: number;
+  knownCurrencyCount: number;
+  validNonUsdCount: number;
+  invalidBoundCount: number;
+  suspiciousPayCount: number;
+  analyzedTextCount: number;
+  issueGroups?: IssueGroup[];
+}
+export interface SkillMatrixData {
+  methodVersion: string;
+  nodeIds: string[];
+  pairs: (Edge & {
+    aCount: number;
+    bCount: number;
+    qualifies: boolean;
+    shownEdge: boolean;
+  })[];
+  possiblePairs: number;
+  qualifyingPairs: number;
+  shownEdges: number;
 }
 export interface SkillNode {
   id: string;
@@ -71,6 +111,9 @@ export interface Scene {
   data: {
     cells?: Cell[];
     companies?: Employer[];
+    emptyCompanies?: { id: string; label: string }[];
+    issueGroups?: IssueGroup[];
+    matrix?: SkillMatrixData;
     nodes?: SkillNode[];
     edges?: Edge[];
     axes?: {
