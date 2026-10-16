@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "repository": "yimizhao2015/jobmarket-lens",
+  "commit": "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+  "sourceAsOf": "2026-10-16T22:26:25Z",
+  "checkedAt": "2026-10-16T23:22:59.110Z",
+  "status": "staged-candidate",
+  "released": false,
+  "sourceAsOfMeaning": "Upstream commit time; not the observation time of every posting.",
+  "files": {
+    "Job postings.csv": {
+      "path": "data/Job postings.csv",
+      "bytes": 50199841,
+      "sha256": "cd4255a464421319914d0964b24b932bf448097ec43d089c730db0a2f486a8e5"
+    },
+    "data source.csv": {
+      "path": "data/data source.csv",
+      "bytes": 68914,
+      "sha256": "40fe0bb49e4ceacdff8ebf6e8ab77fe2b4526bf09360f05fa29df3af130d0ea7"
+    },
+    "index.html": {
+      "path": "web/index.html",
+      "bytes": 7650003,
+      "sha256": "a7c459ff7a1fcfae2bb55252cdadbd5868d792af38a5f444da67ce20c894ba75"
+    }
+  },
+  "audit": {
+    "postings": 114932,
+    "postingCompanies": 412,
+    "sourceCompanies": 499,
+    "rejectedRows": 0,
+    "typedSharedFieldMismatches": 0,
+    "statuses": {
+      "Open": 110606,
+      "Closed": 4326
+    },
+    "local": {
+      "postings": 92,
+      "companies": 7,
+      "overlap": 56,
+      "prospectiveCombined": 114968,
+      "prospectiveCombinedCompanies": 413
+    },
+    "nativePayCurrencyCounts": {
+      "USD": 37567,
+      "unknown": 1464,
+      "CAD": 176,
+      "EUR": 45
+    },
+    "payMeaning": "Native reported currency with two bounds; these are not validated USD eligibility counts. CSV dollar signs alone do not establish USD.",
+    "sourceCountDiscrepancies": 0
+  },
+  "limitations": [
+    "No access to the author's private history is required or attempted.",
+    "No collectors or paid APIs were run. Raw artifacts remain in ignored private intake.",
+    "Published V2/Node releases, source pins and saved-cohort identities are unchanged.",
+    "Missing IDs in a later upstream snapshot do not demonstrate closure."
+  ],
+  "validation": {
+    "networkPull": "passed",
+    "offlineCacheRevalidation": "passed",
+    "newOfflineTests": 6,
+    "activation": "not performed",
+    "nodeTestsPassed": 48,
+    "nodeTestsTotal": 48
+  }
+}
