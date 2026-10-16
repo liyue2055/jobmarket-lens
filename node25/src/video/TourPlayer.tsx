@@ -97,7 +97,8 @@ export function TourButton() {
             <p id="tour-description" className="tour-note">
               A screen recording of this canvas with narration; captions are part
               of the picture, and a caption file and transcript are also provided.
-              The guide portrait and voice are AI-generated.{" "}
+              The guide portrait and voice are AI-generated; the background music is
+              a licensed Eleven Music track.{" "}
               {`The file (${(TOUR.bytes / 1e6).toFixed(1)} MB) loads only when you press play and is served from this site.`}
             </p>
             <nav className="tour-chapters" aria-label="Tour chapters">

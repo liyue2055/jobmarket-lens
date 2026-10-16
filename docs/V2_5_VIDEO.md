@@ -13,7 +13,9 @@ opened from a **Watch the tour** button next to **Share study**.
 | `node25/src/video/TourPlayer.tsx` | `TourButton`: hero button plus a native `<dialog>` player, chapter list and transcript |
 | `node25/src/video/tourContent.ts` | Chapter start times, transcript (written forms), file paths, size and the release the tour was recorded on |
 | `node25/src/video/video.css` | Isolated styles built on the V2.5 tokens (ink, teal, line, muted; 12/18 px radii) |
-| `node25/public/video/tour-v1-720.mp4` | H.264 1280×720, AAC 96 kbit/s, 111 s, 4.5 MB |
+| `node25/public/video/tour-v2-720.mp4` | H.264 1280×720, AAC 96 kbit/s, 111 s, 4.7 MB: narration, interface clicks and a licensed music bed |
+| `node25/public/video/tour-v1-720.mp4` | Previous narration-only file, kept so pages cached before this change still play; safe to remove later |
+| `node25/public/video/music_license.md` | Music licence record: provider, plan, song ID, prompt, checks and mix |
 | `node25/public/video/tour-v1-poster.jpg` | 1920×1080 poster (title frame, no caption bar) |
 | `node25/public/video/tour-v1.en.vtt`, `tour-v1.chapters.vtt` | Caption and chapter tracks |
 | `node25/test/browser/video.spec.ts` | Browser checks listed under Verification |
@@ -26,7 +28,7 @@ No other component, data path, API route or analytics call changes.
 
 - Nothing video-related is requested on page load; the button is plain markup.
 - Opening the dialog renders the `<video>` with `preload="none"`: the poster (about 77 kB) and the small
-  caption files may load, the 4.5 MB MP4 does not. A browser test asserts no MP4 request before play.
+  caption files may load, the 4.7 MB MP4 does not. A browser test asserts no MP4 request before play.
 - After play the file streams with HTTP range requests from the same origin. With the `/video/*` cache
   rule, a returning viewer does not download it again.
 
@@ -34,6 +36,7 @@ No other component, data path, API route or analytics call changes.
 
 - Same-origin files only: no third-party player, embed script, cookie or tracking pixel.
 - No autoplay. The existing site analytics are not extended with video events.
+- The music is part of the video file; no music service is contacted at playback.
 - The file contains a screen recording of the public canvas only (no admin views, no private evidence).
 
 ## Accessibility
@@ -57,7 +60,9 @@ No other component, data path, API route or analytics call changes.
   Amazon × computer-and-math cell; 7,963 vs 15,604 in views A and B; Python 3,621 vs 103; 19,242
   co-mentions). Wording follows the canvas's own limits: observed postings, not real-time vacancies,
   hires or available talent; a skill mention is a clue, not a requirement.
-- No music: the narration-only track avoids third-party music licensing.
+- Music: an instrumental bed generated with ElevenLabs Eleven Music on a plan that includes a commercial
+  licence for music, ducked under the narration. The record is in `node25/public/video/music_license.md`
+  (song ID, prompt, plan, date, checks). A narration-only version can replace it by swapping the MP4.
 
 ## Keeping it current
 

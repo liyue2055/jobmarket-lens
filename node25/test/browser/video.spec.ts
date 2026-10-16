@@ -37,7 +37,7 @@ test("tour video: no download before play, accessible dialog, captions and trans
 });
 
 test("tour video files are served same-origin with the right types", async ({ request }) => {
-  const mp4 = await request.get("/video/tour-v1-720.mp4", { headers: { Range: "bytes=0-1023" } });
+  const mp4 = await request.get("/video/tour-v2-720.mp4", { headers: { Range: "bytes=0-1023" } });
   expect([200, 206]).toContain(mp4.status());
   expect(mp4.headers()["content-type"]).toContain("video/mp4");
   const vtt = await request.get("/video/tour-v1.en.vtt");

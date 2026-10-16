@@ -5,11 +5,11 @@ export const TOUR = {
   durationSeconds: 111,
   recordedRelease: "2d18d6d0",
   recordedOn: "2026-10-16",
-  src: "/video/tour-v1-720.mp4",
+  src: "/video/tour-v2-720.mp4",
   poster: "/video/tour-v1-poster.jpg",
   captions: "/video/tour-v1.en.vtt",
   chapters: "/video/tour-v1.chapters.vtt",
-  bytes: 4529355,
+  bytes: 4666919,
   sections: [
   {
     "title": "Overview",
