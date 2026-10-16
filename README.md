@@ -93,8 +93,11 @@ cloning this repo alone does not restore locally collected descriptions.
 ## Collection and status rules
 
 The collector honors robots.txt and refusal responses. Existing adapters cover Workday, Oracle,
-Eightfold, Jibe, Amazon, SmartRecruiters, SuccessFactors and selected HTML/sitemap sites. Many
-configured employers still have no working adapter.
+Eightfold, Jibe, Amazon, SmartRecruiters, SuccessFactors and selected HTML/sitemap sites. The
+upstream integration adds Greenhouse, Lever, Ashby, iCIMS, Taleo, Avature, TalentBrew and Jobvite
+adapters. These additions have not been live-verified in this fork; configured adapter coverage is
+not proof of successful or complete collection. See the
+[upstream integration review](docs/UPSTREAM_INTEGRATION_2026_10_16.md).
 
 - **Complete**: a supported paginated API reaches its reported total or an empty page, and the unique
   record count matches its reported total. This is an operational check, not a guarantee of every corporate vacancy.
