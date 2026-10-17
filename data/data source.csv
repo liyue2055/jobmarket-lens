@@ -1,500 +1,500 @@
 Rank,Ticker,Company,Sector,Career site,Platform,Status,Last collected,Postings in dashboard,Listed on site,Notes
-1,NVDA,NVIDIA,Information Technology,https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite,workday,Collected: partial,2026-10-16,10,2000,
-2,AAPL,Apple,Information Technology,https://jobs.apple.com/en-us/search,apple,"Collector ready, not yet run",,0,,
-3,MSFT,Microsoft,Information Technology,https://apply.careers.microsoft.com/careers,eightfold,"Collector ready, not yet run",,0,,
-4,AMZN,Amazon,Consumer Discretionary,https://www.amazon.jobs,amazon,Collected: partial,2026-10-16,10,10000,
-5,GOOGL,Alphabet (Google),Communication Services,https://www.google.com/about/careers/applications/jobs/results/,google,"Collector ready, not yet run",,0,,
-6,META,Meta Platforms,Communication Services,https://www.metacareers.com/jobs,refused_by_terms,"Collector ready, not yet run",,0,,robots.txt prohibits automated collection without written permission; recorded as blocked.
-7,AVGO,Broadcom,Information Technology,https://broadcom.wd1.myworkdayjobs.com/External_Career,workday,"Collector ready, not yet run",,0,,
-8,TSLA,Tesla,Consumer Discretionary,https://www.tesla.com/careers/search/,tesla,"Collector ready, not yet run",,0,,Career site sits behind bot protection; expect HTTP 403 for scripted access. Recorded as blocked rather than filled in.
-9,LLY,Eli Lilly,Health Care,https://lilly.wd115.myworkdayjobs.com/LLY,workday,"Collector ready, not yet run",,0,,
-10,MU,Micron Technology,Information Technology,https://micron.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-11,AMD,Advanced Micro Devices,Information Technology,https://careers.amd.com/careers-home/jobs,jibe,"Collector ready, not yet run",,0,,
-12,WMT,Walmart,Consumer Staples,https://careers.walmart.com,walmart,"Collector ready, not yet run",,0,,
-13,JPM,JPMorgan Chase,Financials,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-14,V,Visa,Financials,https://corporate.visa.com/en/jobs/,workday,Collected: partial,2026-10-16,10,826,
-15,XOM,ExxonMobil,Energy,https://jobs.exxonmobil.com/search/,successfactors,"Collector ready, not yet run",,0,,
-16,JNJ,Johnson & Johnson,Health Care,https://jj.wd5.myworkdayjobs.com/JJ,workday,"Collector ready, not yet run",,0,,
-17,MA,Mastercard,Financials,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers,workday,"Collector ready, not yet run",,0,,
-18,INTC,Intel,Information Technology,https://intel.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-19,ABBV,AbbVie,Health Care,https://careers.abbvie.com/en/jobs,jsonld_sitemap,"Collector ready, not yet run",,0,,Its Workday endpoint returns HTTP 401; the adapter reads the career site sitemap + JobPosting JSON-LD.
-20,MMM,3M,Industrials,https://3m.wd1.myworkdayjobs.com/Search,workday,"Collector ready, not yet run",,0,,
-21,AOS,A. O. Smith,Industrials,https://jobs.aosmith.com/search/,successfactors,"Collector ready, not yet run",,0,,
-22,ABT,Abbott Laboratories,Health Care,https://abbott.wd5.myworkdayjobs.com/abbottcareers,workday,"Collector ready, not yet run",,0,,
-23,ACN,Accenture,Information Technology,https://accenture.wd103.myworkdayjobs.com/AccentureCareers,workday,"Collector ready, not yet run",,0,,
-24,ADBE,Adobe Inc.,Information Technology,https://adobe.wd5.myworkdayjobs.com/external_experienced,workday,"Collector ready, not yet run",,0,,
-25,AES,AES Corporation,Utilities,https://aes.wd1.myworkdayjobs.com/AES_US,workday,"Collector ready, not yet run",,0,,
-26,AFL,Aflac,Financials,https://careers.aflac.com/search/,successfactors,"Collector ready, not yet run",,0,,
-27,A,Agilent Technologies,Health Care,https://agilent.wd5.myworkdayjobs.com/Agilent_Careers,workday,"Collector ready, not yet run",,0,,
-28,APD,Air Products,Materials,https://airproducts.wd5.myworkdayjobs.com/AP0001,workday,"Collector ready, not yet run",,0,,
-29,ABNB,Airbnb,Consumer Discretionary,https://careers.airbnb.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-30,AKAM,Akamai Technologies,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-31,ALB,Albemarle Corporation,Materials,https://albemarle.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-32,ARE,Alexandria Real Estate Equities,Real Estate,https://www.are.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-33,ALGN,Align Technology,Health Care,https://jobs.aligntech.com,none,Not collected yet,,0,,Career site platform not identified yet.
-34,ALLE,Allegion,Industrials,https://allegion.wd5.myworkdayjobs.com/careers,workday,"Collector ready, not yet run",,0,,
-35,LNT,Alliant Energy,Utilities,https://alliantenergy.wd1.myworkdayjobs.com/alliant,workday,"Collector ready, not yet run",,0,,
-36,ALL,Allstate,Financials,https://allstate.wd5.myworkdayjobs.com/allstate_careers,workday,"Collector ready, not yet run",,0,,
-37,MO,Altria,Consumer Staples,https://careers.altria.com/search/,successfactors,"Collector ready, not yet run",,0,,
-38,AMCR,Amcor,Materials,https://amcor.wd5.myworkdayjobs.com/Amcor_External_Career_Site,workday,"Collector ready, not yet run",,0,,
-39,AEE,Ameren,Utilities,https://ameren.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-40,AEP,American Electric Power,Utilities,https://aep.wd1.myworkdayjobs.com/AEPCareerSite,workday,"Collector ready, not yet run",,0,,
-41,AXP,American Express,Financials,https://www.americanexpress.com/en-us/careers/?inav=en_us_footer_About_Careers,none,Not collected yet,,0,,Career site runs on eightfold; no collector for it yet.
-42,AIG,American International Group,Financials,https://aig.wd1.myworkdayjobs.com/aig,workday,"Collector ready, not yet run",,0,,
-43,AMT,American Tower,Real Estate,https://careers.americantower.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-44,AWK,American Water Works,Utilities,https://jobs.amwater.com/search/,successfactors,"Collector ready, not yet run",,0,,
-45,AMP,Ameriprise Financial,Financials,https://ameriprise.wd5.myworkdayjobs.com/Ameriprise,workday,"Collector ready, not yet run",,0,,
-46,AME,Ametek,Industrials,https://jobs.ametek.com/search/,successfactors,"Collector ready, not yet run",,0,,
-47,AMGN,Amgen,Health Care,https://amgen.wd1.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-48,APH,Amphenol,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-49,ADI,Analog Devices,Information Technology,https://analogdevices.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-50,AON,Aon plc,Financials,https://jobs.aon.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-51,APA,APA Corporation,Energy,https://careers.apachecorp.com/search/,successfactors,"Collector ready, not yet run",,0,,
-52,APO,Apollo Global Management,Financials,https://athene.wd5.myworkdayjobs.com/Apollo_Careers,workday,"Collector ready, not yet run",,0,,
-53,AMAT,Applied Materials,Information Technology,https://app.eightfold.ai/careers,eightfold,"Collector ready, not yet run",,0,,
-54,APP,AppLovin,Communication Services,https://www.applovin.com/en/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-55,APTV,Aptiv,Consumer Discretionary,https://aptiv.wd5.myworkdayjobs.com/APTIV_CAREERS,workday,"Collector ready, not yet run",,0,,
-56,ACGL,Arch Capital Group,Financials,https://archgroup.wd1.myworkdayjobs.com/careers,workday,"Collector ready, not yet run",,0,,
-57,ADM,Archer Daniels Midland,Consumer Staples,https://www.adm.com/en-us/culture-and-careers/total-rewards/,none,Not collected yet,,0,,Career site runs on brassring; no collector for it yet.
-58,ARES,Ares Management,Financials,https://aresmgmt.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-59,ANET,Arista Networks,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-60,AJG,Arthur J. Gallagher & Co.,Financials,https://jobs.ajg.com/jobs,jibe,"Collector ready, not yet run",,0,,
-61,AIZ,Assurant,Financials,https://assurant.wd1.myworkdayjobs.com/Assurant_Careers,workday,"Collector ready, not yet run",,0,,
-62,T,AT&T,Communication Services,https://att.wd1.myworkdayjobs.com/ATTGeneral,workday,"Collector ready, not yet run",,0,,
-63,ATO,Atmos Energy,Utilities,https://atmosenergy.wd108.myworkdayjobs.com/External_Career_Site,workday,"Collector ready, not yet run",,0,,
-64,ADSK,Autodesk,Information Technology,https://autodesk.wd1.myworkdayjobs.com/Ext,workday,"Collector ready, not yet run",,0,,
-65,ADP,Automatic Data Processing,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-66,AZO,AutoZone,Consumer Discretionary,https://careers.autozone.com/hcmUI/CandidateExperience/en/sites/CX_1,none,Not collected yet,,0,,Career site platform not identified yet.
-67,AVY,Avery Dennison,Materials,https://www.averydennison.com/en/home/careers/employee-stories/lily-xie.html,none,Not collected yet,,0,,Career site runs on smartrecruiters; no collector for it yet.
-68,AXON,Axon Enterprise,Industrials,https://www.axon.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-69,BKR,Baker Hughes,Energy,https://bakerhughes.wd5.myworkdayjobs.com/BakerHughes,workday,"Collector ready, not yet run",,0,,
-70,BALL,Ball Corporation,Materials,https://jobs.ball.com/search/,successfactors,"Collector ready, not yet run",,0,,
-71,BAC,Bank of America,Financials,https://careers.bankofamerica.com/en-us,none,Not collected yet,,0,,Career site runs on avature; no collector for it yet.
-72,BAX,Baxter International,Health Care,https://baxter.wd1.myworkdayjobs.com/baxter,workday,"Collector ready, not yet run",,0,,
-73,BDX,Becton Dickinson,Health Care,https://bdx.wd1.myworkdayjobs.com/EXTERNAL_CAREER_SITE_USA,workday,"Collector ready, not yet run",,0,,
-74,BBY,Best Buy,Consumer Discretionary,https://careers.bestbuy.com/bby,none,Not collected yet,,0,,Career site platform not identified yet.
-75,TECH,Bio-Techne,Health Care,https://biotechne.wd5.myworkdayjobs.com/Biotechne,workday,"Collector ready, not yet run",,0,,
-76,BIIB,Biogen,Health Care,https://biibhr.wd3.myworkdayjobs.com/external,workday,"Collector ready, not yet run",,0,,
-77,BLK,BlackRock,Financials,https://careers.blackrock.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-78,BX,Blackstone Inc.,Financials,https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers,workday,"Collector ready, not yet run",,0,,
-79,XYZ,"Block, Inc.",Financials,https://block.xyz/careers/jobs,none,Not collected yet,,0,,Career site platform not identified yet.
-80,BE,Bloom Energy,Industrials,https://bloomenergy.wd1.myworkdayjobs.com/BloomEnergyCareers,workday,"Collector ready, not yet run",,0,,
-81,BNY,BNY Mellon,Financials,https://eofe.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/BNY/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-82,BA,Boeing,Industrials,https://boeing.wd1.myworkdayjobs.com/EXTERNAL_CAREERS,workday,"Collector ready, not yet run",,0,,
-83,BKNG,Booking Holdings,Consumer Discretionary,https://www.bookingholdings.com/careers/careers/,none,Not collected yet,,0,,Career site platform not identified yet.
-84,BSX,Boston Scientific,Health Care,https://jobs.bostonscientific.com/search/,successfactors,"Collector ready, not yet run",,0,,
-85,BMY,Bristol Myers Squibb,Health Care,https://bristolmyerssquibb.wd5.myworkdayjobs.com/BMS,workday,"Collector ready, not yet run",,0,,
-86,BR,Broadridge Financial Solutions,Industrials,https://broadridge.wd5.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-87,BRO,Brown & Brown,Financials,https://bbinsurance.wd1.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-88,BF.B,Brown–Forman,Consumer Staples,https://bf.wd5.myworkdayjobs.com/USA_Canada,workday,Collected: complete,2026-10-16,25,25,
-89,BG,Bunge Global,Consumer Staples,https://jobs.bunge.com/search/,successfactors,"Collector ready, not yet run",,0,,
-90,BXP,"BXP, Inc.",Real Estate,https://edxn.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_4001/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-91,CHRW,C.H. Robinson,Industrials,https://chrobinson.wd5.myworkdayjobs.com/CHRobinson,workday,"Collector ready, not yet run",,0,,
-92,CDNS,Cadence Design Systems,Information Technology,https://cadence.wd1.myworkdayjobs.com/External_Careers,workday,"Collector ready, not yet run",,0,,
-93,CPT,Camden Property Trust,Real Estate,https://ehap.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-94,COF,Capital One,Financials,https://capitalone.wd12.myworkdayjobs.com/Capital_One,workday,"Collector ready, not yet run",,0,,
-95,CAH,Cardinal Health,Health Care,https://cardinalhealth.wd1.myworkdayjobs.com/EXT,workday,"Collector ready, not yet run",,0,,
-96,CCL,Carnival Corporation,Consumer Discretionary,https://www.carnivalcorp.com/our-company/careers/career-and-development-pathways/,none,Not collected yet,,0,,Career site runs on talentbrew; no collector for it yet.
-97,CARR,Carrier Global,Industrials,https://jobs.carrier.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-98,CVNA,Carvana,Consumer Discretionary,,none,Not collected yet,,0,,Career site platform not identified yet.
-99,CASY,Casey's,Consumer Staples,,none,Not collected yet,,0,,Career site platform not identified yet.
-100,CAT,Caterpillar Inc.,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-101,CBOE,Cboe Global Markets,Financials,https://careers.cboe.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-102,CBRE,CBRE Group,Real Estate,,none,Not collected yet,,0,,Career site platform not identified yet.
-103,CDW,CDW Corporation,Information Technology,https://cdw.wd5.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-104,COR,Cencora,Health Care,https://myhrabc.wd5.myworkdayjobs.com/Global,workday,"Collector ready, not yet run",,0,,
-105,CNC,Centene Corporation,Health Care,https://centene.wd5.myworkdayjobs.com/Centene_External,workday,"Collector ready, not yet run",,0,,
-106,CNP,CenterPoint Energy,Utilities,https://careers.centerpointenergy.com/search/,successfactors,"Collector ready, not yet run",,0,,
-107,CF,CF Industries,Materials,https://cfindustries.wd1.myworkdayjobs.com/careers,workday,"Collector ready, not yet run",,0,,
-108,CRL,Charles River Laboratories,Health Care,https://careers.criver.com/search/,successfactors,"Collector ready, not yet run",,0,,
-109,SCHW,Charles Schwab Corporation,Financials,,none,Not collected yet,,0,,Career site platform not identified yet.
-110,CHTR,Charter Communications,Communication Services,,none,Not collected yet,,0,,Career site platform not identified yet.
-111,CVX,Chevron Corporation,Energy,https://careers.chevron.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-112,CMG,Chipotle Mexican Grill,Consumer Discretionary,https://jobs.chipotle.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-113,CB,Chubb Limited,Financials,https://fa-ewgu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-114,CHD,Church & Dwight,Consumer Staples,https://churchdwight.wd1.myworkdayjobs.com/chdcareers,workday,"Collector ready, not yet run",,0,,
-115,CIEN,Ciena,Information Technology,https://ciena.wd5.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-116,CI,Cigna,Health Care,https://cigna.wd5.myworkdayjobs.com/cignacareers,workday,"Collector ready, not yet run",,0,,
-117,CINF,Cincinnati Financial,Financials,https://www.cinfin.com/cincinnati-insurance-careers,none,Not collected yet,,0,,Career site runs on taleo; no collector for it yet.
-118,CTAS,Cintas,Industrials,https://careers.cintas.com/search/,successfactors,"Collector ready, not yet run",,0,,
-119,CSCO,Cisco,Information Technology,https://careers.cisco.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-120,C,Citigroup,Financials,https://citi.wd5.myworkdayjobs.com/2,workday,"Collector ready, not yet run",,0,,
-121,CFG,Citizens Financial Group,Financials,https://hcgn.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-122,CLX,Clorox,Consumer Staples,https://www.thecloroxcompany.com/careers/entry-level/,none,Not collected yet,,0,,Career site platform not identified yet.
-123,CME,CME Group,Financials,https://cmegroup.wd1.myworkdayjobs.com/cme_careers,workday,"Collector ready, not yet run",,0,,
-124,CMS,CMS Energy,Utilities,,none,Not collected yet,,0,,Career site platform not identified yet.
-125,KO,Coca-Cola Company (The),Consumer Staples,https://www.coca-colacompany.com/search/,none,Not collected yet,,0,,Career site runs on successfactors; its job search host was not found yet.
-126,CTSH,Cognizant,Information Technology,https://www.cognizant.com/us/en,none,Not collected yet,,0,,Career site platform not identified yet.
-127,COHR,Coherent Corp.,Information Technology,https://hcwp.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-128,COIN,Coinbase,Financials,,none,Not collected yet,,0,,Career site platform not identified yet.
-129,CL,Colgate-Palmolive,Consumer Staples,,none,Not collected yet,,0,,Career site platform not identified yet.
-130,CMCSA,Comcast,Communication Services,https://corporate.comcast.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-131,FIX,Comfort Systems USA,Industrials,https://comfortsystemsusa.wd1.myworkdayjobs.com/Corpcareers,workday,"Collector ready, not yet run",,0,,
-132,COP,ConocoPhillips,Energy,https://conocophillips.wd1.myworkdayjobs.com/eQuest,workday,Collected: complete,2026-10-16,4,4,
-133,ED,Consolidated Edison,Utilities,https://ejcu.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1033/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-134,STZ,Constellation Brands,Consumer Staples,https://cbrands.wd5.myworkdayjobs.com/CBI_External_Careers,workday,"Collector ready, not yet run",,0,,
-135,CEG,Constellation Energy,Utilities,https://jobs.constellationenergy.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-136,COO,Cooper Companies (The),Health Care,https://hcjy.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-137,CPRT,Copart,Industrials,https://copart.wd12.myworkdayjobs.com/Copart,workday,"Collector ready, not yet run",,0,,
-138,GLW,Corning Inc.,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-139,CPAY,Corpay,Financials,https://corpay.wd103.myworkdayjobs.com/Ext_001,workday,"Collector ready, not yet run",,0,,
-140,CSGP,CoStar Group,Real Estate,https://costar.wd1.myworkdayjobs.com/CoStarCareers,workday,"Collector ready, not yet run",,0,,
-141,COST,Costco,Consumer Staples,https://careers.costco.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-142,CRH,CRH plc,Materials,https://jobs.crh.com/search/,successfactors,"Collector ready, not yet run",,0,,
-143,CRWD,CrowdStrike,Information Technology,https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers,workday,"Collector ready, not yet run",,0,,
-144,CCI,Crown Castle,Real Estate,https://www.crowncastle.com/careers/,none,Not collected yet,,0,,Career site runs on ultipro; no collector for it yet.
-145,CSX,CSX Corporation,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-146,CMI,Cummins,Industrials,https://fa-espx-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-147,CVS,CVS Health,Health Care,https://cvshealth.wd1.myworkdayjobs.com/CVS_Health_Careers,workday,"Collector ready, not yet run",,0,,
-148,DHI,D. R. Horton,Consumer Discretionary,https://www.drhorton.com/careers,none,Not collected yet,,0,,Career site runs on taleo; no collector for it yet.
-149,DHR,Danaher Corporation,Health Care,https://danaher.wd1.myworkdayjobs.com/DanaherJobs,workday,"Collector ready, not yet run",,0,,
-150,DRI,Darden Restaurants,Consumer Discretionary,https://www.darden.com/careers/,none,Not collected yet,,0,,Career site runs on paradox; no collector for it yet.
-151,DDOG,Datadog,Information Technology,https://careers.datadoghq.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-152,DVA,DaVita,Health Care,https://davita.wd1.myworkdayjobs.com/DKC_External,workday,"Collector ready, not yet run",,0,,
-153,DECK,Deckers Brands,Consumer Discretionary,https://deckers.wd5.myworkdayjobs.com/Deckers,workday,"Collector ready, not yet run",,0,,
-154,DE,Deere & Company,Industrials,https://careers.deere.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-155,DELL,Dell Technologies,Information Technology,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-156,DAL,Delta Air Lines,Industrials,https://www.delta.com/us/en/careers/overview,none,Not collected yet,,0,,Career site runs on avature; no collector for it yet.
-157,DVN,Devon Energy,Energy,https://www.devonenergy.com/careers/alumni-u-s,none,Not collected yet,,0,,Career site platform not identified yet.
-158,DXCM,Dexcom,Health Care,https://careers.dexcom.com/careers,eightfold,"Collector ready, not yet run",,0,,
-159,FANG,Diamondback Energy,Energy,https://diamondbackenergy.wd12.myworkdayjobs.com/DBE,workday,"Collector ready, not yet run",,0,,
-160,DLR,Digital Realty,Real Estate,,none,Not collected yet,,0,,Career site platform not identified yet.
-161,DG,Dollar General,Consumer Staples,https://ibxwjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-162,DLTR,Dollar Tree,Consumer Staples,https://dollartree.wd5.myworkdayjobs.com/dollartreeus,workday,"Collector ready, not yet run",,0,,
-163,D,Dominion Energy,Utilities,https://careers.dominionenergy.com/search/,successfactors,"Collector ready, not yet run",,0,,
-164,DPZ,Domino's,Consumer Discretionary,,none,Not collected yet,,0,,Career site platform not identified yet.
-165,DASH,DoorDash,Consumer Discretionary,,none,Not collected yet,,0,,Career site platform not identified yet.
-166,DOV,Dover Corporation,Industrials,https://dover.wd103.myworkdayjobs.com/Dover,workday,"Collector ready, not yet run",,0,,
-167,DOW,Dow Inc.,Materials,https://dow.wd1.myworkdayjobs.com/ExternalCareers,workday,"Collector ready, not yet run",,0,,
-168,DTE,DTE Energy,Utilities,https://www.dteenergy.com/search/,none,Not collected yet,,0,,Career site runs on successfactors; its job search host was not found yet.
-169,DUK,Duke Energy,Utilities,https://dukeenergy.wd1.myworkdayjobs.com/Search,workday,"Collector ready, not yet run",,0,,
-170,DD,DuPont,Industrials,https://dupont.wd5.myworkdayjobs.com/Jobs,workday,"Collector ready, not yet run",,0,,
-171,ETN,Eaton Corporation,Industrials,https://eaton.eightfold.ai,jsonld_sitemap,"Collector ready, not yet run",,0,,
-172,EBAY,eBay Inc.,Consumer Discretionary,https://ebay.wd5.myworkdayjobs.com/apply,workday,"Collector ready, not yet run",,0,,
-173,ECHO,EchoStar,Communication Services,https://efgz-dev2.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-174,ECL,Ecolab,Materials,https://jobs.ecolab.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-175,EIX,Edison International,Utilities,https://www.edisoncareers.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-176,EW,Edwards Lifesciences,Health Care,https://edwards.wd5.myworkdayjobs.com/EdwardsCareers,workday,"Collector ready, not yet run",,0,,
-177,ELV,Elevance Health,Health Care,https://elevancehealth.wd1.myworkdayjobs.com/ANT,workday,"Collector ready, not yet run",,0,,
-178,EME,Emcor,Industrials,https://emcorgroup.com/careers,none,Not collected yet,,0,,Career site runs on icims; no collector for it yet.
-179,EMR,Emerson Electric,Industrials,https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-180,ETR,Entergy,Utilities,https://jobs.entergy.com/search/,successfactors,"Collector ready, not yet run",,0,,
-181,EOG,EOG Resources,Energy,https://www.eogresources.com/careers/,none,Not collected yet,,0,,Career site platform not identified yet.
-182,EQT,EQT Corporation,Energy,https://www.eqt.com/careers,none,Not collected yet,,0,,Career site runs on greenhouse; no collector for it yet.
-183,EFX,Equifax,Industrials,https://www.equifax.com/about-equifax/culture-careers/,none,Not collected yet,,0,,Career site platform not identified yet.
-184,EQIX,Equinix,Real Estate,https://careers.equinix.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-185,ERIE,Erie Indemnity,Financials,https://jobs.erieinsurance.com/search/,successfactors,"Collector ready, not yet run",,0,,
-186,ESS,Essex Property Trust,Real Estate,https://essex.wd5.myworkdayjobs.com/essexcareers,workday,"Collector ready, not yet run",,0,,
-187,EL,Estée Lauder Companies (The),Consumer Staples,https://app.eightfold.ai/careers,eightfold,"Collector ready, not yet run",,0,,
-188,EG,Everest Group,Financials,https://www.everestglobal.com/us-en/career-opportunities/overview,none,Not collected yet,,0,,Career site platform not identified yet.
-189,EVRG,Evergy,Utilities,https://www.evergy.com/careers/careers-and-internships,none,Not collected yet,,0,,Career site runs on taleo; no collector for it yet.
-190,P,Everpure,Information Technology,https://www.everpuredata.com/company/careers.html,none,Not collected yet,,0,,Career site runs on greenhouse; no collector for it yet.
-191,ES,Eversource Energy,Utilities,https://eversource.wd1.myworkdayjobs.com/ExternalSite,workday,"Collector ready, not yet run",,0,,
-192,EXC,Exelon,Utilities,https://jobs.exeloncorp.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-193,EXE,Expand Energy,Energy,https://jobs.expandenergy.com/search/,successfactors,"Collector ready, not yet run",,0,,
-194,EXPE,Expedia Group,Consumer Discretionary,https://expedia.wd108.myworkdayjobs.com/search,workday,"Collector ready, not yet run",,0,,
-195,EXPD,Expeditors International,Industrials,https://www.expeditors.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-196,EXR,Extra Space Storage,Real Estate,https://careers.extraspace.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-197,FFIV,"F5, Inc.",Information Technology,https://ffive.wd5.myworkdayjobs.com/f5jobs,workday,"Collector ready, not yet run",,0,,
-198,FDS,FactSet,Financials,https://factset.wd108.myworkdayjobs.com/FactSetCareers,workday,"Collector ready, not yet run",,0,,
-199,FICO,Fair Isaac,Information Technology,https://fico.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-200,FAST,Fastenal,Industrials,https://careers.fastenal.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-201,FRT,Federal Realty Investment Trust,Real Estate,https://www.federalrealty.com/about/careers/,none,Not collected yet,,0,,Career site runs on icims; no collector for it yet.
-202,FDX,FedEx,Industrials,https://fedex.wd1.myworkdayjobs.com/FXE-LAC_External_Career_Site,workday,"Collector ready, not yet run",,0,,
-203,FDXF,FedEx Freight,Industrials,https://fedex.wd1.myworkdayjobs.com/FXE-LAC_External_Career_Site,workday,"Collector ready, not yet run",,0,,
-204,FERG,Ferguson Enterprises,Industrials,https://ferguson.wd1.myworkdayjobs.com/Ferguson_Experienced,workday,"Collector ready, not yet run",,0,,
-205,FIS,Fidelity National Information Services,Financials,https://careers.fisglobal.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-206,FITB,Fifth Third Bancorp,Financials,https://www.53.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-207,FSLR,First Solar,Information Technology,https://fa-esbv-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-208,FE,FirstEnergy,Utilities,https://www.firstenergycorp.com/careers.html,none,Not collected yet,,0,,Career site platform not identified yet.
-209,FISV,Fiserv,Financials,https://fiserv.wd5.myworkdayjobs.com/EXT,workday,"Collector ready, not yet run",,0,,
-210,FLEX,Flex Ltd.,Information Technology,https://flextronics.wd1.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-211,F,Ford Motor Company,Consumer Discretionary,https://www.careers.ford.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-212,FTNT,Fortinet,Information Technology,https://edel.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-213,FTV,Fortive,Industrials,https://careers.fortive.com/,none,Not collected yet,,0,,Career site runs on eightfold; no collector for it yet.
-214,FOXA,Fox Corporation(Class A),Communication Services,https://fox.wd1.myworkdayjobs.com/Domestic,workday,"Collector ready, not yet run",,0,,
-215,BEN,Franklin Resources,Financials,https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1,workday,"Collector ready, not yet run",,0,,
-216,FCX,Freeport-McMoRan,Materials,https://jobs.fcx.com/search/,successfactors,"Collector ready, not yet run",,0,,
-217,GRMN,Garmin,Consumer Discretionary,https://www.garmin.com/careers-home/jobs,none,Not collected yet,,0,,Career site runs on jibe; its job search host was not found yet.
-218,IT,Gartner,Information Technology,https://gartner.wd5.myworkdayjobs.com/EXT,workday,"Collector ready, not yet run",,0,,
-219,GE,GE Aerospace,Industrials,https://careers.geaerospace.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-220,GEHC,GE HealthCare,Health Care,https://gehc.wd5.myworkdayjobs.com/GEHC_ExternalSite,workday,"Collector ready, not yet run",,0,,
-221,GEV,GE Vernova,Industrials,https://gevernova.wd5.myworkdayjobs.com/Vernova_ExternalSite,workday,"Collector ready, not yet run",,0,,
-222,GEN,Gen Digital,Information Technology,https://jobs.ashbyhq.com/gen-digital,none,Not collected yet,,0,,Career site runs on ashby; no collector for it yet.
-223,GNRC,Generac,Industrials,https://www.generacdealercareers.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-224,GD,General Dynamics,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-225,GIS,General Mills,Consumer Staples,https://genmills.wd1.myworkdayjobs.com/GMI_External_Careers,workday,"Collector ready, not yet run",,0,,
-226,GM,General Motors,Consumer Discretionary,https://generalmotors.wd5.myworkdayjobs.com/Careers_GM,workday,"Collector ready, not yet run",,0,,
-227,GPC,Genuine Parts Company,Consumer Discretionary,https://genpt.wd1.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-228,GILD,Gilead Sciences,Health Care,https://gilead.wd1.myworkdayjobs.com/gileadcareers,workday,"Collector ready, not yet run",,0,,
-229,GPN,Global Payments,Financials,https://jobs.globalpayments.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-230,GL,Globe Life,Financials,https://globelife.wd5.myworkdayjobs.com/Globe-Life-Careers,workday,Collected: complete,2026-10-16,28,28,
-231,GDDY,GoDaddy,Information Technology,https://careers.godaddy,jsonld_sitemap,"Collector ready, not yet run",,0,,
-232,GS,Goldman Sachs,Financials,https://www.goldmansachs.com/careers,none,Not collected yet,,0,,Career site runs on avature; no collector for it yet.
-233,HAL,Halliburton,Energy,https://careers.halliburton.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-234,HIG,Hartford (The),Financials,https://thehartford.wd5.myworkdayjobs.com/Careers_External,workday,"Collector ready, not yet run",,0,,
-235,HAS,Hasbro,Consumer Discretionary,,none,Not collected yet,,0,,Career site platform not identified yet.
-236,HCA,HCA Healthcare,Health Care,https://www.hcahealthcare.com/nurses/nursing-careers,none,Not collected yet,,0,,Career site platform not identified yet.
-237,DOC,Healthpeak Properties,Real Estate,https://healthpeak.com/careers/available-positions/,none,Not collected yet,,0,,Career site platform not identified yet.
-238,HSIC,Henry Schein,Health Care,https://henryschein.wd1.myworkdayjobs.com/External_Careers,workday,"Collector ready, not yet run",,0,,
-239,HSY,Hershey Company (The),Consumer Staples,https://careers.thehersheycompany.com/search/,successfactors,"Collector ready, not yet run",,0,,
-240,HPE,Hewlett Packard Enterprise,Information Technology,https://hpe.wd5.myworkdayjobs.com/Jobsathpe,workday,"Collector ready, not yet run",,0,,
-241,HLT,Hilton Worldwide,Consumer Discretionary,https://efet.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-242,HD,Home Depot (The),Consumer Discretionary,https://careers.homedepot.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-243,HONA,Honeywell Aerospace,Industrials,https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-244,HON,Honeywell Technologies,Industrials,https://www.honeywell.com/us/en/careers/retiree-log-in,none,Not collected yet,,0,,Career site runs on phenom; no collector for it yet.
-245,HRL,Hormel Foods,Consumer Staples,https://ekkh.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2002/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-246,HST,Host Hotels & Resorts,Real Estate,https://hosthotels.wd5.myworkdayjobs.com/HostHotels,workday,Collected: complete,2026-10-16,5,5,
-247,HWM,Howmet Aerospace,Industrials,https://fa-exty-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-248,HPQ,HP Inc.,Information Technology,https://hp.wd5.myworkdayjobs.com/ExternalCareerSite,workday,"Collector ready, not yet run",,0,,
-249,HUBB,Hubbell Incorporated,Industrials,https://careers.hubbell.com/search/,successfactors,"Collector ready, not yet run",,0,,
-250,HUM,Humana,Health Care,https://humana.wd5.myworkdayjobs.com/CenterWell_External_Career_Site,workday,"Collector ready, not yet run",,0,,
-251,HBAN,Huntington Bancshares,Financials,https://huntington.wd12.myworkdayjobs.com/HNBcareers,workday,"Collector ready, not yet run",,0,,
-252,HII,Huntington Ingalls Industries,Industrials,https://careers.huntingtoningalls.com/search/,successfactors,"Collector ready, not yet run",,0,,
-253,IBM,IBM,Information Technology,https://www.ibm.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-254,IEX,IDEX Corporation,Industrials,https://idexcorp.wd5.myworkdayjobs.com/IDEX_Careers,workday,"Collector ready, not yet run",,0,,
-255,IDXX,Idexx Laboratories,Health Care,https://careers.idexx.com/us/en,none,Not collected yet,,0,,Career site runs on phenom; no collector for it yet.
-256,ITW,Illinois Tool Works,Industrials,https://itw.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-257,ILMN,"Illumina, Inc.",Health Care,https://illumina.wd1.myworkdayjobs.com/illumina-careers,workday,"Collector ready, not yet run",,0,,
-258,INCY,Incyte,Health Care,https://careers.incyte.com/jobs,jibe,"Collector ready, not yet run",,0,,
-259,IR,Ingersoll Rand,Industrials,https://careers.irco.com/search/,successfactors,"Collector ready, not yet run",,0,,
-260,PODD,Insulet Corporation,Health Care,https://insulet.wd5.myworkdayjobs.com/insuletcareers,workday,"Collector ready, not yet run",,0,,
-261,IBKR,Interactive Brokers,Financials,https://www.interactivebrokers.com/en/general/about/careers-splash.php,none,Not collected yet,,0,,Career site runs on dayforce; no collector for it yet.
-262,ICE,Intercontinental Exchange,Financials,https://careers.ice.com/jobs,jibe,"Collector ready, not yet run",,0,,
-263,IFF,International Flavors & Fragrances,Materials,https://iff.wd5.myworkdayjobs.com/IFF_Careers,workday,"Collector ready, not yet run",,0,,
-264,IP,International Paper,Materials,https://iazbqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-265,INTU,Intuit,Information Technology,https://www.intuit.com/careers/,none,Not collected yet,,0,,Career site runs on talentbrew; no collector for it yet.
-266,ISRG,Intuitive Surgical,Health Care,https://intuitive.wd1.myworkdayjobs.com/irtc_careers,workday,"Collector ready, not yet run",,0,,
-267,IVZ,Invesco,Financials,https://invesco.wd1.myworkdayjobs.com/IVZ,workday,"Collector ready, not yet run",,0,,
-268,INVH,Invitation Homes,Real Estate,https://invitationhomes.wd503.myworkdayjobs.com/INVH,workday,"Collector ready, not yet run",,0,,
-269,IQV,IQVIA,Health Care,https://iqvia.wd1.myworkdayjobs.com/IQVIA,workday,"Collector ready, not yet run",,0,,
-270,IRM,Iron Mountain,Real Estate,https://ironmountain.wd5.myworkdayjobs.com/iron-mountain-jobs,workday,"Collector ready, not yet run",,0,,
-271,JBHT,J.B. Hunt,Industrials,https://jbhunt.wd501.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-272,SJM,J.M. Smucker Company (The),Consumer Staples,https://smucker.wd5.myworkdayjobs.com/US_External_Careers,workday,"Collector ready, not yet run",,0,,
-273,JBL,Jabil,Information Technology,https://jabil.wd5.myworkdayjobs.com/Jabil_Careers,workday,"Collector ready, not yet run",,0,,
-274,JKHY,Jack Henry & Associates,Financials,https://careers.jackhenry.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-275,J,Jacobs Solutions,Industrials,https://www.jacobs.com/careers-jacobs,none,Not collected yet,,0,,Career site runs on avature; no collector for it yet.
-276,JCI,Johnson Controls,Industrials,https://jci.wd5.myworkdayjobs.com/JCI,workday,"Collector ready, not yet run",,0,,
-277,KVUE,Kenvue,Consumer Staples,https://kenvue.wd5.myworkdayjobs.com/kenvue,workday,"Collector ready, not yet run",,0,,
-278,KDP,Keurig Dr Pepper,Consumer Staples,https://careers.keurigdrpepper.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-279,KEY,KeyCorp,Financials,https://keybank.wd5.myworkdayjobs.com/External_Career_Site,workday,"Collector ready, not yet run",,0,,
-280,KEYS,Keysight Technologies,Information Technology,https://careers.keysight.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-281,KMB,Kimberly-Clark,Consumer Staples,https://kimberlyclark.wd1.myworkdayjobs.com/GLOBAL,workday,"Collector ready, not yet run",,0,,
-282,KIM,Kimco Realty,Real Estate,,none,Not collected yet,,0,,Career site platform not identified yet.
-283,KMI,Kinder Morgan,Energy,https://careers.kindermorgan.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-284,KKR,KKR & Co.,Financials,https://www.kkr.com/careers/citizenship,none,Not collected yet,,0,,Career site runs on greenhouse; no collector for it yet.
-285,KLAC,KLA Corporation,Information Technology,https://kla.wd1.myworkdayjobs.com/Search,workday,"Collector ready, not yet run",,0,,
-286,KHC,Kraft Heinz,Consumer Staples,https://careers.kraftheinzcompany.com,none,Not collected yet,,0,,Career site platform not identified yet.
-287,KR,Kroger,Consumer Staples,https://www.krogerfamilycareers.com/en/sites/CX_2001,none,Not collected yet,,0,,Career site platform not identified yet.
-288,LHX,L3Harris,Industrials,https://careers.l3harris.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-289,LH,Labcorp,Health Care,https://careers.labcorp.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-290,LRCX,Lam Research,Information Technology,https://careers.lamresearch.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-291,LVS,Las Vegas Sands,Consumer Discretionary,https://sands.wd1.myworkdayjobs.com/sands_careers,workday,"Collector ready, not yet run",,0,,
-292,LDOS,Leidos,Industrials,https://leidos.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-293,LEN,Lennar,Consumer Discretionary,https://careers.lennar.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-294,LII,Lennox International,Industrials,https://www.lennox.com/careers/,none,Not collected yet,,0,,Career site runs on icims; no collector for it yet.
-295,LIN,Linde plc,Materials,https://www.lindecareers.com/en/,none,Not collected yet,,0,,Career site runs on ultipro; no collector for it yet.
-296,LYV,Live Nation Entertainment,Communication Services,https://livenation.wd503.myworkdayjobs.com/LNExternalSite,workday,"Collector ready, not yet run",,0,,
-297,LMT,Lockheed Martin,Industrials,https://www.lockheedmartin.com/en-us/careers/index.html,none,Not collected yet,,0,,Career site runs on eightfold; no collector for it yet.
-298,L,Loews Corporation,Financials,,none,Not collected yet,,0,,Career site platform not identified yet.
-299,LOW,Lowe's,Consumer Discretionary,https://talent.lowes.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-300,LULU,Lululemon Athletica,Consumer Discretionary,,none,Not collected yet,,0,,Career site platform not identified yet.
-301,LITE,Lumentum,Information Technology,https://lumentum.wd5.myworkdayjobs.com/LITE,workday,"Collector ready, not yet run",,0,,
-302,LYB,LyondellBasell,Materials,https://careers.lyondellbasell.com/search/,successfactors,"Collector ready, not yet run",,0,,
-303,MTB,M&T Bank,Financials,https://mtb.wd5.myworkdayjobs.com/MTB,workday,"Collector ready, not yet run",,0,,
-304,MPC,Marathon Petroleum,Energy,https://mpc.wd1.myworkdayjobs.com/MPCCareers,workday,"Collector ready, not yet run",,0,,
-305,MAR,Marriott International,Consumer Discretionary,https://mymvw.wd5.myworkdayjobs.com/MVW,workday,"Collector ready, not yet run",,0,,
-306,MRSH,Marsh McLennan,Financials,https://careers.marsh.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-307,MLM,Martin Marietta Materials,Materials,https://jobs.jobvite.com/martinmarietta,none,Not collected yet,,0,,Career site platform not identified yet.
-308,MRVL,Marvell Technology,Information Technology,https://marvell.wd1.myworkdayjobs.com/MarvellCareers,workday,"Collector ready, not yet run",,0,,
-309,MAS,Masco,Industrials,https://jobs.masco.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-310,MKC,McCormick & Company,Consumer Staples,https://careers.mccormick.com/search/,successfactors,"Collector ready, not yet run",,0,,
-311,MCD,McDonald's,Consumer Discretionary,https://jobs.mcdonalds.com/search/,successfactors,"Collector ready, not yet run",,0,,
-312,MCK,McKesson,Health Care,https://careers.mckesson.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-313,MDT,Medtronic,Health Care,https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers,workday,"Collector ready, not yet run",,0,,
-314,MRK,Merck & Co.,Health Care,https://msd.wd5.myworkdayjobs.com/SearchJobs,workday,"Collector ready, not yet run",,0,,
-315,MET,MetLife,Financials,https://www.metlifecareers.com/en_US/ml,none,Not collected yet,,0,,Career site runs on avature; no collector for it yet.
-316,MTD,Mettler Toledo,Health Care,https://careers.mt.com/en_US/careers,none,Not collected yet,,0,,Career site runs on talentbrew; no collector for it yet.
-317,MGM,MGM Resorts,Consumer Discretionary,,none,Not collected yet,,0,,Career site platform not identified yet.
-318,MCHP,Microchip Technology,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-319,MAA,Mid-America Apartment Communities,Real Estate,https://careers.maac.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-320,MRNA,Moderna,Health Care,https://modernatx.wd1.myworkdayjobs.com/M_tx,workday,"Collector ready, not yet run",,0,,
-321,MDLZ,Mondelez International,Consumer Staples,https://www.mondelezinternational.com:443/careers/,none,Not collected yet,,0,,Career site platform not identified yet.
-322,MPWR,Monolithic Power Systems,Information Technology,https://monolithicpower.wd12.myworkdayjobs.com/MPS_Careers,workday,"Collector ready, not yet run",,0,,
-323,MNST,Monster Beverage,Consumer Staples,,none,Not collected yet,,0,,Career site platform not identified yet.
-324,MCO,Moody's Corporation,Financials,https://careers.moodys.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-325,MS,Morgan Stanley,Financials,https://ms.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-326,MOS,Mosaic Company (The),Materials,https://mosaic.wd5.myworkdayjobs.com/mosaic,workday,"Collector ready, not yet run",,0,,
-327,MSI,Motorola Solutions,Information Technology,https://motorolasolutions.wd5.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-328,MSCI,MSCI,Financials,https://careers.msci.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-329,NDAQ,"Nasdaq, Inc.",Financials,https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site,workday,"Collector ready, not yet run",,0,,
-330,NTAP,NetApp,Information Technology,https://careers.netapp.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-331,NFLX,Netflix,Communication Services,https://netflix.wd108.myworkdayjobs.com/Netflix,workday,"Collector ready, not yet run",,0,,
-332,NEM,Newmont,Materials,https://jobs.newmont.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-333,NWSA,News Corp(Class A),Communication Services,https://careers.newscorp.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-334,NEE,NextEra Energy,Utilities,https://jobs.nexteraenergy.com/search/,successfactors,"Collector ready, not yet run",,0,,
-335,NKE,"Nike, Inc.",Consumer Discretionary,https://nike.wd1.myworkdayjobs.com/nke,workday,"Collector ready, not yet run",,0,,
-336,NI,NiSource,Utilities,https://nisource.wd1.myworkdayjobs.com/NiSource,workday,"Collector ready, not yet run",,0,,
-337,NDSN,Nordson Corporation,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-338,NSC,Norfolk Southern,Industrials,https://jobs.nscorp.com/search/,successfactors,"Collector ready, not yet run",,0,,
-339,NTRS,Northern Trust,Financials,https://ntrs.wd1.myworkdayjobs.com/northerntrust,workday,"Collector ready, not yet run",,0,,
-340,NOC,Northrop Grumman,Industrials,https://www.northropgrumman.com/careers,none,Not collected yet,,0,,Career site runs on eightfold; no collector for it yet.
-341,NCLH,Norwegian Cruise Line Holdings,Consumer Discretionary,https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FNCLHCareersShipboard%2F,none,Not collected yet,,0,,Career site platform not identified yet.
-342,NRG,NRG Energy,Utilities,,none,Not collected yet,,0,,Career site platform not identified yet.
-343,NUE,Nucor,Materials,https://jobs.nucor.com/search/,successfactors,"Collector ready, not yet run",,0,,
-344,NVR,"NVR, Inc.",Consumer Discretionary,https://www.nvrcareers.com/,none,Not collected yet,,0,,Career site runs on taleo; no collector for it yet.
-345,NXPI,NXP Semiconductors,Information Technology,https://nxp.wd3.myworkdayjobs.com/careers,workday,"Collector ready, not yet run",,0,,
-346,ORLY,O'Reilly Automotive,Consumer Discretionary,https://careers.oreillyauto.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-347,OXY,Occidental Petroleum,Energy,https://oxy.wd5.myworkdayjobs.com/Corporate,workday,"Collector ready, not yet run",,0,,
-348,ODFL,Old Dominion,Industrials,https://odfl.wd1.myworkdayjobs.com/ODFL_Careers,workday,"Collector ready, not yet run",,0,,
-349,OMC,Omnicom Group,Communication Services,,none,Not collected yet,,0,,Career site platform not identified yet.
-350,ON,ON Semiconductor,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-351,OKE,Oneok,Energy,https://oneok.wd1.myworkdayjobs.com/ONEOK,workday,"Collector ready, not yet run",,0,,
-352,ORCL,Oracle Corporation,Information Technology,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-353,OTIS,Otis Worldwide,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-354,PCAR,Paccar,Industrials,https://jobs.paccar.com/search/,successfactors,"Collector ready, not yet run",,0,,
-355,PKG,Packaging Corporation of America,Materials,https://careers.packagingcorp.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-356,PLTR,Palantir Technologies,Information Technology,https://www.palantir.com/careers,none,Not collected yet,,0,,Career site runs on lever; no collector for it yet.
-357,PANW,Palo Alto Networks,Information Technology,https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers,workday,"Collector ready, not yet run",,0,,
-358,PH,Parker Hannifin,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-359,PAYX,Paychex,Industrials,https://careers.paychex.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-360,PYPL,PayPal,Financials,,none,Not collected yet,,0,,Career site platform not identified yet.
-361,PNR,Pentair,Industrials,https://careers.pentair.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-362,PEP,PepsiCo,Consumer Staples,https://www.pepsicojobs.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-363,PFE,Pfizer,Health Care,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers,workday,"Collector ready, not yet run",,0,,
-364,PCG,PG&E Corporation,Utilities,https://careers.pge.com/search/,successfactors,"Collector ready, not yet run",,0,,
-365,PM,Philip Morris International,Consumer Staples,https://www.pmi.com/careers/overview,none,Not collected yet,,0,,Career site runs on phenom; no collector for it yet.
-366,PSX,Phillips 66,Energy,https://careers.phillips66.com/search/,successfactors,"Collector ready, not yet run",,0,,
-367,PNW,Pinnacle West Capital,Utilities,,none,Not collected yet,,0,,Career site platform not identified yet.
-368,PNC,PNC Financial Services,Financials,https://pnc.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-369,PPG,PPG Industries,Materials,https://ppg.wd5.myworkdayjobs.com/PPG_CAREERS,workday,"Collector ready, not yet run",,0,,
-370,PPL,PPL Corporation,Utilities,https://www.pplweb.com/blog/category/careers/,none,Not collected yet,,0,,Career site runs on icims; no collector for it yet.
-371,PFG,Principal Financial Group,Financials,https://careers.principal.com/careers-home/jobs,jibe,"Collector ready, not yet run",,0,,
-372,PG,Procter & Gamble,Consumer Staples,https://pg.wd5.myworkdayjobs.com/1000,workday,"Collector ready, not yet run",,0,,
-373,PGR,Progressive Corporation,Financials,,none,Not collected yet,,0,,Career site platform not identified yet.
-374,PLD,Prologis,Real Estate,https://prologis.wd5.myworkdayjobs.com/Prologis_External_Careers,workday,"Collector ready, not yet run",,0,,
-375,PRU,Prudential Financial,Financials,https://prudential.wd3.myworkdayjobs.com/prudential,workday,"Collector ready, not yet run",,0,,
-376,PTC,PTC Inc.,Information Technology,https://ptc.wd1.myworkdayjobs.com/PTC,workday,"Collector ready, not yet run",,0,,
-377,PEG,Public Service Enterprise Group,Utilities,https://jobs.pseg.com/search/,successfactors,"Collector ready, not yet run",,0,,
-378,PSA,Public Storage,Real Estate,https://www.publicstoragejobs.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-379,PHM,PulteGroup,Consumer Discretionary,https://pultegroup.wd1.myworkdayjobs.com/PGI,workday,"Collector ready, not yet run",,0,,
-380,Q,Qnity Electronics,Information Technology,https://careers.qnityelectronics.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-381,QCOM,Qualcomm,Information Technology,https://careers.qualcomm.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-382,PWR,Quanta Services,Industrials,https://careers-quanta.icims.com/jobs/intro?hashed=-435625279,none,Not collected yet,,0,,Career site runs on icims; no collector for it yet.
-383,DGX,Quest Diagnostics,Health Care,https://hdox.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-384,RL,Ralph Lauren Corporation,Consumer Discretionary,https://www.ralphlauren.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-385,RJF,Raymond James Financial,Financials,https://raymondjames.wd1.myworkdayjobs.com/RaymondJamesCareers,workday,"Collector ready, not yet run",,0,,
-386,O,Realty Income,Real Estate,https://realtyincome.wd108.myworkdayjobs.com/realty_income_careers,workday,"Collector ready, not yet run",,0,,
-387,RDDT,Reddit,Communication Services,https://www.reddit.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-388,REG,Regency Centers,Real Estate,https://www.regencycenters.com/regency/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-389,REGN,Regeneron Pharmaceuticals,Health Care,https://regeneron.wd1.myworkdayjobs.com/Careers,workday,"Collector ready, not yet run",,0,,
-390,RF,Regions Financial Corporation,Financials,https://careers.regions.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-391,RSG,Republic Services,Industrials,https://jobs.republicservices.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-392,RMD,ResMed|,Health Care,https://resmed.wd3.myworkdayjobs.com/Resmed_External_Careers,workday,"Collector ready, not yet run",,0,,
-393,RVTY,Revvity,Health Care,https://revvity.wd103.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-394,HOOD,Robinhood Markets,Financials,https://careers.robinhood.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-395,ROK,Rockwell Automation,Industrials,https://rockwellautomation.wd1.myworkdayjobs.com/External_Rockwell_Automation,workday,"Collector ready, not yet run",,0,,
-396,ROL,"Rollins, Inc.",Industrials,https://careers.rollins.com/careers-home/jobs,jibe,"Collector ready, not yet run",,0,,
-397,ROP,Roper Technologies,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-398,ROST,Ross Stores,Consumer Discretionary,https://jobs.rossstores.com/,none,Not collected yet,,0,,Career site runs on avature; no collector for it yet.
-399,RCL,Royal Caribbean Group,Consumer Discretionary,https://jobs.royalcaribbeangroup.com/search/,successfactors,"Collector ready, not yet run",,0,,
-400,RTX,RTX Corporation,Industrials,https://globalhr.wd5.myworkdayjobs.com/REC_RTX_Ext_Gateway,workday,"Collector ready, not yet run",,0,,
-401,SPGI,S&P Global,Financials,https://spgi.wd5.myworkdayjobs.com/SPGI_Careers,workday,"Collector ready, not yet run",,0,,
-402,CRM,Salesforce,Information Technology,https://salesforce.wd12.myworkdayjobs.com/External_Career_Site,workday,"Collector ready, not yet run",,0,,
-403,SNDK,Sandisk,Information Technology,https://www.sandisk.com/careers/jobs-at-sandisk,none,Not collected yet,,0,,Career site platform not identified yet.
-404,SBAC,SBA Communications,Real Estate,https://sbasite.wd5.myworkdayjobs.com/SBA_Communications_Careers,workday,"Collector ready, not yet run",,0,,
-405,SLB,Schlumberger,Energy,https://careers.slb.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-406,STX,Seagate Technology,Information Technology,https://seagatecareers.com/search/,successfactors,"Collector ready, not yet run",,0,,
-407,SRE,Sempra,Utilities,https://sempra.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-408,NOW,ServiceNow,Information Technology,,none,Not collected yet,,0,,Career site platform not identified yet.
-409,SHW,Sherwin-Williams,Materials,https://ejhp.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-410,SPG,Simon Property Group,Real Estate,https://signetjewelers.wd1.myworkdayjobs.com/signetjeweleryretailsales,workday,"Collector ready, not yet run",,0,,
-411,SKYD,Skydance Corporation,Communication Services,,none,Not collected yet,,0,,Career site platform not identified yet.
-412,SWKS,Skyworks Solutions,Information Technology,https://careers.skyworksinc.com/search/,successfactors,"Collector ready, not yet run",,0,,
-413,SW,Smurfit Westrock,Materials,https://www.smurfitwestrock.com/careers,none,Not collected yet,,0,,Career site runs on avature; no collector for it yet.
-414,SNA,Snap-on,Industrials,https://www.snapon.com/EN/Careers,none,Not collected yet,,0,,Career site runs on icims; no collector for it yet.
-415,SOLV,Solventum,Health Care,https://www.solventum.com/en-us/home/our-company/careers/,none,Not collected yet,,0,,Career site platform not identified yet.
-416,SO,Southern Company,Utilities,https://southerncompany.jobs/?vs=2925&utm_source=southerncompany.com-DE&utm_medium=Other&utm_campaign=southerncompany.com&_ga=2.18922104.1393374614.1612792799-630953019.1598387569,none,Not collected yet,,0,,Career site platform not identified yet.
-417,LUV,Southwest Airlines,Industrials,https://swa.wd1.myworkdayjobs.com/external,workday,"Collector ready, not yet run",,0,,
-418,SWK,Stanley Black & Decker,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-419,SBUX,Starbucks,Consumer Discretionary,https://careers.starbucks.com/discover-opportunities/international-careers/,none,Not collected yet,,0,,Career site runs on eightfold; no collector for it yet.
-420,STT,State Street Corporation,Financials,https://statestreet.wd1.myworkdayjobs.com/Global,workday,"Collector ready, not yet run",,0,,
-421,STLD,Steel Dynamics,Materials,,none,Not collected yet,,0,,Career site platform not identified yet.
-422,STE,Steris,Health Care,https://careers.steris.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-423,SYK,Stryker Corporation,Health Care,https://stryker.wd1.myworkdayjobs.com/StrykerCareers,workday,"Collector ready, not yet run",,0,,
-424,SMCI,Supermicro,Information Technology,https://jobs.supermicro.com/search/,successfactors,"Collector ready, not yet run",,0,,
-425,SYF,Synchrony Financial,Financials,https://www.synchronycareers.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-426,SNPS,Synopsys,Information Technology,https://careers.synopsys.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-427,SYY,Sysco,Consumer Staples,https://careers.sysco.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-428,TMUS,T-Mobile US,Communication Services,https://tmobile.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-429,TROW,T. Rowe Price,Financials,https://troweprice.wd5.myworkdayjobs.com/TRowePrice,workday,"Collector ready, not yet run",,0,,
-430,TTWO,Take-Two Interactive,Communication Services,https://careers.take2games.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-431,TPR,"Tapestry, Inc.",Consumer Discretionary,https://tapestry.wd108.myworkdayjobs.com/Tapestry_Careers,workday,"Collector ready, not yet run",,0,,
-432,TRGP,Targa Resources,Energy,,none,Not collected yet,,0,,Career site platform not identified yet.
-433,TGT,Target Corporation,Consumer Staples,https://target.wd5.myworkdayjobs.com/targetcareers,workday,"Collector ready, not yet run",,0,,
-434,TEL,TE Connectivity,Information Technology,https://careers.te.com/search/,successfactors,"Collector ready, not yet run",,0,,
-435,TDY,Teledyne Technologies,Information Technology,https://flir.wd1.myworkdayjobs.com/flircareers,workday,"Collector ready, not yet run",,0,,
-436,TER,Teradyne,Information Technology,https://jobs.teradyne.com/search/,successfactors,"Collector ready, not yet run",,0,,
-437,TXN,Texas Instruments,Information Technology,https://careers.ti.com/en/sites/CX,none,Not collected yet,,0,,Career site platform not identified yet.
-438,TPL,Texas Pacific Land Corporation,Energy,,none,Not collected yet,,0,,Career site platform not identified yet.
-439,TXT,Textron,Industrials,https://careersblog.textron.com/how-one-textron-employee-makes-room-for-big-adventures/,none,Not collected yet,,0,,Career site runs on taleo; no collector for it yet.
-440,TMO,Thermo Fisher Scientific,Health Care,https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers,workday,"Collector ready, not yet run",,0,,
-441,TJX,TJX Companies,Consumer Discretionary,https://jobs.tjx.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-442,TKO,TKO Group Holdings,Communication Services,https://wwecorp.wd5.myworkdayjobs.com/TKO,workday,"Collector ready, not yet run",,0,,
-443,TSCO,Tractor Supply,Consumer Discretionary,,none,Not collected yet,,0,,Career site platform not identified yet.
-444,TT,Trane Technologies,Industrials,https://careers.tranetechnologies.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-445,TDG,TransDigm Group,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-446,TRV,Travelers Companies (The),Financials,https://travelers.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-447,TRMB,Trimble Inc.,Information Technology,https://trimble.wd1.myworkdayjobs.com/TrimbleCareers,workday,"Collector ready, not yet run",,0,,
-448,TFC,Truist Financial,Financials,https://careers.truist.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-449,TWLO,Twilio,Information Technology,https://www.twilio.com/en-us/careers,none,Not collected yet,,0,,Career site runs on eightfold; no collector for it yet.
-450,TYL,Tyler Technologies,Information Technology,https://www.tylertech.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-451,TSN,Tyson Foods,Consumer Staples,https://tysonfoods.wd5.myworkdayjobs.com/TSN,workday,"Collector ready, not yet run",,0,,
-452,USB,U.S. Bancorp,Financials,https://careers.usbank.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-453,UBER,Uber,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-454,UDR,"UDR, Inc.",Real Estate,https://www.udr.com/careers/,none,Not collected yet,,0,,Career site runs on ultipro; no collector for it yet.
-455,ULTA,Ulta Beauty,Consumer Discretionary,https://careers.ulta.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-456,UNP,Union Pacific Corporation,Industrials,https://up.jobs/search/,successfactors,"Collector ready, not yet run",,0,,
-457,UAL,United Airlines Holdings,Industrials,https://careers.united.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-458,UPS,United Parcel Service,Industrials,,none,Not collected yet,,0,,Career site platform not identified yet.
-459,URI,United Rentals,Industrials,https://ur.wd1.myworkdayjobs.com/URcareers,workday,"Collector ready, not yet run",,0,,
-460,UNH,UnitedHealth Group,Health Care,https://www.unitedhealthgroup.com/careers/en/work.html,none,Not collected yet,,0,,Career site runs on talentbrew; no collector for it yet.
-461,UHS,Universal Health Services,Health Care,https://jobs.uhs.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-462,VLO,Valero Energy,Energy,https://www.valero.com/careers,none,Not collected yet,,0,,Career site runs on taleo; no collector for it yet.
-463,VEEV,Veeva Systems,Health Care,https://careers.veeva.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-464,VTR,Ventas,Real Estate,https://ventas.wd503.myworkdayjobs.com/ventas_careers,workday,"Collector ready, not yet run",,0,,
-465,VLTO,Veralto,Industrials,https://jobs.veralto.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-466,VRSN,Verisign,Information Technology,https://www.verisign.com/careers/,none,Not collected yet,,0,,Career site runs on greenhouse; no collector for it yet.
-467,VRSK,Verisk Analytics,Industrials,https://fa-ewmy-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-468,VZ,Verizon,Communication Services,https://www.verizon.com/,none,Not collected yet,,0,,Career site platform not identified yet.
-469,VRTX,Vertex Pharmaceuticals,Health Care,https://vrtx.wd501.myworkdayjobs.com/Vertex_Careers,workday,"Collector ready, not yet run",,0,,
-470,VRT,Vertiv,Industrials,https://egup.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-471,VTRS,Viatris,Health Care,https://viatris.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-472,VICI,Vici Properties,Real Estate,https://viciproperties.com/careers/,none,Not collected yet,,0,,Career site platform not identified yet.
-473,VST,Vistra Corp.,Utilities,https://vst.wd5.myworkdayjobs.com/vistra_careers,workday,"Collector ready, not yet run",,0,,
-474,VMRK,Vivmark Residential,Real Estate,,none,Not collected yet,,0,,Career site platform not identified yet.
-475,VMC,Vulcan Materials Company,Materials,https://www.vulcanmaterials.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-476,VYLR,Vylor,Consumer Staples,https://corteva.wd5.myworkdayjobs.com/Corteva,workday,"Collector ready, not yet run",,0,,
-477,WRB,W. R. Berkley Corporation,Financials,https://www.berkley.com/about-us/careers,none,Not collected yet,,0,,Career site runs on icims; no collector for it yet.
-478,GWW,W. W. Grainger,Industrials,https://jobs.grainger.com/search/,successfactors,"Collector ready, not yet run",,0,,
-479,WAB,Wabtec,Industrials,https://careers.wabtec.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-480,DIS,Walt Disney Company (The),Communication Services,https://www.disneycareers.com/en?k=2023004%E5%A4%A7%E4%B9%90%E9%80%8F%E5%BC%80%E5%A5%96%E7%BB%93%E6%9E%9C%EF%BC%88%E7%BD%91%E5%9D%80%EF%BC%9A7008.top%EF%BC%89.gwr,none,Not collected yet,,0,,Career site runs on talentbrew; no collector for it yet.
-481,WM,Waste Management,Industrials,https://emcm.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/WMCareers/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-482,WAT,Waters Corporation,Health Care,,none,Not collected yet,,0,,Career site platform not identified yet.
-483,WEC,WEC Energy Group,Utilities,https://careers.wecenergygroup.com/search/,successfactors,"Collector ready, not yet run",,0,,
-484,WFC,Wells Fargo,Financials,,none,Not collected yet,,0,,Career site platform not identified yet.
-485,WELL,Welltower,Real Estate,https://welltower.com/careers/,none,Not collected yet,,0,,Career site runs on ultipro; no collector for it yet.
-486,WST,West Pharmaceutical Services,Health Care,https://www.westpharma.com/search/,none,Not collected yet,,0,,Career site runs on successfactors; its job search host was not found yet.
-487,WDC,Western Digital,Information Technology,https://www.westerndigital.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-488,WY,Weyerhaeuser,Real Estate,https://www.weyerhaeuser.com/careers/,none,Not collected yet,,0,,Career site runs on taleo; no collector for it yet.
-489,WMB,Williams Companies,Energy,https://williams.wd5.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-490,WSM,"Williams-Sonoma, Inc.",Consumer Discretionary,https://ehac.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,"Collector ready, not yet run",,0,,
-491,WTW,Willis Towers Watson,Financials,https://careers.wtwco.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-492,WDAY,"Workday, Inc.",Information Technology,https://workday.wd5.myworkdayjobs.com/Workday,workday,"Collector ready, not yet run",,0,,
-493,WYNN,Wynn Resorts,Consumer Discretionary,https://www.wynnresorts.com/careers,none,Not collected yet,,0,,Career site platform not identified yet.
-494,XEL,Xcel Energy,Utilities,https://xcelenergy.wd1.myworkdayjobs.com/External,workday,"Collector ready, not yet run",,0,,
-495,XYL,Xylem Inc.,Industrials,https://xylem.wd5.myworkdayjobs.com/xylem-careers,workday,"Collector ready, not yet run",,0,,
-496,YUM,Yum! Brands,Consumer Discretionary,https://www.yum.com/wps/portal/yumbrands/Yumbrands/careers/yum-digital-tech,none,Not collected yet,,0,,Career site platform not identified yet.
-497,ZBRA,Zebra Technologies,Information Technology,https://zebra.wd501.myworkdayjobs.com/Zebra_careers,workday,"Collector ready, not yet run",,0,,
-498,ZBH,Zimmer Biomet,Health Care,https://careers.zimmerbiomet.com,jsonld_sitemap,"Collector ready, not yet run",,0,,
-499,ZTS,Zoetis,Health Care,https://zoetis.wd5.myworkdayjobs.com/zoetis,workday,"Collector ready, not yet run",,0,,
+1,NVDA,NVIDIA,Information Technology,https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite,workday,Collected,2026-10-16,759,2000,Upstream reported snapshot; local completeness unverified.
+2,AAPL,Apple,Information Technology,https://jobs.apple.com/en-us/search,apple,Collected,2026-10-16,870,,Upstream reported snapshot; local completeness unverified.
+3,MSFT,Microsoft,Information Technology,https://apply.careers.microsoft.com/careers,eightfold,Collected,2026-10-16,1106,2492,Upstream reported snapshot; local completeness unverified.
+4,AMZN,Amazon,Consumer Discretionary,https://www.amazon.jobs,amazon,Collected,2026-10-16,1277,10000,Upstream reported snapshot; local completeness unverified.
+5,GOOGL,Alphabet (Google),Communication Services,https://www.google.com/about/careers/applications/jobs/results/,google,Blocked by site,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+6,META,Meta Platforms,Communication Services,https://www.metacareers.com/jobs,refused_by_terms,Blocked by site,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+7,AVGO,Broadcom,Information Technology,https://broadcom.wd1.myworkdayjobs.com/External_Career,workday,Collected,2026-10-16,120,363,Upstream reported snapshot; local completeness unverified.
+8,TSLA,Tesla,Consumer Discretionary,https://www.tesla.com/careers/search/,tesla,Blocked by site,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+9,LLY,Eli Lilly,Health Care,https://lilly.wd115.myworkdayjobs.com/LLY,workday,Collected,2026-10-16,351,740,Upstream reported snapshot; local completeness unverified.
+10,MU,Micron Technology,Information Technology,https://micron.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,772,3178,Upstream reported snapshot; local completeness unverified.
+11,AMD,Advanced Micro Devices,Information Technology,https://careers.amd.com/careers-home/jobs,jibe,Collected,2026-10-16,369,1277,Upstream reported snapshot; local completeness unverified.
+12,WMT,Walmart,Consumer Staples,https://careers.walmart.com,walmart,Collected,2026-10-16,1042,15683,Upstream reported snapshot; local completeness unverified.
+13,JPM,JPMorgan Chase,Financials,https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs,oracle_hcm,Collected,2026-10-16,1271,7247,Upstream reported snapshot; local completeness unverified.
+14,V,Visa,Financials,https://corporate.visa.com/en/jobs/,workday,Collected,2026-10-16,359,825,Upstream reported snapshot; local completeness unverified.
+15,XOM,ExxonMobil,Energy,https://jobs.exxonmobil.com/search/,successfactors,Collected,2026-10-16,327,526,Upstream reported snapshot; local completeness unverified.
+16,JNJ,Johnson & Johnson,Health Care,https://jj.wd5.myworkdayjobs.com/JJ,workday,Collected,2026-10-16,1165,2008,Upstream reported snapshot; local completeness unverified.
+17,MA,Mastercard,Financials,https://mastercard.wd1.myworkdayjobs.com/CorporateCareers,workday,Collected,2026-10-16,592,1120,Upstream reported snapshot; local completeness unverified.
+18,INTC,Intel,Information Technology,https://intel.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,372,725,Upstream reported snapshot; local completeness unverified.
+19,ABBV,AbbVie,Health Care,https://careers.abbvie.com/en/jobs,jsonld_sitemap,Collected,2026-10-16,741,1661,Upstream reported snapshot; local completeness unverified.
+20,MMM,3M,Industrials,https://3m.wd1.myworkdayjobs.com/Search,workday,Collected,2026-10-16,247,747,Upstream reported snapshot; local completeness unverified.
+21,AOS,A. O. Smith,Industrials,https://jobs.aosmith.com/search/,successfactors,Collected,2026-10-16,55,,Upstream reported snapshot; local completeness unverified.
+22,ABT,Abbott Laboratories,Health Care,https://abbott.wd5.myworkdayjobs.com/abbottcareers,workday,Collected,2026-10-16,922,2000,Upstream reported snapshot; local completeness unverified.
+23,ACN,Accenture,Information Technology,https://accenture.wd103.myworkdayjobs.com/AccentureCareers,workday,Collected,2026-10-16,879,2000,Upstream reported snapshot; local completeness unverified.
+24,ADBE,Adobe Inc.,Information Technology,https://adobe.wd5.myworkdayjobs.com/external_experienced,workday,Collected,2026-10-16,69,310,Upstream reported snapshot; local completeness unverified.
+25,AES,AES Corporation,Utilities,https://aes.wd1.myworkdayjobs.com/AES_US,workday,Collected,2026-10-16,71,157,Upstream reported snapshot; local completeness unverified.
+26,AFL,Aflac,Financials,https://careers.aflac.com/search/,successfactors,Collected,2026-10-16,25,29,Upstream reported snapshot; local completeness unverified.
+27,A,Agilent Technologies,Health Care,https://agilent.wd5.myworkdayjobs.com/Agilent_Careers,workday,Collected,2026-10-16,130,374,Upstream reported snapshot; local completeness unverified.
+28,APD,Air Products,Materials,https://airproducts.wd5.myworkdayjobs.com/AP0001,workday,Collected,2026-10-16,130,409,Upstream reported snapshot; local completeness unverified.
+29,ABNB,Airbnb,Consumer Discretionary,https://careers.airbnb.com/,greenhouse,Collected,2026-10-16,4,170,Upstream reported snapshot; local completeness unverified.
+30,AKAM,Akamai Technologies,Information Technology,https://jobs.akamai.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+31,ALB,Albemarle Corporation,Materials,https://albemarle.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,39,78,Upstream reported snapshot; local completeness unverified.
+32,ARE,Alexandria Real Estate Equities,Real Estate,https://www.are.com/careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+33,ALGN,Align Technology,Health Care,https://jobs.aligntech.com,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+34,ALLE,Allegion,Industrials,https://allegion.wd5.myworkdayjobs.com/careers,workday,Collected,2026-10-16,88,320,Upstream reported snapshot; local completeness unverified.
+35,LNT,Alliant Energy,Utilities,https://alliantenergy.wd1.myworkdayjobs.com/alliant,workday,Collected,2026-10-16,16,36,Upstream reported snapshot; local completeness unverified.
+36,ALL,Allstate,Financials,https://allstate.wd5.myworkdayjobs.com/allstate_careers,workday,Collected,2026-10-16,203,421,Upstream reported snapshot; local completeness unverified.
+37,MO,Altria,Consumer Staples,https://careers.altria.com/search/,successfactors,Collected,2026-10-16,0,88,Upstream reported snapshot; local completeness unverified.
+38,AMCR,Amcor,Materials,https://amcor.wd5.myworkdayjobs.com/Amcor_External_Career_Site,workday,Collected,2026-10-16,202,757,Upstream reported snapshot; local completeness unverified.
+39,AEE,Ameren,Utilities,https://ameren.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,27,84,Upstream reported snapshot; local completeness unverified.
+40,AEP,American Electric Power,Utilities,https://aep.wd1.myworkdayjobs.com/AEPCareerSite,workday,Collected,2026-10-16,305,319,Upstream reported snapshot; local completeness unverified.
+41,AXP,American Express,Financials,https://careers.americanexpress.com/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,337,498,Upstream reported snapshot; local completeness unverified.
+42,AIG,American International Group,Financials,https://aig.wd1.myworkdayjobs.com/aig,workday,Collected,2026-10-16,90,455,Upstream reported snapshot; local completeness unverified.
+43,AMT,American Tower,Real Estate,https://hdsn.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,16,37,Upstream reported snapshot; local completeness unverified.
+44,AWK,American Water Works,Utilities,https://jobs.amwater.com/search/,successfactors,Collected,2026-10-16,46,106,Upstream reported snapshot; local completeness unverified.
+45,AMP,Ameriprise Financial,Financials,https://ameriprise.wd5.myworkdayjobs.com/Ameriprise,workday,Collected,2026-10-16,169,243,Upstream reported snapshot; local completeness unverified.
+46,AME,Ametek,Industrials,https://jobs.ametek.com/search/,successfactors,Collected,2026-10-16,466,774,Upstream reported snapshot; local completeness unverified.
+47,AMGN,Amgen,Health Care,https://amgen.wd1.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,439,1689,Upstream reported snapshot; local completeness unverified.
+48,APH,Amphenol,Information Technology,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+49,ADI,Analog Devices,Information Technology,https://analogdevices.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,202,821,Upstream reported snapshot; local completeness unverified.
+50,AON,Aon plc,Financials,https://jobs.aon.com,jsonld_sitemap,Collected,2026-10-16,379,1099,Upstream reported snapshot; local completeness unverified.
+51,APA,APA Corporation,Energy,https://careers.apachecorp.com/search/,successfactors,Collected,2026-10-16,0,25,Upstream reported snapshot; local completeness unverified.
+52,APO,Apollo Global Management,Financials,https://athene.wd5.myworkdayjobs.com/Apollo_Careers,workday,Collected,2026-10-16,7,55,Upstream reported snapshot; local completeness unverified.
+53,AMAT,Applied Materials,Information Technology,https://app.eightfold.ai/careers,eightfold,Collected,2026-10-16,596,2036,Upstream reported snapshot; local completeness unverified.
+54,APP,AppLovin,Communication Services,https://boards.greenhouse.io/applovin,greenhouse,Collected,2026-10-16,5,42,Upstream reported snapshot; local completeness unverified.
+55,APTV,Aptiv,Consumer Discretionary,https://aptiv.wd5.myworkdayjobs.com/APTIV_CAREERS,workday,Collected,2026-10-16,197,800,Upstream reported snapshot; local completeness unverified.
+56,ACGL,Arch Capital Group,Financials,https://archgroup.wd1.myworkdayjobs.com/careers,workday,Collected,2026-10-16,68,203,Upstream reported snapshot; local completeness unverified.
+57,ADM,Archer Daniels Midland,Consumer Staples,https://www.adm.com/en-us/culture-and-careers/total-rewards/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+58,ARES,Ares Management,Financials,https://aresmgmt.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,92,239,Upstream reported snapshot; local completeness unverified.
+59,ANET,Arista Networks,Information Technology,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+60,AJG,Arthur J. Gallagher & Co.,Financials,https://jobs.ajg.com/jobs,jibe,Collected,2026-10-16,392,1260,Upstream reported snapshot; local completeness unverified.
+61,AIZ,Assurant,Financials,https://assurant.wd1.myworkdayjobs.com/Assurant_Careers,workday,Collected,2026-10-16,73,134,Upstream reported snapshot; local completeness unverified.
+62,T,AT&T,Communication Services,https://att.wd1.myworkdayjobs.com/ATTGeneral,workday,Collected,2026-10-16,669,1193,Upstream reported snapshot; local completeness unverified.
+63,ATO,Atmos Energy,Utilities,https://atmosenergy.wd108.myworkdayjobs.com/External_Career_Site,workday,Collected,2026-10-16,22,34,Upstream reported snapshot; local completeness unverified.
+64,ADSK,Autodesk,Information Technology,https://autodesk.wd1.myworkdayjobs.com/Ext,workday,Collected,2026-10-16,152,403,Upstream reported snapshot; local completeness unverified.
+65,ADP,Automatic Data Processing,Industrials,https://jobs.adp.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+66,AZO,AutoZone,Consumer Discretionary,https://careers.autozone.com/hcmUI/CandidateExperience/en/sites/CX_1,oracle_hcm,Collected,2026-10-16,800,11608,Upstream reported snapshot; local completeness unverified.
+67,AVY,Avery Dennison,Materials,https://careers.smartrecruiters.com/AveryDennison,smartrecruiters_site,Collected,2026-10-16,166,486,Upstream reported snapshot; local completeness unverified.
+68,AXON,Axon Enterprise,Industrials,https://www.axon.com/careers,greenhouse,Collected,2026-10-16,36,478,Upstream reported snapshot; local completeness unverified.
+69,BKR,Baker Hughes,Energy,https://bakerhughes.wd5.myworkdayjobs.com/BakerHughes,workday,Collected,2026-10-16,455,724,Upstream reported snapshot; local completeness unverified.
+70,BALL,Ball Corporation,Materials,https://jobs.ball.com/search/,successfactors,Collected,2026-10-16,202,267,Upstream reported snapshot; local completeness unverified.
+71,BAC,Bank of America,Financials,https://ghr.wd1.myworkdayjobs.com/lateral-us,workday,Collected,2026-10-16,683,1945,Upstream reported snapshot; local completeness unverified.
+72,BAX,Baxter International,Health Care,https://baxter.wd1.myworkdayjobs.com/baxter,workday,Collected,2026-10-16,266,494,Upstream reported snapshot; local completeness unverified.
+73,BDX,Becton Dickinson,Health Care,https://bdx.wd1.myworkdayjobs.com/EXTERNAL_CAREER_SITE_USA,workday,Collected,2026-10-16,310,660,Upstream reported snapshot; local completeness unverified.
+74,BBY,Best Buy,Consumer Discretionary,https://careers.bestbuy.com/bby,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+75,TECH,Bio-Techne,Health Care,https://biotechne.wd5.myworkdayjobs.com/Biotechne,workday,Collected,2026-10-16,18,87,Upstream reported snapshot; local completeness unverified.
+76,BIIB,Biogen,Health Care,https://biibhr.wd3.myworkdayjobs.com/external,workday,Collected,2026-10-16,110,268,Upstream reported snapshot; local completeness unverified.
+77,BLK,BlackRock,Financials,https://careers.blackrock.com,jsonld_sitemap,Collected,2026-10-16,0,308,Upstream reported snapshot; local completeness unverified.
+78,BX,Blackstone Inc.,Financials,https://blackstone.wd1.myworkdayjobs.com/Blackstone_Careers,workday,Collected,2026-10-16,41,159,Upstream reported snapshot; local completeness unverified.
+79,XYZ,"Block, Inc.",Financials,https://block.xyz/careers/jobs,greenhouse,Collected,2026-10-16,38,221,Upstream reported snapshot; local completeness unverified.
+80,BE,Bloom Energy,Industrials,https://bloomenergy.wd1.myworkdayjobs.com/BloomEnergyCareers,workday,Collected,2026-10-16,55,184,Upstream reported snapshot; local completeness unverified.
+81,BNY,BNY Mellon,Financials,https://eofe.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/BNY/jobs,oracle_hcm,Collected,2026-10-16,387,1379,Upstream reported snapshot; local completeness unverified.
+82,BA,Boeing,Industrials,https://boeing.wd1.myworkdayjobs.com/EXTERNAL_CAREERS,workday,Collected,2026-10-16,699,775,Upstream reported snapshot; local completeness unverified.
+83,BKNG,Booking Holdings,Consumer Discretionary,https://jobs.booking.com/booking/jobs,jibe,Collected,2026-10-16,46,136,Upstream reported snapshot; local completeness unverified.
+84,BSX,Boston Scientific,Health Care,https://jobs.bostonscientific.com/search/,successfactors,Collected,2026-10-16,366,523,Upstream reported snapshot; local completeness unverified.
+85,BMY,Bristol Myers Squibb,Health Care,https://bristolmyerssquibb.wd5.myworkdayjobs.com/BMS,workday,Collected,2026-10-16,341,664,Upstream reported snapshot; local completeness unverified.
+86,BR,Broadridge Financial Solutions,Industrials,https://broadridge.wd5.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,129,323,Upstream reported snapshot; local completeness unverified.
+87,BRO,Brown & Brown,Financials,https://bbinsurance.wd1.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,206,280,Upstream reported snapshot; local completeness unverified.
+88,BF.B,Brown–Forman,Consumer Staples,https://bf.wd5.myworkdayjobs.com/USA_Canada,workday,Collected,2026-10-16,10,26,Upstream reported snapshot; local completeness unverified.
+89,BG,Bunge Global,Consumer Staples,https://jobs.bunge.com/search/,successfactors,Collected,2026-10-16,469,806,Upstream reported snapshot; local completeness unverified.
+90,BXP,"BXP, Inc.",Real Estate,https://edxn.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_4001/jobs,oracle_hcm,Collected,2026-10-16,4,30,Upstream reported snapshot; local completeness unverified.
+91,CHRW,C.H. Robinson,Industrials,https://chrobinson.wd5.myworkdayjobs.com/CHRobinson,workday,Collected,2026-10-16,65,166,Upstream reported snapshot; local completeness unverified.
+92,CDNS,Cadence Design Systems,Information Technology,https://cadence.wd1.myworkdayjobs.com/External_Careers,workday,Collected,2026-10-16,184,658,Upstream reported snapshot; local completeness unverified.
+93,CPT,Camden Property Trust,Real Estate,https://ehap.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs,oracle_hcm,Collected,2026-10-16,29,63,Upstream reported snapshot; local completeness unverified.
+94,COF,Capital One,Financials,https://capitalone.wd12.myworkdayjobs.com/Capital_One,workday,Collected,2026-10-16,711,1983,Upstream reported snapshot; local completeness unverified.
+95,CAH,Cardinal Health,Health Care,https://cardinalhealth.wd1.myworkdayjobs.com/EXT,workday,Collected,2026-10-16,432,819,Upstream reported snapshot; local completeness unverified.
+96,CCL,Carnival Corporation,Consumer Discretionary,https://jobs.carnivalcorp.com/,jsonld_sitemap,Collected,2026-10-16,57,231,Upstream reported snapshot; local completeness unverified.
+97,CARR,Carrier Global,Industrials,https://jobs.carrier.com,jsonld_sitemap,Collected,2026-10-16,0,1038,Upstream reported snapshot; local completeness unverified.
+98,CVNA,Carvana,Consumer Discretionary,https://www.carvana.com/careers,greenhouse,Collected,2026-10-16,413,1761,Upstream reported snapshot; local completeness unverified.
+99,CASY,Casey's,Consumer Staples,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+100,CAT,Caterpillar Inc.,Industrials,https://cat.wd5.myworkdayjobs.com/CaterpillarCareers,workday,Collected,2026-10-16,736,954,Upstream reported snapshot; local completeness unverified.
+101,CBOE,Cboe Global Markets,Financials,https://careers.cboe.com,jsonld_sitemap,Collected,2026-10-16,63,120,Upstream reported snapshot; local completeness unverified.
+102,CBRE,CBRE Group,Real Estate,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+103,CDW,CDW Corporation,Information Technology,https://cdw.wd5.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,84,159,Upstream reported snapshot; local completeness unverified.
+104,COR,Cencora,Health Care,https://myhrabc.wd5.myworkdayjobs.com/Global,workday,Collected,2026-10-16,426,1011,Upstream reported snapshot; local completeness unverified.
+105,CNC,Centene Corporation,Health Care,https://centene.wd5.myworkdayjobs.com/Centene_External,workday,Collected,2026-10-16,239,373,Upstream reported snapshot; local completeness unverified.
+106,CNP,CenterPoint Energy,Utilities,https://careers.centerpointenergy.com/search/,successfactors,Collected,2026-10-16,16,20,Upstream reported snapshot; local completeness unverified.
+107,CF,CF Industries,Materials,https://cfindustries.wd1.myworkdayjobs.com/careers,workday,Collected,2026-10-16,12,59,Upstream reported snapshot; local completeness unverified.
+108,CRL,Charles River Laboratories,Health Care,https://careers.criver.com/search/,successfactors,Collected,2026-10-16,215,316,Upstream reported snapshot; local completeness unverified.
+109,SCHW,Charles Schwab Corporation,Financials,https://www.schwabjobs.com/,jsonld_sitemap,Collected,2026-10-16,0,374,Upstream reported snapshot; local completeness unverified.
+110,CHTR,Charter Communications,Communication Services,https://jobs.spectrum.com/,jsonld_sitemap,Collected,2026-10-16,800,1597,Upstream reported snapshot; local completeness unverified.
+111,CVX,Chevron Corporation,Energy,https://careers.chevron.com,jsonld_sitemap,Collected,2026-10-16,0,157,Upstream reported snapshot; local completeness unverified.
+112,CMG,Chipotle Mexican Grill,Consumer Discretionary,https://jobs.chipotle.com,jsonld_sitemap,Collected,2026-10-16,580,8293,Upstream reported snapshot; local completeness unverified.
+113,CB,Chubb Limited,Financials,https://fa-ewgu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/jobs,oracle_hcm,Collected,2026-10-16,203,717,Upstream reported snapshot; local completeness unverified.
+114,CHD,Church & Dwight,Consumer Staples,https://churchdwight.wd1.myworkdayjobs.com/chdcareers,workday,Collected,2026-10-16,46,100,Upstream reported snapshot; local completeness unverified.
+115,CIEN,Ciena,Information Technology,https://ciena.wd5.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,45,151,Upstream reported snapshot; local completeness unverified.
+116,CI,Cigna,Health Care,https://cigna.wd5.myworkdayjobs.com/cignacareers,workday,Collected,2026-10-16,264,529,Upstream reported snapshot; local completeness unverified.
+117,CINF,Cincinnati Financial,Financials,https://www.cinfin.com/cincinnati-insurance-careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+118,CTAS,Cintas,Industrials,https://careers.cintas.com/search/,successfactors,Collected,2026-10-16,1005,2895,Upstream reported snapshot; local completeness unverified.
+119,CSCO,Cisco,Information Technology,https://careers.cisco.com,jsonld_sitemap,Collected,2026-10-16,473,2779,Upstream reported snapshot; local completeness unverified.
+120,C,Citigroup,Financials,https://citi.wd5.myworkdayjobs.com/2,workday,Collected,2026-10-16,927,2000,Upstream reported snapshot; local completeness unverified.
+121,CFG,Citizens Financial Group,Financials,https://hcgn.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,235,461,Upstream reported snapshot; local completeness unverified.
+122,CLX,Clorox,Consumer Staples,https://wd1.myworkdaysite.com/recruiting/clorox/Clorox,workday,Collected,2026-10-16,83,196,Upstream reported snapshot; local completeness unverified.
+123,CME,CME Group,Financials,https://cmegroup.wd1.myworkdayjobs.com/cme_careers,workday,Collected,2026-10-16,31,65,Upstream reported snapshot; local completeness unverified.
+124,CMS,CMS Energy,Utilities,https://careers.consumersenergy.com/search/,successfactors,Collected,2026-10-16,39,42,Upstream reported snapshot; local completeness unverified.
+125,KO,Coca-Cola Company (The),Consumer Staples,https://coke.wd1.myworkdayjobs.com/coca-cola-careers,workday,Collected,2026-10-16,181,227,Upstream reported snapshot; local completeness unverified.
+126,CTSH,Cognizant,Information Technology,https://careers.cognizant.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+127,COHR,Coherent Corp.,Information Technology,https://hcwp.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,63,310,Upstream reported snapshot; local completeness unverified.
+128,COIN,Coinbase,Financials,https://www.coinbase.com/careers/positions,greenhouse,Collected,2026-10-16,39,228,Upstream reported snapshot; local completeness unverified.
+129,CL,Colgate-Palmolive,Consumer Staples,https://jobs.colgate.com/search/,successfactors,Collected,2026-10-16,93,537,Upstream reported snapshot; local completeness unverified.
+130,CMCSA,Comcast,Communication Services,https://jobs.comcast.com/,jsonld_sitemap,Collected,2026-10-16,0,660,Upstream reported snapshot; local completeness unverified.
+131,FIX,Comfort Systems USA,Industrials,https://comfortsystemsusa.wd1.myworkdayjobs.com/Corpcareers,workday,Collected,2026-10-16,56,177,Upstream reported snapshot; local completeness unverified.
+132,COP,ConocoPhillips,Energy,https://conocophillips.wd1.myworkdayjobs.com/eQuest,workday,Collected,2026-10-16,4,4,Upstream reported snapshot; local completeness unverified.
+133,ED,Consolidated Edison,Utilities,https://ejcu.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1033/jobs,oracle_hcm,Collected,2026-10-16,37,54,Upstream reported snapshot; local completeness unverified.
+134,STZ,Constellation Brands,Consumer Staples,https://cbrands.wd5.myworkdayjobs.com/CBI_External_Careers,workday,Collected,2026-10-16,32,84,Upstream reported snapshot; local completeness unverified.
+135,CEG,Constellation Energy,Utilities,https://jobs.constellationenergy.com,jsonld_sitemap,Collected,2026-10-16,123,352,Upstream reported snapshot; local completeness unverified.
+136,COO,Cooper Companies (The),Health Care,https://hcjy.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,86,216,Upstream reported snapshot; local completeness unverified.
+137,CPRT,Copart,Industrials,https://copart.wd12.myworkdayjobs.com/Copart,workday,Collected,2026-10-16,144,390,Upstream reported snapshot; local completeness unverified.
+138,GLW,Corning Inc.,Information Technology,https://corningjobs.corning.com/search/,successfactors,Collected,2026-10-16,770,1226,Upstream reported snapshot; local completeness unverified.
+139,CPAY,Corpay,Financials,https://corpay.wd103.myworkdayjobs.com/Ext_001,workday,Collected,2026-10-16,42,108,Upstream reported snapshot; local completeness unverified.
+140,CSGP,CoStar Group,Real Estate,https://costar.wd1.myworkdayjobs.com/CoStarCareers,workday,Collected,2026-10-16,139,438,Upstream reported snapshot; local completeness unverified.
+141,COST,Costco,Consumer Staples,https://careers.costco.com,jsonld_sitemap,Collected,2026-10-16,1,20451,Upstream reported snapshot; local completeness unverified.
+142,CRH,CRH plc,Materials,https://jobs.crh.com/search/,successfactors,Collected,2026-10-16,178,1717,Upstream reported snapshot; local completeness unverified.
+143,CRWD,CrowdStrike,Information Technology,https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers,workday,Collected,2026-10-16,147,357,Upstream reported snapshot; local completeness unverified.
+144,CCI,Crown Castle,Real Estate,https://www.crowncastle.com/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+145,CSX,CSX Corporation,Industrials,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+146,CMI,Cummins,Industrials,https://fa-espx-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,492,1230,Upstream reported snapshot; local completeness unverified.
+147,CVS,CVS Health,Health Care,https://cvshealth.wd1.myworkdayjobs.com/CVS_Health_Careers,workday,Collected,2026-10-16,1379,19531,Upstream reported snapshot; local completeness unverified.
+148,DHI,D. R. Horton,Consumer Discretionary,https://drhorton.taleo.net/careersection/2/jobsearch.ftl?lang=en,taleo,Collected,2026-10-16,128,544,Upstream reported snapshot; local completeness unverified.
+149,DHR,Danaher Corporation,Health Care,https://danaher.wd1.myworkdayjobs.com/DanaherJobs,workday,Collected,2026-10-16,506,1435,Upstream reported snapshot; local completeness unverified.
+150,DRI,Darden Restaurants,Consumer Discretionary,https://www.darden.com/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+151,DDOG,Datadog,Information Technology,https://careers.datadoghq.com/,greenhouse,Collected,2026-10-16,51,431,Upstream reported snapshot; local completeness unverified.
+152,DVA,DaVita,Health Care,https://davita.wd1.myworkdayjobs.com/DKC_External,workday,Collected,2026-10-16,940,3378,Upstream reported snapshot; local completeness unverified.
+153,DECK,Deckers Brands,Consumer Discretionary,https://deckers.wd5.myworkdayjobs.com/Deckers,workday,Collected,2026-10-16,59,394,Upstream reported snapshot; local completeness unverified.
+154,DE,Deere & Company,Industrials,https://careers.deere.com,jsonld_sitemap,Collected,2026-10-16,196,330,Upstream reported snapshot; local completeness unverified.
+155,DELL,Dell Technologies,Information Technology,https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers,oracle_hcm,Collected,2026-10-16,244,457,Upstream reported snapshot; local completeness unverified.
+156,DAL,Delta Air Lines,Industrials,https://www.delta.com/us/en/careers/overview,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+157,DVN,Devon Energy,Energy,https://careers.devonenergy.com/search/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+158,DXCM,Dexcom,Health Care,https://careers.dexcom.com/careers,eightfold,Collected,2026-10-16,114,274,Upstream reported snapshot; local completeness unverified.
+159,FANG,Diamondback Energy,Energy,https://diamondbackenergy.wd12.myworkdayjobs.com/DBE,workday,Collected,2026-10-16,5,31,Upstream reported snapshot; local completeness unverified.
+160,DLR,Digital Realty,Real Estate,https://careers.digitalrealty.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+161,DG,Dollar General,Consumer Staples,https://ibxwjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,928,91008,Upstream reported snapshot; local completeness unverified.
+162,DLTR,Dollar Tree,Consumer Staples,https://dollartree.wd5.myworkdayjobs.com/dollartreeus,workday,Collected,2026-10-16,910,25010,Upstream reported snapshot; local completeness unverified.
+163,D,Dominion Energy,Utilities,https://careers.dominionenergy.com/search/,successfactors,Collected,2026-10-16,120,155,Upstream reported snapshot; local completeness unverified.
+164,DPZ,Domino's,Consumer Discretionary,https://jobs.dominos.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+165,DASH,DoorDash,Consumer Discretionary,https://careersatdoordash.com/,greenhouse,Collected,2026-10-16,79,454,Upstream reported snapshot; local completeness unverified.
+166,DOV,Dover Corporation,Industrials,https://dover.wd103.myworkdayjobs.com/Dover,workday,Collected,2026-10-16,308,691,Upstream reported snapshot; local completeness unverified.
+167,DOW,Dow Inc.,Materials,https://dow.wd1.myworkdayjobs.com/ExternalCareers,workday,Collected,2026-10-16,146,199,Upstream reported snapshot; local completeness unverified.
+168,DTE,DTE Energy,Utilities,https://careers.dteenergy.com/search/,successfactors,Collected,2026-10-16,52,77,Upstream reported snapshot; local completeness unverified.
+169,DUK,Duke Energy,Utilities,https://dukeenergy.wd1.myworkdayjobs.com/Search,workday,Collected,2026-10-16,93,86,Upstream reported snapshot; local completeness unverified.
+170,DD,DuPont,Industrials,https://dupont.wd5.myworkdayjobs.com/Jobs,workday,Collected,2026-10-16,51,191,Upstream reported snapshot; local completeness unverified.
+171,ETN,Eaton Corporation,Industrials,https://eaton.eightfold.ai,jsonld_sitemap,Collected,2026-10-16,325,2345,Upstream reported snapshot; local completeness unverified.
+172,EBAY,eBay Inc.,Consumer Discretionary,https://ebay.wd5.myworkdayjobs.com/apply,workday,Collected,2026-10-16,82,278,Upstream reported snapshot; local completeness unverified.
+173,ECHO,EchoStar,Communication Services,https://efgz-dev2.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,No postings returned,2026-10-16,0,19,Upstream reported snapshot; local completeness unverified.
+174,ECL,Ecolab,Materials,https://jobs.ecolab.com,jsonld_sitemap,Collected,2026-10-16,283,3068,Upstream reported snapshot; local completeness unverified.
+175,EIX,Edison International,Utilities,https://www.edisoncareers.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+176,EW,Edwards Lifesciences,Health Care,https://edwards.wd5.myworkdayjobs.com/EdwardsCareers,workday,Collected,2026-10-16,160,392,Upstream reported snapshot; local completeness unverified.
+177,ELV,Elevance Health,Health Care,https://elevancehealth.wd1.myworkdayjobs.com/ANT,workday,Collected,2026-10-16,220,230,Upstream reported snapshot; local completeness unverified.
+178,EME,Emcor,Industrials,https://careers-emcorgroup.icims.com/jobs/search,icims,Collected,2026-10-16,413,1577,Upstream reported snapshot; local completeness unverified.
+179,EMR,Emerson Electric,Industrials,https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,469,1138,Upstream reported snapshot; local completeness unverified.
+180,ETR,Entergy,Utilities,https://jobs.entergy.com/search/,successfactors,Collected,2026-10-16,239,378,Upstream reported snapshot; local completeness unverified.
+181,EOG,EOG Resources,Energy,https://www.eogresources.com/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+182,EQT,EQT Corporation,Energy,https://www.eqt.com/careers,greenhouse,Collected,2026-10-16,18,59,Upstream reported snapshot; local completeness unverified.
+183,EFX,Equifax,Industrials,https://equifax.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,90,183,Upstream reported snapshot; local completeness unverified.
+184,EQIX,Equinix,Real Estate,https://careers.equinix.com,jsonld_sitemap,Collected,2026-10-16,10,284,Upstream reported snapshot; local completeness unverified.
+185,ERIE,Erie Indemnity,Financials,https://jobs.erieinsurance.com/search/,successfactors,Collected,2026-10-16,25,44,Upstream reported snapshot; local completeness unverified.
+186,ESS,Essex Property Trust,Real Estate,https://essex.wd5.myworkdayjobs.com/essexcareers,workday,Collected,2026-10-16,32,75,Upstream reported snapshot; local completeness unverified.
+187,EL,Estée Lauder Companies (The),Consumer Staples,https://app.eightfold.ai/careers,eightfold,Collected,2026-10-16,759,2160,Upstream reported snapshot; local completeness unverified.
+188,EG,Everest Group,Financials,https://wd5.myworkdaysite.com/recruiting/everestre/careers,workday,Collected,2026-10-16,18,47,Upstream reported snapshot; local completeness unverified.
+189,EVRG,Evergy,Utilities,https://www.evergy.com/careers/careers-and-internships,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+190,P,Everpure,Information Technology,https://job-boards.greenhouse.io/purestorage,greenhouse,Collected,2026-10-16,97,373,Upstream reported snapshot; local completeness unverified.
+191,ES,Eversource Energy,Utilities,https://eversource.wd1.myworkdayjobs.com/ExternalSite,workday,Collected,2026-10-16,77,242,Upstream reported snapshot; local completeness unverified.
+192,EXC,Exelon,Utilities,https://jobs.exeloncorp.com,jsonld_sitemap,Collected,2026-10-16,53,117,Upstream reported snapshot; local completeness unverified.
+193,EXE,Expand Energy,Energy,https://jobs.expandenergy.com/search/,successfactors,Collected,2026-10-16,23,34,Upstream reported snapshot; local completeness unverified.
+194,EXPE,Expedia Group,Consumer Discretionary,https://expedia.wd108.myworkdayjobs.com/search,workday,Collected,2026-10-16,161,181,Upstream reported snapshot; local completeness unverified.
+195,EXPD,Expeditors International,Industrials,https://careers.smartrecruiters.com/Expeditors,smartrecruiters_site,Collected,2026-10-16,208,497,Upstream reported snapshot; local completeness unverified.
+196,EXR,Extra Space Storage,Real Estate,https://careers.extraspace.com,jsonld_sitemap,Collected,2026-10-16,63,481,Upstream reported snapshot; local completeness unverified.
+197,FFIV,"F5, Inc.",Information Technology,https://ffive.wd5.myworkdayjobs.com/f5jobs,workday,Collected,2026-10-16,115,225,Upstream reported snapshot; local completeness unverified.
+198,FDS,FactSet,Financials,https://factset.wd108.myworkdayjobs.com/FactSetCareers,workday,Collected,2026-10-16,43,94,Upstream reported snapshot; local completeness unverified.
+199,FICO,Fair Isaac,Information Technology,https://fico.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,21,75,Upstream reported snapshot; local completeness unverified.
+200,FAST,Fastenal,Industrials,https://careers.fastenal.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+201,FRT,Federal Realty Investment Trust,Real Estate,https://careers-federalrealty.icims.com/jobs/intro,icims,Collected,2026-10-16,0,12,Upstream reported snapshot; local completeness unverified.
+202,FDX,FedEx,Industrials,https://fedex.wd1.myworkdayjobs.com/FXE-LAC_External_Career_Site,workday,Collected,2026-10-16,51,110,Upstream reported snapshot; local completeness unverified.
+203,FDXF,FedEx Freight,Industrials,https://fedex.wd1.myworkdayjobs.com/FXE-LAC_External_Career_Site,workday,Collected,2026-10-16,51,111,Upstream reported snapshot; local completeness unverified.
+204,FERG,Ferguson Enterprises,Industrials,https://ferguson.wd1.myworkdayjobs.com/Ferguson_Experienced,workday,Collected,2026-10-16,275,450,Upstream reported snapshot; local completeness unverified.
+205,FIS,Fidelity National Information Services,Financials,https://careers.fisglobal.com,jsonld_sitemap,Collected,2026-10-16,261,540,Upstream reported snapshot; local completeness unverified.
+206,FITB,Fifth Third Bancorp,Financials,https://fifththird.wd5.myworkdayjobs.com/53careers,workday,Collected,2026-10-16,549,996,Upstream reported snapshot; local completeness unverified.
+207,FSLR,First Solar,Information Technology,https://fa-esbv-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,73,253,Upstream reported snapshot; local completeness unverified.
+208,FE,FirstEnergy,Utilities,https://careers.firstenergycorp.com/#en/sites/FirstEnergyCareers/jobs,oracle_hcm,Collected,2026-10-16,72,338,Upstream reported snapshot; local completeness unverified.
+209,FISV,Fiserv,Financials,https://fiserv.wd5.myworkdayjobs.com/EXT,workday,Collected,2026-10-16,295,357,Upstream reported snapshot; local completeness unverified.
+210,FLEX,Flex Ltd.,Information Technology,https://flextronics.wd1.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,858,1468,Upstream reported snapshot; local completeness unverified.
+211,F,Ford Motor Company,Consumer Discretionary,https://www.careers.ford.com,jsonld_sitemap,Collected,2026-10-16,1,891,Upstream reported snapshot; local completeness unverified.
+212,FTNT,Fortinet,Information Technology,https://edel.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs,oracle_hcm,Collected,2026-10-16,199,1027,Upstream reported snapshot; local completeness unverified.
+213,FTV,Fortive,Industrials,https://careers.fortive.com/,eightfold,Collected,2026-10-16,84,277,Upstream reported snapshot; local completeness unverified.
+214,FOXA,Fox Corporation(Class A),Communication Services,https://fox.wd1.myworkdayjobs.com/Domestic,workday,Collected,2026-10-16,87,312,Upstream reported snapshot; local completeness unverified.
+215,BEN,Franklin Resources,Financials,https://franklintempleton.wd5.myworkdayjobs.com/Primary-External-1,workday,No postings returned,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+216,FCX,Freeport-McMoRan,Materials,https://jobs.fcx.com/search/,successfactors,Collected,2026-10-16,219,,Upstream reported snapshot; local completeness unverified.
+217,GRMN,Garmin,Consumer Discretionary,https://careers.garmin.com/jobs,jibe,Collected,2026-10-16,93,421,Upstream reported snapshot; local completeness unverified.
+218,IT,Gartner,Information Technology,https://gartner.wd5.myworkdayjobs.com/EXT,workday,Collected,2026-10-16,250,780,Upstream reported snapshot; local completeness unverified.
+219,GE,GE Aerospace,Industrials,https://careers.geaerospace.com,jsonld_sitemap,Collected,2026-10-16,526,603,Upstream reported snapshot; local completeness unverified.
+220,GEHC,GE HealthCare,Health Care,https://gehc.wd5.myworkdayjobs.com/GEHC_ExternalSite,workday,Collected,2026-10-16,415,974,Upstream reported snapshot; local completeness unverified.
+221,GEV,GE Vernova,Industrials,https://gevernova.wd5.myworkdayjobs.com/Vernova_ExternalSite,workday,Collected,2026-10-16,893,2242,Upstream reported snapshot; local completeness unverified.
+222,GEN,Gen Digital,Information Technology,https://jobs.ashbyhq.com/gen-digital,ashby,Collected,2026-10-16,30,123,Upstream reported snapshot; local completeness unverified.
+223,GNRC,Generac,Industrials,https://www.generacdealercareers.com,jsonld_sitemap,Collected,2026-10-16,28,65,Upstream reported snapshot; local completeness unverified.
+224,GD,General Dynamics,Industrials,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+225,GIS,General Mills,Consumer Staples,https://genmills.wd1.myworkdayjobs.com/GMI_External_Careers,workday,Collected,2026-10-16,106,364,Upstream reported snapshot; local completeness unverified.
+226,GM,General Motors,Consumer Discretionary,https://generalmotors.wd5.myworkdayjobs.com/Careers_GM,workday,Collected,2026-10-16,445,821,Upstream reported snapshot; local completeness unverified.
+227,GPC,Genuine Parts Company,Consumer Discretionary,https://genpt.wd1.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,896,2000,Upstream reported snapshot; local completeness unverified.
+228,GILD,Gilead Sciences,Health Care,https://gilead.wd1.myworkdayjobs.com/gileadcareers,workday,Collected,2026-10-16,144,412,Upstream reported snapshot; local completeness unverified.
+229,GPN,Global Payments,Financials,https://tsys.wd1.myworkdayjobs.com/TSYS,workday,Collected,2026-10-16,383,405,Upstream reported snapshot; local completeness unverified.
+230,GL,Globe Life,Financials,https://globelife.wd5.myworkdayjobs.com/Globe-Life-Careers,workday,Collected,2026-10-16,15,27,Upstream reported snapshot; local completeness unverified.
+231,GDDY,GoDaddy,Information Technology,https://careers.godaddy,jsonld_sitemap,No postings returned,2026-10-16,5,35,Upstream reported snapshot; local completeness unverified.
+232,GS,Goldman Sachs,Financials,https://higher.gs.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+233,HAL,Halliburton,Energy,https://careers.halliburton.com,jsonld_sitemap,Collected,2026-10-16,170,500,Upstream reported snapshot; local completeness unverified.
+234,HIG,Hartford (The),Financials,https://thehartford.wd5.myworkdayjobs.com/Careers_External,workday,Collector error,2026-10-16,95,252,Upstream reported snapshot; local completeness unverified.
+235,HAS,Hasbro,Consumer Discretionary,https://jobs.hasbro.com/en-us,greenhouse,Collected,2026-10-16,24,107,Upstream reported snapshot; local completeness unverified.
+236,HCA,HCA Healthcare,Health Care,https://careers.hcahealthcare.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+237,DOC,Healthpeak Properties,Real Estate,https://healthpeak.applytojob.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+238,HSIC,Henry Schein,Health Care,https://henryschein.wd1.myworkdayjobs.com/External_Careers,workday,Collected,2026-10-16,91,255,Upstream reported snapshot; local completeness unverified.
+239,HSY,Hershey Company (The),Consumer Staples,https://careers.thehersheycompany.com/search/,successfactors,Collected,2026-10-16,213,318,Upstream reported snapshot; local completeness unverified.
+240,HPE,Hewlett Packard Enterprise,Information Technology,https://hpe.wd5.myworkdayjobs.com/Jobsathpe,workday,Collected,2026-10-16,558,1573,Upstream reported snapshot; local completeness unverified.
+241,HLT,Hilton Worldwide,Consumer Discretionary,https://efet.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,945,4460,Upstream reported snapshot; local completeness unverified.
+242,HD,Home Depot (The),Consumer Discretionary,https://careers.homedepot.com,jsonld_sitemap,Collected,2026-10-16,0,25303,Upstream reported snapshot; local completeness unverified.
+243,HONA,Honeywell Aerospace,Industrials,https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs,oracle_hcm,Collected,2026-10-16,255,829,Upstream reported snapshot; local completeness unverified.
+244,HON,Honeywell Technologies,Industrials,https://careers.honeywell.com/en/sites/Honeywell/jobs,oracle_hcm,Collected,2026-10-16,450,1235,Upstream reported snapshot; local completeness unverified.
+245,HRL,Hormel Foods,Consumer Staples,https://ekkh.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2002/jobs,oracle_hcm,Collected,2026-10-16,107,242,Upstream reported snapshot; local completeness unverified.
+246,HST,Host Hotels & Resorts,Real Estate,https://hosthotels.wd5.myworkdayjobs.com/HostHotels,workday,Collected,2026-10-16,0,5,Upstream reported snapshot; local completeness unverified.
+247,HWM,Howmet Aerospace,Industrials,https://fa-exty-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,231,790,Upstream reported snapshot; local completeness unverified.
+248,HPQ,HP Inc.,Information Technology,https://hp.wd5.myworkdayjobs.com/ExternalCareerSite,workday,Collected,2026-10-16,296,839,Upstream reported snapshot; local completeness unverified.
+249,HUBB,Hubbell Incorporated,Industrials,https://careers.hubbell.com/search/,successfactors,Collected,2026-10-16,420,679,Upstream reported snapshot; local completeness unverified.
+250,HUM,Humana,Health Care,https://humana.wd5.myworkdayjobs.com/CenterWell_External_Career_Site,workday,Collected,2026-10-16,633,1813,Upstream reported snapshot; local completeness unverified.
+251,HBAN,Huntington Bancshares,Financials,https://huntington.wd12.myworkdayjobs.com/HNBcareers,workday,Collected,2026-10-16,311,672,Upstream reported snapshot; local completeness unverified.
+252,HII,Huntington Ingalls Industries,Industrials,https://careers.huntingtoningalls.com/search/,successfactors,Collected,2026-10-16,338,425,Upstream reported snapshot; local completeness unverified.
+253,IBM,IBM,Information Technology,https://www.ibm.com/careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+254,IEX,IDEX Corporation,Industrials,https://idexcorp.wd5.myworkdayjobs.com/IDEX_Careers,workday,Collected,2026-10-16,68,227,Upstream reported snapshot; local completeness unverified.
+255,IDXX,Idexx Laboratories,Health Care,https://careers.idexx.com/us/en,jsonld_sitemap,Collected,2026-10-16,80,190,Upstream reported snapshot; local completeness unverified.
+256,ITW,Illinois Tool Works,Industrials,https://itw.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,248,770,Upstream reported snapshot; local completeness unverified.
+257,ILMN,"Illumina, Inc.",Health Care,https://illumina.wd1.myworkdayjobs.com/illumina-careers,workday,Collected,2026-10-16,71,164,Upstream reported snapshot; local completeness unverified.
+258,INCY,Incyte,Health Care,https://careers.incyte.com/jobs,jibe,Collected,2026-10-16,29,126,Upstream reported snapshot; local completeness unverified.
+259,IR,Ingersoll Rand,Industrials,https://careers.irco.com/search/,successfactors,Collected,2026-10-16,174,264,Upstream reported snapshot; local completeness unverified.
+260,PODD,Insulet Corporation,Health Care,https://insulet.wd5.myworkdayjobs.com/insuletcareers,workday,Collected,2026-10-16,102,203,Upstream reported snapshot; local completeness unverified.
+261,IBKR,Interactive Brokers,Financials,https://www.interactivebrokers.com/en/general/about/careers-splash.php,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+262,ICE,Intercontinental Exchange,Financials,https://careers.ice.com/jobs,jibe,Collected,2026-10-16,87,304,Upstream reported snapshot; local completeness unverified.
+263,IFF,International Flavors & Fragrances,Materials,https://iff.wd5.myworkdayjobs.com/IFF_Careers,workday,Collected,2026-10-16,207,396,Upstream reported snapshot; local completeness unverified.
+264,IP,International Paper,Materials,https://iazbqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,203,463,Upstream reported snapshot; local completeness unverified.
+265,INTU,Intuit,Information Technology,https://jobs.intuit.com/,jsonld_sitemap,Collected,2026-10-16,0,589,Upstream reported snapshot; local completeness unverified.
+266,ISRG,Intuitive Surgical,Health Care,https://intuitive.wd1.myworkdayjobs.com/irtc_careers,workday,Collected,2026-10-16,9,33,Upstream reported snapshot; local completeness unverified.
+267,IVZ,Invesco,Financials,https://invesco.wd1.myworkdayjobs.com/IVZ,workday,Collected,2026-10-16,71,235,Upstream reported snapshot; local completeness unverified.
+268,INVH,Invitation Homes,Real Estate,https://invitationhomes.wd503.myworkdayjobs.com/INVH,workday,Collected,2026-10-16,28,60,Upstream reported snapshot; local completeness unverified.
+269,IQV,IQVIA,Health Care,https://iqvia.wd1.myworkdayjobs.com/IQVIA,workday,Collected,2026-10-16,677,1865,Upstream reported snapshot; local completeness unverified.
+270,IRM,Iron Mountain,Real Estate,https://ironmountain.wd5.myworkdayjobs.com/iron-mountain-jobs,workday,Collected,2026-10-16,196,351,Upstream reported snapshot; local completeness unverified.
+271,JBHT,J.B. Hunt,Industrials,https://jbhunt.wd501.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,261,495,Upstream reported snapshot; local completeness unverified.
+272,SJM,J.M. Smucker Company (The),Consumer Staples,https://smucker.wd5.myworkdayjobs.com/US_External_Careers,workday,Collected,2026-10-16,39,123,Upstream reported snapshot; local completeness unverified.
+273,JBL,Jabil,Information Technology,https://jabil.wd5.myworkdayjobs.com/Jabil_Careers,workday,Collected,2026-10-16,677,2000,Upstream reported snapshot; local completeness unverified.
+274,JKHY,Jack Henry & Associates,Financials,https://careers.jackhenry.com,jsonld_sitemap,Collected,2026-10-16,0,84,Upstream reported snapshot; local completeness unverified.
+275,J,Jacobs Solutions,Industrials,https://www.jacobs.com/careers-jacobs,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+276,JCI,Johnson Controls,Industrials,https://jci.wd5.myworkdayjobs.com/JCI,workday,Collected,2026-10-16,905,2679,Upstream reported snapshot; local completeness unverified.
+277,KVUE,Kenvue,Consumer Staples,https://kenvue.wd5.myworkdayjobs.com/kenvue,workday,Collected,2026-10-16,114,159,Upstream reported snapshot; local completeness unverified.
+278,KDP,Keurig Dr Pepper,Consumer Staples,https://careers.keurigdrpepper.com,jsonld_sitemap,Collected,2026-10-16,0,712,Upstream reported snapshot; local completeness unverified.
+279,KEY,KeyCorp,Financials,https://keybank.wd5.myworkdayjobs.com/External_Career_Site,workday,Collected,2026-10-16,236,573,Upstream reported snapshot; local completeness unverified.
+280,KEYS,Keysight Technologies,Information Technology,https://careers.keysight.com,jsonld_sitemap,Collected,2026-10-16,167,716,Upstream reported snapshot; local completeness unverified.
+281,KMB,Kimberly-Clark,Consumer Staples,https://kimberlyclark.wd1.myworkdayjobs.com/GLOBAL,workday,Collected,2026-10-16,87,159,Upstream reported snapshot; local completeness unverified.
+282,KIM,Kimco Realty,Real Estate,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+283,KMI,Kinder Morgan,Energy,https://careers.kindermorgan.com,jsonld_sitemap,Collected,2026-10-16,71,324,Upstream reported snapshot; local completeness unverified.
+284,KKR,KKR & Co.,Financials,https://www.kkr.com/careers/career-opportunities,greenhouse,Collected,2026-10-16,20,130,Upstream reported snapshot; local completeness unverified.
+285,KLAC,KLA Corporation,Information Technology,https://kla.wd1.myworkdayjobs.com/Search,workday,Collected,2026-10-16,291,1085,Upstream reported snapshot; local completeness unverified.
+286,KHC,Kraft Heinz,Consumer Staples,https://jobs.kraftheinz.com/careers,eightfold,Collected,2026-10-16,230,793,Upstream reported snapshot; local completeness unverified.
+287,KR,Kroger,Consumer Staples,https://www.krogerfamilycareers.com/en/sites/CX_2001,oracle_hcm,Collected,2026-10-16,796,11547,Upstream reported snapshot; local completeness unverified.
+288,LHX,L3Harris,Industrials,https://careers.l3harris.com,jsonld_sitemap,Collected,2026-10-16,770,2206,Upstream reported snapshot; local completeness unverified.
+289,LH,Labcorp,Health Care,https://careers.labcorp.com,jsonld_sitemap,Collected,2026-10-16,844,1746,Upstream reported snapshot; local completeness unverified.
+290,LRCX,Lam Research,Information Technology,https://careers.lamresearch.com,jsonld_sitemap,Collected,2026-10-16,309,1387,Upstream reported snapshot; local completeness unverified.
+291,LVS,Las Vegas Sands,Consumer Discretionary,https://sands.wd1.myworkdayjobs.com/sands_careers,workday,Collected,2026-10-16,4,18,Upstream reported snapshot; local completeness unverified.
+292,LDOS,Leidos,Industrials,https://leidos.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,758,2000,Upstream reported snapshot; local completeness unverified.
+293,LEN,Lennar,Consumer Discretionary,https://careers.lennar.com,jsonld_sitemap,Collected,2026-10-16,246,458,Upstream reported snapshot; local completeness unverified.
+294,LII,Lennox International,Industrials,https://globalcareers-lennox.icims.com/jobs/search,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+295,LIN,Linde plc,Materials,https://us.lindecareers.com/en/search-jobs,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+296,LYV,Live Nation Entertainment,Communication Services,https://livenation.wd503.myworkdayjobs.com/LNExternalSite,workday,Collected,2026-10-16,94,1322,Upstream reported snapshot; local completeness unverified.
+297,LMT,Lockheed Martin,Industrials,https://lockheedmartin.eightfold.ai/careers,eightfold,Collected,2026-10-16,800,6225,Upstream reported snapshot; local completeness unverified.
+298,L,Loews Corporation,Financials,https://loewscorp.wd1.myworkdayjobs.com/loewscorp,workday,Collected,2026-10-16,0,2,Upstream reported snapshot; local completeness unverified.
+299,LOW,Lowe's,Consumer Discretionary,https://talent.lowes.com,jsonld_sitemap,Collected,2026-10-16,1207,3806,Upstream reported snapshot; local completeness unverified.
+300,LULU,Lululemon Athletica,Consumer Discretionary,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+301,LITE,Lumentum,Information Technology,https://lumentum.wd5.myworkdayjobs.com/LITE,workday,Collected,2026-10-16,110,275,Upstream reported snapshot; local completeness unverified.
+302,LYB,LyondellBasell,Materials,https://careers.lyondellbasell.com/search/,successfactors,Collected,2026-10-16,124,180,Upstream reported snapshot; local completeness unverified.
+303,MTB,M&T Bank,Financials,https://mtb.wd5.myworkdayjobs.com/MTB,workday,Collected,2026-10-16,306,781,Upstream reported snapshot; local completeness unverified.
+304,MPC,Marathon Petroleum,Energy,https://mpc.wd1.myworkdayjobs.com/MPCCareers,workday,Collected,2026-10-16,89,126,Upstream reported snapshot; local completeness unverified.
+305,MAR,Marriott International,Consumer Discretionary,https://mymvw.wd5.myworkdayjobs.com/MVW,workday,Collected,2026-10-16,242,521,Upstream reported snapshot; local completeness unverified.
+306,MRSH,Marsh McLennan,Financials,https://careers.marsh.com,jsonld_sitemap,Collected,2026-10-16,381,3569,Upstream reported snapshot; local completeness unverified.
+307,MLM,Martin Marietta Materials,Materials,https://jobs.jobvite.com/martinmarietta/jobs,jobvite,Collected,2026-10-16,103,323,Upstream reported snapshot; local completeness unverified.
+308,MRVL,Marvell Technology,Information Technology,https://marvell.wd1.myworkdayjobs.com/MarvellCareers,workday,Collected,2026-10-16,110,324,Upstream reported snapshot; local completeness unverified.
+309,MAS,Masco,Industrials,https://jobs.masco.com,jsonld_sitemap,Collected,2026-10-16,40,156,Upstream reported snapshot; local completeness unverified.
+310,MKC,McCormick & Company,Consumer Staples,https://careers.mccormick.com/search/,successfactors,Collected,2026-10-16,142,227,Upstream reported snapshot; local completeness unverified.
+311,MCD,McDonald's,Consumer Discretionary,https://jobs.mcdonalds.com/search/,successfactors,Collected,2026-10-16,123,197,Upstream reported snapshot; local completeness unverified.
+312,MCK,McKesson,Health Care,https://careers.mckesson.com,jsonld_sitemap,Collected,2026-10-16,241,654,Upstream reported snapshot; local completeness unverified.
+313,MDT,Medtronic,Health Care,https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers,workday,Collected,2026-10-16,682,1082,Upstream reported snapshot; local completeness unverified.
+314,MRK,Merck & Co.,Health Care,https://msd.wd5.myworkdayjobs.com/SearchJobs,workday,Collected,2026-10-16,713,978,Upstream reported snapshot; local completeness unverified.
+315,MET,MetLife,Financials,https://www.metlifecareers.com/en_US/ml,avature,Blocked by site,2026-10-16,0,419,Upstream reported snapshot; local completeness unverified.
+316,MTD,Mettler Toledo,Health Care,https://careers.mt.com/en_US/careers,jsonld_sitemap,Blocked by site,2026-10-16,0,548,Upstream reported snapshot; local completeness unverified.
+317,MGM,MGM Resorts,Consumer Discretionary,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+318,MCHP,Microchip Technology,Information Technology,https://wd5.myworkdaysite.com/recruiting/microchiphr/External,workday,Collected,2026-10-16,149,527,Upstream reported snapshot; local completeness unverified.
+319,MAA,Mid-America Apartment Communities,Real Estate,https://careers.maac.com,jsonld_sitemap,Collected,2026-10-16,57,269,Upstream reported snapshot; local completeness unverified.
+320,MRNA,Moderna,Health Care,https://modernatx.wd1.myworkdayjobs.com/M_tx,workday,Collected,2026-10-16,107,269,Upstream reported snapshot; local completeness unverified.
+321,MDLZ,Mondelez International,Consumer Staples,https://mdlz.wd3.myworkdayjobs.com/External,workday,Collected,2026-10-16,704,1367,Upstream reported snapshot; local completeness unverified.
+322,MPWR,Monolithic Power Systems,Information Technology,https://monolithicpower.wd12.myworkdayjobs.com/MPS_Careers,workday,Collected,2026-10-16,21,237,Upstream reported snapshot; local completeness unverified.
+323,MNST,Monster Beverage,Consumer Staples,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+324,MCO,Moody's Corporation,Financials,https://careers.moodys.com,jsonld_sitemap,Collected,2026-10-16,0,351,Upstream reported snapshot; local completeness unverified.
+325,MS,Morgan Stanley,Financials,https://ms.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,396,1264,Upstream reported snapshot; local completeness unverified.
+326,MOS,Mosaic Company (The),Materials,https://mosaic.wd5.myworkdayjobs.com/mosaic,workday,Collected,2026-10-16,45,107,Upstream reported snapshot; local completeness unverified.
+327,MSI,Motorola Solutions,Information Technology,https://motorolasolutions.wd5.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,289,915,Upstream reported snapshot; local completeness unverified.
+328,MSCI,MSCI,Financials,https://careers.msci.com,jsonld_sitemap,Collected,2026-10-16,110,134,Upstream reported snapshot; local completeness unverified.
+329,NDAQ,"Nasdaq, Inc.",Financials,https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site,workday,Collected,2026-10-16,57,164,Upstream reported snapshot; local completeness unverified.
+330,NTAP,NetApp,Information Technology,https://careers.netapp.com,jsonld_sitemap,Collected,2026-10-16,0,303,Upstream reported snapshot; local completeness unverified.
+331,NFLX,Netflix,Communication Services,https://netflix.wd108.myworkdayjobs.com/Netflix,workday,Collected,2026-10-16,149,571,Upstream reported snapshot; local completeness unverified.
+332,NEM,Newmont,Materials,https://jobs.newmont.com,jsonld_sitemap,Collected,2026-10-16,83,322,Upstream reported snapshot; local completeness unverified.
+333,NWSA,News Corp(Class A),Communication Services,https://careers.newscorp.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+334,NEE,NextEra Energy,Utilities,https://jobs.nexteraenergy.com/search/,successfactors,Collected,2026-10-16,160,281,Upstream reported snapshot; local completeness unverified.
+335,NKE,"Nike, Inc.",Consumer Discretionary,https://nike.wd1.myworkdayjobs.com/nke,workday,Collected,2026-10-16,343,831,Upstream reported snapshot; local completeness unverified.
+336,NI,NiSource,Utilities,https://nisource.wd1.myworkdayjobs.com/NiSource,workday,Collected,2026-10-16,31,44,Upstream reported snapshot; local completeness unverified.
+337,NDSN,Nordson Corporation,Industrials,https://nordsonhcm.wd501.myworkdayjobs.com/nordsoncareers,workday,Collected,2026-10-16,85,230,Upstream reported snapshot; local completeness unverified.
+338,NSC,Norfolk Southern,Industrials,https://jobs.nscorp.com/search/,successfactors,Collected,2026-10-16,65,,Upstream reported snapshot; local completeness unverified.
+339,NTRS,Northern Trust,Financials,https://ntrs.wd1.myworkdayjobs.com/northerntrust,workday,Collected,2026-10-16,234,606,Upstream reported snapshot; local completeness unverified.
+340,NOC,Northrop Grumman,Industrials,https://jobs.northropgrumman.com/careers,eightfold,Collected,2026-10-16,786,3808,Upstream reported snapshot; local completeness unverified.
+341,NCLH,Norwegian Cruise Line Holdings,Consumer Discretionary,https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FNCLHCareersShipboard%2F,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+342,NRG,NRG Energy,Utilities,https://careers.nrgenergy.com/search/,successfactors,Collected,2026-10-16,148,227,Upstream reported snapshot; local completeness unverified.
+343,NUE,Nucor,Materials,https://jobs.nucor.com/search/,successfactors,Collected,2026-10-16,227,333,Upstream reported snapshot; local completeness unverified.
+344,NVR,"NVR, Inc.",Consumer Discretionary,https://phg.tbe.taleo.net/phg01/ats/careers/v2/jobSearch?org=NVRINC&cws=52,taleo_be,Collected,2026-10-16,107,217,Upstream reported snapshot; local completeness unverified.
+345,NXPI,NXP Semiconductors,Information Technology,https://nxp.wd3.myworkdayjobs.com/careers,workday,Collected,2026-10-16,185,811,Upstream reported snapshot; local completeness unverified.
+346,ORLY,O'Reilly Automotive,Consumer Discretionary,https://careers.oreillyauto.com,jsonld_sitemap,Collected,2026-10-16,897,14933,Upstream reported snapshot; local completeness unverified.
+347,OXY,Occidental Petroleum,Energy,https://oxy.wd5.myworkdayjobs.com/Corporate,workday,Collected,2026-10-16,8,48,Upstream reported snapshot; local completeness unverified.
+348,ODFL,Old Dominion,Industrials,https://odfl.wd1.myworkdayjobs.com/ODFL_Careers,workday,Collected,2026-10-16,96,225,Upstream reported snapshot; local completeness unverified.
+349,OMC,Omnicom Group,Communication Services,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+350,ON,ON Semiconductor,Information Technology,https://hctz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001,oracle_hcm,Collected,2026-10-16,155,695,Upstream reported snapshot; local completeness unverified.
+351,OKE,Oneok,Energy,https://oneok.wd1.myworkdayjobs.com/ONEOK,workday,Collected,2026-10-16,54,87,Upstream reported snapshot; local completeness unverified.
+352,ORCL,Oracle Corporation,Information Technology,https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/jobs,oracle_hcm,Collected,2026-10-16,656,2363,Upstream reported snapshot; local completeness unverified.
+353,OTIS,Otis Worldwide,Industrials,https://otis.wd504.myworkdayjobs.com/REC_Ext_Gateway,workday,Collected,2026-10-16,434,1381,Upstream reported snapshot; local completeness unverified.
+354,PCAR,Paccar,Industrials,https://jobs.paccar.com/search/,successfactors,Collected,2026-10-16,143,220,Upstream reported snapshot; local completeness unverified.
+355,PKG,Packaging Corporation of America,Materials,https://careers.packagingcorp.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+356,PLTR,Palantir Technologies,Information Technology,https://www.palantir.com/careers,lever,Collected,2026-10-16,7,310,Upstream reported snapshot; local completeness unverified.
+357,PANW,Palo Alto Networks,Information Technology,https://paloaltonetworks.wd5.myworkdayjobs.com/panwexternalcareers,workday,Collected,2026-10-16,318,1431,Upstream reported snapshot; local completeness unverified.
+358,PH,Parker Hannifin,Industrials,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+359,PAYX,Paychex,Industrials,https://careers.paychex.com,jsonld_sitemap,Collected,2026-10-16,168,489,Upstream reported snapshot; local completeness unverified.
+360,PYPL,PayPal,Financials,https://paypal.wd1.myworkdayjobs.com/jobs,workday,Collected,2026-10-16,137,336,Upstream reported snapshot; local completeness unverified.
+361,PNR,Pentair,Industrials,https://careers.pentair.com,jsonld_sitemap,Collected,2026-10-16,79,420,Upstream reported snapshot; local completeness unverified.
+362,PEP,PepsiCo,Consumer Staples,https://www.pepsicojobs.com,jsonld_sitemap,Collected,2026-10-16,894,2779,Upstream reported snapshot; local completeness unverified.
+363,PFE,Pfizer,Health Care,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers,workday,Collected,2026-10-16,349,583,Upstream reported snapshot; local completeness unverified.
+364,PCG,PG&E Corporation,Utilities,https://careers.pge.com/search/,successfactors,Collected,2026-10-16,150,165,Upstream reported snapshot; local completeness unverified.
+365,PM,Philip Morris International,Consumer Staples,https://join.pmicareers.com/,jsonld_sitemap,Collected,2026-10-16,751,754,Upstream reported snapshot; local completeness unverified.
+366,PSX,Phillips 66,Energy,https://careers.phillips66.com/search/,successfactors,Collected,2026-10-16,69,86,Upstream reported snapshot; local completeness unverified.
+367,PNW,Pinnacle West Capital,Utilities,https://careers.aps.com/search/,successfactors,Collected,2026-10-16,52,86,Upstream reported snapshot; local completeness unverified.
+368,PNC,PNC Financial Services,Financials,https://pnc.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,790,2000,Upstream reported snapshot; local completeness unverified.
+369,PPG,PPG Industries,Materials,https://ppg.wd5.myworkdayjobs.com/PPG_CAREERS,workday,Collected,2026-10-16,224,674,Upstream reported snapshot; local completeness unverified.
+370,PPL,PPL Corporation,Utilities,https://careers-pplweb.icims.com/jobs/intro,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+371,PFG,Principal Financial Group,Financials,https://careers.principal.com/careers-home/jobs,jibe,Collected,2026-10-16,72,155,Upstream reported snapshot; local completeness unverified.
+372,PG,Procter & Gamble,Consumer Staples,https://pg.wd5.myworkdayjobs.com/1000,workday,Collected,2026-10-16,305,848,Upstream reported snapshot; local completeness unverified.
+373,PGR,Progressive Corporation,Financials,https://careers.progressive.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+374,PLD,Prologis,Real Estate,https://prologis.wd5.myworkdayjobs.com/Prologis_External_Careers,workday,Collected,2026-10-16,52,96,Upstream reported snapshot; local completeness unverified.
+375,PRU,Prudential Financial,Financials,https://prudential.wd3.myworkdayjobs.com/prudential,workday,Collected,2026-10-16,100,424,Upstream reported snapshot; local completeness unverified.
+376,PTC,PTC Inc.,Information Technology,https://ptc.wd1.myworkdayjobs.com/PTC,workday,Collected,2026-10-16,56,177,Upstream reported snapshot; local completeness unverified.
+377,PEG,Public Service Enterprise Group,Utilities,https://jobs.pseg.com/search/,successfactors,Collected,2026-10-16,23,,Upstream reported snapshot; local completeness unverified.
+378,PSA,Public Storage,Real Estate,https://www.publicstoragejobs.com,jsonld_sitemap,Collected,2026-10-16,579,596,Upstream reported snapshot; local completeness unverified.
+379,PHM,PulteGroup,Consumer Discretionary,https://pultegroup.wd1.myworkdayjobs.com/PGI,workday,Collected,2026-10-16,40,136,Upstream reported snapshot; local completeness unverified.
+380,Q,Qnity Electronics,Information Technology,https://careers.qnityelectronics.com,jsonld_sitemap,Collected,2026-10-16,123,1299,Upstream reported snapshot; local completeness unverified.
+381,QCOM,Qualcomm,Information Technology,https://careers.qualcomm.com,jsonld_sitemap,Collected,2026-10-16,296,2098,Upstream reported snapshot; local completeness unverified.
+382,PWR,Quanta Services,Industrials,https://careers-quanta.icims.com/jobs/intro?hashed=-435625279,icims,Collected,2026-10-16,89,537,Upstream reported snapshot; local completeness unverified.
+383,DGX,Quest Diagnostics,Health Care,https://hdox.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,854,2171,Upstream reported snapshot; local completeness unverified.
+384,RL,Ralph Lauren Corporation,Consumer Discretionary,https://www.ralphlauren.com/careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+385,RJF,Raymond James Financial,Financials,https://raymondjames.wd1.myworkdayjobs.com/RaymondJamesCareers,workday,Collected,2026-10-16,115,320,Upstream reported snapshot; local completeness unverified.
+386,O,Realty Income,Real Estate,https://realtyincome.wd108.myworkdayjobs.com/realty_income_careers,workday,Collected,2026-10-16,11,18,Upstream reported snapshot; local completeness unverified.
+387,RDDT,Reddit,Communication Services,https://www.redditinc.com/careers,greenhouse,Collected,2026-10-16,22,149,Upstream reported snapshot; local completeness unverified.
+388,REG,Regency Centers,Real Estate,https://www.regencycenters.com/regency/careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+389,REGN,Regeneron Pharmaceuticals,Health Care,https://regeneron.wd1.myworkdayjobs.com/Careers,workday,Collected,2026-10-16,283,588,Upstream reported snapshot; local completeness unverified.
+390,RF,Regions Financial Corporation,Financials,https://careers.regions.com,jsonld_sitemap,Collected,2026-10-16,311,473,Upstream reported snapshot; local completeness unverified.
+391,RSG,Republic Services,Industrials,https://jobs.republicservices.com,jsonld_sitemap,Collected,2026-10-16,851,1614,Upstream reported snapshot; local completeness unverified.
+392,RMD,ResMed|,Health Care,https://resmed.wd3.myworkdayjobs.com/Resmed_External_Careers,workday,Collected,2026-10-16,89,268,Upstream reported snapshot; local completeness unverified.
+393,RVTY,Revvity,Health Care,https://revvity.wd103.myworkdayjobs.com/External,workday,Collected,2026-10-16,52,132,Upstream reported snapshot; local completeness unverified.
+394,HOOD,Robinhood Markets,Financials,https://careers.robinhood.com/,greenhouse,Collected,2026-10-16,30,152,Upstream reported snapshot; local completeness unverified.
+395,ROK,Rockwell Automation,Industrials,https://rockwellautomation.wd1.myworkdayjobs.com/External_Rockwell_Automation,workday,Collected,2026-10-16,212,406,Upstream reported snapshot; local completeness unverified.
+396,ROL,"Rollins, Inc.",Industrials,https://careers.rollins.com/careers-home/jobs,jibe,Collected,2026-10-16,297,1256,Upstream reported snapshot; local completeness unverified.
+397,ROP,Roper Technologies,Information Technology,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+398,ROST,Ross Stores,Consumer Discretionary,https://jobs.rossstores.com/,jsonld_sitemap,Collected,2026-10-16,103,7161,Upstream reported snapshot; local completeness unverified.
+399,RCL,Royal Caribbean Group,Consumer Discretionary,https://jobs.royalcaribbeangroup.com/search/,successfactors,Collected,2026-10-16,137,253,Upstream reported snapshot; local completeness unverified.
+400,RTX,RTX Corporation,Industrials,https://globalhr.wd5.myworkdayjobs.com/REC_RTX_Ext_Gateway,workday,Collected,2026-10-16,926,4899,Upstream reported snapshot; local completeness unverified.
+401,SPGI,S&P Global,Financials,https://spgi.wd5.myworkdayjobs.com/SPGI_Careers,workday,Collected,2026-10-16,148,287,Upstream reported snapshot; local completeness unverified.
+402,CRM,Salesforce,Information Technology,https://salesforce.wd12.myworkdayjobs.com/External_Career_Site,workday,Collected,2026-10-16,710,1570,Upstream reported snapshot; local completeness unverified.
+403,SNDK,Sandisk,Information Technology,https://www.sandisk.com/careers/jobs-at-sandisk,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+404,SBAC,SBA Communications,Real Estate,https://sbasite.wd5.myworkdayjobs.com/SBA_Communications_Careers,workday,Collected,2026-10-16,24,48,Upstream reported snapshot; local completeness unverified.
+405,SLB,Schlumberger,Energy,https://careers.slb.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+406,STX,Seagate Technology,Information Technology,https://seagatecareers.com/search/,successfactors,Collected,2026-10-16,100,285,Upstream reported snapshot; local completeness unverified.
+407,SRE,Sempra,Utilities,https://sempra.com/careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+408,NOW,ServiceNow,Information Technology,https://careers.smartrecruiters.com/ServiceNow,smartrecruiters_site,Collected,2026-10-16,294,695,Upstream reported snapshot; local completeness unverified.
+409,SHW,Sherwin-Williams,Materials,https://ejhp.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs,oracle_hcm,Collected,2026-10-16,916,2334,Upstream reported snapshot; local completeness unverified.
+410,SPG,Simon Property Group,Real Estate,https://signetjewelers.wd1.myworkdayjobs.com/signetjeweleryretailsales,workday,Collected,2026-10-16,829,1582,Upstream reported snapshot; local completeness unverified.
+411,SKYD,Skydance Corporation,Communication Services,https://careers.paramount.com/search/,successfactors,Collected,2026-10-16,161,,Upstream reported snapshot; local completeness unverified.
+412,SWKS,Skyworks Solutions,Information Technology,https://careers.skyworksinc.com/search/,successfactors,Collected,2026-10-16,73,371,Upstream reported snapshot; local completeness unverified.
+413,SW,Smurfit Westrock,Materials,https://westrockta.avature.net/en_US/careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+414,SNA,Snap-on,Industrials,https://careers-snapon.icims.com/jobs/search,icims,Collected,2026-10-16,55,204,Upstream reported snapshot; local completeness unverified.
+415,SOLV,Solventum,Health Care,https://healthcare.wd1.myworkdayjobs.com/Search,workday,Collected,2026-10-16,127,429,Upstream reported snapshot; local completeness unverified.
+416,SO,Southern Company,Utilities,https://southerncompany.jobs/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+417,LUV,Southwest Airlines,Industrials,https://swa.wd1.myworkdayjobs.com/external,workday,Collected,2026-10-16,48,53,Upstream reported snapshot; local completeness unverified.
+418,SWK,Stanley Black & Decker,Industrials,https://sbdinc.wd1.myworkdayjobs.com/Stanley_Black_Decker_Career_Site,workday,Collected,2026-10-16,268,643,Upstream reported snapshot; local completeness unverified.
+419,SBUX,Starbucks,Consumer Discretionary,https://apply.starbucks.com/careers,eightfold,Collected,2026-10-16,800,21638,Upstream reported snapshot; local completeness unverified.
+420,STT,State Street Corporation,Financials,https://statestreet.wd1.myworkdayjobs.com/Global,workday,Collected,2026-10-16,764,1276,Upstream reported snapshot; local completeness unverified.
+421,STLD,Steel Dynamics,Materials,https://www.steeldynamics.com/careersnew/,icims,Collected,2026-10-16,32,415,Upstream reported snapshot; local completeness unverified.
+422,STE,Steris,Health Care,https://careers.steris.com,jsonld_sitemap,Collected,2026-10-16,295,2064,Upstream reported snapshot; local completeness unverified.
+423,SYK,Stryker Corporation,Health Care,https://stryker.wd1.myworkdayjobs.com/StrykerCareers,workday,Collected,2026-10-16,548,1485,Upstream reported snapshot; local completeness unverified.
+424,SMCI,Supermicro,Information Technology,https://jobs.supermicro.com/search/,successfactors,Collected,2026-10-16,593,1034,Upstream reported snapshot; local completeness unverified.
+425,SYF,Synchrony Financial,Financials,https://www.synchronycareers.com,jsonld_sitemap,Collected,2026-10-16,0,43,Upstream reported snapshot; local completeness unverified.
+426,SNPS,Synopsys,Information Technology,https://careers.synopsys.com,jsonld_sitemap,Collected,2026-10-16,14,631,Upstream reported snapshot; local completeness unverified.
+427,SYY,Sysco,Consumer Staples,https://careers.sysco.com,jsonld_sitemap,Collected,2026-10-16,450,1484,Upstream reported snapshot; local completeness unverified.
+428,TMUS,T-Mobile US,Communication Services,https://tmobile.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,936,2000,Upstream reported snapshot; local completeness unverified.
+429,TROW,T. Rowe Price,Financials,https://troweprice.wd5.myworkdayjobs.com/TRowePrice,workday,Collected,2026-10-16,50,134,Upstream reported snapshot; local completeness unverified.
+430,TTWO,Take-Two Interactive,Communication Services,https://careers.take2games.com/,greenhouse,Collected,2026-10-16,6,34,Upstream reported snapshot; local completeness unverified.
+431,TPR,"Tapestry, Inc.",Consumer Discretionary,https://tapestry.wd108.myworkdayjobs.com/Tapestry_Careers,workday,Collected,2026-10-16,840,2000,Upstream reported snapshot; local completeness unverified.
+432,TRGP,Targa Resources,Energy,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+433,TGT,Target Corporation,Consumer Staples,https://target.wd5.myworkdayjobs.com/targetcareers,workday,Collected,2026-10-16,868,2000,Upstream reported snapshot; local completeness unverified.
+434,TEL,TE Connectivity,Information Technology,https://careers.te.com/search/,successfactors,Collected,2026-10-16,332,2264,Upstream reported snapshot; local completeness unverified.
+435,TDY,Teledyne Technologies,Information Technology,https://flir.wd1.myworkdayjobs.com/flircareers,workday,Collected,2026-10-16,201,740,Upstream reported snapshot; local completeness unverified.
+436,TER,Teradyne,Information Technology,https://jobs.teradyne.com/search/,successfactors,Collected,2026-10-16,360,545,Upstream reported snapshot; local completeness unverified.
+437,TXN,Texas Instruments,Information Technology,https://careers.ti.com/en/sites/CX,oracle_hcm,Collected,2026-10-16,159,853,Upstream reported snapshot; local completeness unverified.
+438,TPL,Texas Pacific Land Corporation,Energy,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+439,TXT,Textron,Industrials,https://textron.taleo.net/careersection/textron/jobsearch.ftl?lang=en,taleo,Collected,2026-10-16,123,722,Upstream reported snapshot; local completeness unverified.
+440,TMO,Thermo Fisher Scientific,Health Care,https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers,workday,Collected,2026-10-16,1002,3001,Upstream reported snapshot; local completeness unverified.
+441,TJX,TJX Companies,Consumer Discretionary,https://jobs.tjx.com,jsonld_sitemap,Collected,2026-10-16,860,26215,Upstream reported snapshot; local completeness unverified.
+442,TKO,TKO Group Holdings,Communication Services,https://wwecorp.wd5.myworkdayjobs.com/TKO,workday,Collected,2026-10-16,21,72,Upstream reported snapshot; local completeness unverified.
+443,TSCO,Tractor Supply,Consumer Discretionary,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+444,TT,Trane Technologies,Industrials,https://careers.tranetechnologies.com,jsonld_sitemap,Collected,2026-10-16,218,4892,Upstream reported snapshot; local completeness unverified.
+445,TDG,TransDigm Group,Industrials,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+446,TRV,Travelers Companies (The),Financials,https://travelers.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,182,405,Upstream reported snapshot; local completeness unverified.
+447,TRMB,Trimble Inc.,Information Technology,https://trimble.wd1.myworkdayjobs.com/TrimbleCareers,workday,Collected,2026-10-16,83,200,Upstream reported snapshot; local completeness unverified.
+448,TFC,Truist Financial,Financials,https://careers.truist.com,jsonld_sitemap,Collected,2026-10-16,784,1503,Upstream reported snapshot; local completeness unverified.
+449,TWLO,Twilio,Information Technology,https://jobs.twilio.com/careers,eightfold,Collected,2026-10-16,30,132,Upstream reported snapshot; local completeness unverified.
+450,TYL,Tyler Technologies,Information Technology,https://jobs.jobvite.com/tylertech/jobs,jobvite,Collected,2026-10-16,79,266,Upstream reported snapshot; local completeness unverified.
+451,TSN,Tyson Foods,Consumer Staples,https://tysonfoods.wd5.myworkdayjobs.com/TSN,workday,Collected,2026-10-16,676,725,Upstream reported snapshot; local completeness unverified.
+452,USB,U.S. Bancorp,Financials,https://careers.usbank.com,jsonld_sitemap,Collected,2026-10-16,716,1281,Upstream reported snapshot; local completeness unverified.
+453,UBER,Uber,Industrials,https://www.uber.com/us/en/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+454,UDR,"UDR, Inc.",Real Estate,https://www.udr.com/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+455,ULTA,Ulta Beauty,Consumer Discretionary,https://careers.ulta.com,jsonld_sitemap,Collected,2026-10-16,878,12314,Upstream reported snapshot; local completeness unverified.
+456,UNP,Union Pacific Corporation,Industrials,https://up.jobs/search/,successfactors,Collected,2026-10-16,70,90,Upstream reported snapshot; local completeness unverified.
+457,UAL,United Airlines Holdings,Industrials,https://careers.united.com,jsonld_sitemap,Collected,2026-10-16,139,147,Upstream reported snapshot; local completeness unverified.
+458,UPS,United Parcel Service,Industrials,https://www.jobs-ups.com/us/en,jsonld_sitemap,Collected,2026-10-16,770,1829,Upstream reported snapshot; local completeness unverified.
+459,URI,United Rentals,Industrials,https://ur.wd1.myworkdayjobs.com/URcareers,workday,Collected,2026-10-16,416,1295,Upstream reported snapshot; local completeness unverified.
+460,UNH,UnitedHealth Group,Health Care,https://careers.unitedhealthgroup.com/,jsonld_sitemap,Collected,2026-10-16,1,5620,Upstream reported snapshot; local completeness unverified.
+461,UHS,Universal Health Services,Health Care,https://jobs.uhs.com,jsonld_sitemap,Collected,2026-10-16,926,6622,Upstream reported snapshot; local completeness unverified.
+462,VLO,Valero Energy,Energy,https://valero.taleo.net/careersection/2/jobsearch.ftl?lang=en,taleo,Collected,2026-10-16,13,40,Upstream reported snapshot; local completeness unverified.
+463,VEEV,Veeva Systems,Health Care,https://careers.veeva.com/job-search-results/,lever,Collected,2026-10-16,70,938,Upstream reported snapshot; local completeness unverified.
+464,VTR,Ventas,Real Estate,https://ventas.wd503.myworkdayjobs.com/ventas_careers,workday,Collected,2026-10-16,2,7,Upstream reported snapshot; local completeness unverified.
+465,VLTO,Veralto,Industrials,https://jobs.veralto.com,jsonld_sitemap,Collected,2026-10-16,161,852,Upstream reported snapshot; local completeness unverified.
+466,VRSN,Verisign,Information Technology,https://www.verisign.com/careers/,greenhouse,Collected,2026-10-16,2,18,Upstream reported snapshot; local completeness unverified.
+467,VRSK,Verisk Analytics,Industrials,https://fa-ewmy-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,70,158,Upstream reported snapshot; local completeness unverified.
+468,VZ,Verizon,Communication Services,https://mycareer.verizon.com/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+469,VRTX,Vertex Pharmaceuticals,Health Care,https://vrtx.wd501.myworkdayjobs.com/Vertex_Careers,workday,Collected,2026-10-16,94,302,Upstream reported snapshot; local completeness unverified.
+470,VRT,Vertiv,Industrials,https://egup.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs,oracle_hcm,Collected,2026-10-16,649,2326,Upstream reported snapshot; local completeness unverified.
+471,VTRS,Viatris,Health Care,https://viatris.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,86,356,Upstream reported snapshot; local completeness unverified.
+472,VICI,Vici Properties,Real Estate,https://viciproperties.com/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+473,VST,Vistra Corp.,Utilities,https://vst.wd5.myworkdayjobs.com/vistra_careers,workday,Collected,2026-10-16,43,152,Upstream reported snapshot; local completeness unverified.
+474,VMRK,Vivmark Residential,Real Estate,,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+475,VMC,Vulcan Materials Company,Materials,https://careers.vulcanmaterials.com/hcmUI/CandidateExperience/en/sites/careers/jobs,oracle_hcm,Collected,2026-10-16,109,343,Upstream reported snapshot; local completeness unverified.
+476,VYLR,Vylor,Consumer Staples,https://corteva.wd5.myworkdayjobs.com/Corteva,workday,Collected,2026-10-16,31,77,Upstream reported snapshot; local completeness unverified.
+477,WRB,W. R. Berkley Corporation,Financials,https://careers-berkley.icims.com/jobs/intro,icims,Collected,2026-10-16,87,220,Upstream reported snapshot; local completeness unverified.
+478,GWW,W. W. Grainger,Industrials,https://jobs.grainger.com/search/,successfactors,Collected,2026-10-16,245,339,Upstream reported snapshot; local completeness unverified.
+479,WAB,Wabtec,Industrials,https://careers.wabtec.com,jsonld_sitemap,Collected,2026-10-16,291,750,Upstream reported snapshot; local completeness unverified.
+480,DIS,Walt Disney Company (The),Communication Services,https://www.disneycareers.com/en/,talentbrew,Collected,2026-10-16,423,700,Upstream reported snapshot; local completeness unverified.
+481,WM,Waste Management,Industrials,https://emcm.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/WMCareers/jobs,oracle_hcm,Collected,2026-10-16,523,1194,Upstream reported snapshot; local completeness unverified.
+482,WAT,Waters Corporation,Health Care,https://uscareers-waters.icims.com/jobs/search,icims,Collected,2026-10-16,35,168,Upstream reported snapshot; local completeness unverified.
+483,WEC,WEC Energy Group,Utilities,https://careers.wecenergygroup.com/search/,successfactors,Collected,2026-10-16,70,,Upstream reported snapshot; local completeness unverified.
+484,WFC,Wells Fargo,Financials,https://wd1.myworkdaysite.com/recruiting/wf/WellsFargoJobs,workday,Collected,2026-10-16,796,1573,Upstream reported snapshot; local completeness unverified.
+485,WELL,Welltower,Real Estate,https://welltower.com/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+486,WST,West Pharmaceutical Services,Health Care,https://careers.westpharma.com/search/,successfactors,Collected,2026-10-16,159,270,Upstream reported snapshot; local completeness unverified.
+487,WDC,Western Digital,Information Technology,https://careers.smartrecruiters.com/WesternDigital,smartrecruiters_site,Collected,2026-10-16,101,333,Upstream reported snapshot; local completeness unverified.
+488,WY,Weyerhaeuser,Real Estate,https://www.weyerhaeuser.com/careers/,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+489,WMB,Williams Companies,Energy,https://williams.wd5.myworkdayjobs.com/External,workday,Collected,2026-10-16,66,102,Upstream reported snapshot; local completeness unverified.
+490,WSM,"Williams-Sonoma, Inc.",Consumer Discretionary,https://ehac.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs,oracle_hcm,Collected,2026-10-16,150,1541,Upstream reported snapshot; local completeness unverified.
+491,WTW,Willis Towers Watson,Financials,https://careers.wtwco.com,jsonld_sitemap,Collected,2026-10-16,182,674,Upstream reported snapshot; local completeness unverified.
+492,WDAY,"Workday, Inc.",Information Technology,https://workday.wd5.myworkdayjobs.com/Workday,workday,Collected,2026-10-16,197,392,Upstream reported snapshot; local completeness unverified.
+493,WYNN,Wynn Resorts,Consumer Discretionary,https://www.wynnresorts.com/careers,none,Not collected yet,2026-10-16,0,,Upstream reported snapshot; local completeness unverified.
+494,XEL,Xcel Energy,Utilities,https://xcelenergy.wd1.myworkdayjobs.com/External,workday,Collected,2026-10-16,134,199,Upstream reported snapshot; local completeness unverified.
+495,XYL,Xylem Inc.,Industrials,https://xylem.wd5.myworkdayjobs.com/xylem-careers,workday,Collected,2026-10-16,145,476,Upstream reported snapshot; local completeness unverified.
+496,YUM,Yum! Brands,Consumer Discretionary,https://jobs.yum.com/,oracle_hcm,Collected,2026-10-16,35,155,Upstream reported snapshot; local completeness unverified.
+497,ZBRA,Zebra Technologies,Information Technology,https://zebra.wd501.myworkdayjobs.com/Zebra_careers,workday,Collected,2026-10-16,100,236,Upstream reported snapshot; local completeness unverified.
+498,ZBH,Zimmer Biomet,Health Care,https://careers.zimmerbiomet.com,jsonld_sitemap,Collected,2026-10-16,268,1286,Upstream reported snapshot; local completeness unverified.
+499,ZTS,Zoetis,Health Care,https://zoetis.wd5.myworkdayjobs.com/zoetis,workday,Collected,2026-10-16,88,127,Upstream reported snapshot; local completeness unverified.

@@ -27,6 +27,9 @@ import { migrateHistory } from "../scripts/migrate-history.mjs";
 const seed = JSON.parse(
   await readFile(new URL("../store/local-seed.json", import.meta.url), "utf8"),
 );
+const metrics = JSON.parse(
+  await readFile(new URL("./fixtures/release-metrics.json", import.meta.url), "utf8"),
+);
 function row(overrides = {}) {
   return {
     ...Object.fromEntries(POSTING_HEADERS.map((k) => [k, ""])),
@@ -184,13 +187,8 @@ test("private history migration refuses public/deployment output paths", async (
 });
 test("committed store hashes/counts and native SQL match release populations and pay", async () => {
   const release = await verifyStore();
-  assert.deepEqual(release.counts, {
-    combined: 86190,
-    upstream: 86144,
-    local: 92,
-    overlap: 46,
-    rejected: 0,
-  });
+  assert.equal(release.datasetVersion, metrics.datasetVersion);
+  assert.deepEqual(release.counts, metrics.counts);
   const db = await DuckDBInstance.create(":memory:");
   const c = await db.connect();
   try {
@@ -203,13 +201,17 @@ test("committed store hashes/counts and native SQL match release populations and
     for (const r of rows) {
       assert.equal(r.n, release.counts[r.mode]);
       assert.equal(r.ids, r.n);
-      assert.equal(r.pay, release.eligiblePayByMode[r.mode]);
+      assert.equal(r.pay, metrics.populations[r.mode].eligibleUsd);
     }
-    assert.deepEqual(release.eligiblePayByMode, {
-      combined: 28246,
-      upstream: 28246,
-      local: 3,
-    });
+    assert.deepEqual(
+      release.eligiblePayByMode,
+      Object.fromEntries(
+        Object.entries(metrics.populations).map(([mode, population]) => [
+          mode,
+          population.eligibleUsd,
+        ]),
+      ),
+    );
   } finally {
     c.closeSync();
     db.closeSync();

@@ -1,0 +1,129 @@
+{
+  "commit": "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+  "sourceAsOf": "2026-10-16T22:26:25Z",
+  "sourceDatasetVersion": "780cab2f81ea83caf7f267bf7435d39eee7bdd8eaf4c8d9e8bcb64fde8c9559b",
+  "datasetVersion": "2a8dae031624f082dbaff7540e2dd92ce3643562f6835e6151d386f018831960",
+  "counts": {
+    "combined": 114968,
+    "upstream": 114932,
+    "local": 92,
+    "overlap": 56,
+    "rejected": 0
+  },
+  "eligiblePayByMode": {
+    "combined": 37153,
+    "upstream": 37153,
+    "local": 3
+  },
+  "audit": {
+    "postings": 114932,
+    "postingCompanies": 412,
+    "sourceCompanies": 499,
+    "rejectedRows": 0,
+    "typedSharedFieldMismatches": 0,
+    "statuses": {
+      "Open": 110606,
+      "Closed": 4326
+    },
+    "local": {
+      "postings": 92,
+      "companies": 7,
+      "overlap": 56,
+      "prospectiveCombined": 114968,
+      "prospectiveCombinedCompanies": 413
+    },
+    "nativePayCurrencyCounts": {
+      "USD": 37567,
+      "unknown": 1464,
+      "CAD": 176,
+      "EUR": 45
+    },
+    "payMeaning": "Native reported currency with two bounds; these are not validated USD eligibility counts. CSV dollar signs alone do not establish USD.",
+    "sourceCountDiscrepancies": 0
+  },
+  "representedEmployers": {
+    "combined": 413,
+    "upstream": 412,
+    "local": 7
+  },
+  "defaultOpen": {
+    "combined": 110642,
+    "upstream": 110606,
+    "local": 92
+  },
+  "files": [
+    {
+      "path": "postings.parquet",
+      "sha256": "314344b9b5f140496e19d3296fc1386f9631ec6ced76ca64a8863820d5784743",
+      "bytes": 21095118
+    },
+    {
+      "path": "collection-history.json",
+      "sha256": "c7ca6b3d7b4ceee94f379888bc3acb7788aeb3cf32da89282eb01b38e93d23dc",
+      "bytes": 1806
+    }
+  ],
+  "releaseDate": "2026-10-17",
+  "targets": [
+    "https://liyue2055.github.io/jobmarket-lens/",
+    "https://lens.feedos.si"
+  ],
+  "preservedV2": "https://jobmarket.feedos.si",
+  "metrics": {
+    "datasetVersion": "2a8dae031624f082dbaff7540e2dd92ce3643562f6835e6151d386f018831960",
+    "sourceCommit": "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+    "counts": {
+      "combined": 114968,
+      "upstream": 114932,
+      "local": 92,
+      "overlap": 56,
+      "rejected": 0
+    },
+    "populations": {
+      "local": {
+        "mode": "local",
+        "postings": 92,
+        "employers": 7,
+        "open": 92,
+        "openEmployers": 7,
+        "eligibleUsd": 3,
+        "openEligibleUsd": 3,
+        "unknownCountry": 47,
+        "unknownArrangement": 38
+      },
+      "combined": {
+        "mode": "combined",
+        "postings": 114968,
+        "employers": 413,
+        "open": 110642,
+        "openEmployers": 412,
+        "eligibleUsd": 37153,
+        "openEligibleUsd": 35507,
+        "unknownCountry": 29101,
+        "unknownArrangement": 61404
+      },
+      "upstream": {
+        "mode": "upstream",
+        "postings": 114932,
+        "employers": 412,
+        "open": 110606,
+        "openEmployers": 411,
+        "eligibleUsd": 37153,
+        "openEligibleUsd": 35507,
+        "unknownCountry": 29076,
+        "unknownArrangement": 61386
+      }
+    },
+    "diagnostics": {
+      "totalPairs": 56,
+      "comparablePairs": 56,
+      "rawStatusDifferences": 56,
+      "basisDifferences": 56,
+      "semanticStateDisagreements": 0,
+      "uncomparablePairs": 0,
+      "dateDifferences": 7,
+      "locationDifferences": 7
+    },
+    "communicationCount": 81401
+  }
+}

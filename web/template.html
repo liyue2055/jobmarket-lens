@@ -196,7 +196,7 @@ a { color: var(--accent); }
     <p>* Data sources: job postings published on the official career sites of S&amp;P 500 companies (constituents as of <span id="n-const"></span>; Berkshire Hathaway is excluded). Coverage by company is listed under Source Coverage above.</p>
     <p>Postings come only from each company's official career site. Collectors call the site's own job API where one exists (Workday, Oracle Recruiting, SuccessFactors, Eightfold, Jibe, amazon.jobs) and otherwise read the schema.org JobPosting data on each posting page. Postings without a source date remain in inventory with an unknown date. Sites that refuse automated access are listed as blocked, not estimated.</p>
     <p>Full descriptions, raw responses, extraction snippets and observation history are stored privately. This public preview contains only the limited posting metadata and derived measures needed for these charts.</p>
-    <p>This build starts its own local history; the author's private history is not included. All observed postings are retained, including undated postings. Original source dates are preserved. Undated and future-dated records are excluded from posting-date charts. First discovery is not evidence that a job was newly created.</p>
+    <p id="history-method">This build starts its own local history; the author's private history is not included. All observed postings are retained, including undated postings. Original source dates are preserved. Undated and future-dated records are excluded from posting-date charts. First discovery is not evidence that a job was newly created.</p>
     <p>Open means observed in the latest collection attempt for that employer. A posting absent from one verified complete collection is possibly closed; after two complete collections it is closed. Missing records in capped, failed, blocked or unverified collections do not establish closure. Closure does not imply a hire. Counts describe postings, not vacancy headcount.</p>
     <p>Complete means pagination reached the reported total or an empty page, and the unique count matched the site's reported total. Other collections are partial or unverified. Pay with an inferred period, unknown currency, or suspicious range is excluded from pay aggregates and retained for review. Annualizing hourly pay assumes 2,080 hours, including for part-time roles.</p>
     <p>Occupation groups follow the 2018 Standard Occupational Classification (SOC) major groups, assigned by auditable title rules with the company's own job family as a fallback. Pay is the posted range, annualized for comparison; it is not actual earnings. Skills and licenses are matched against a fixed dictionary, so a skill the dictionary lacks will not appear. "Not specified" means the collector or parser did not establish a value; it does not prove the employer omitted it.</p>
@@ -222,6 +222,7 @@ async function load() {
 }
 
 load().then(D => {
+  const upstream = D.source?.kind === "upstream_public_snapshot";
   const F = D.fields;
   const rows = D.rows.map(r => Object.fromEntries(F.map((f, i) => [f, r[i]])));
   rows.forEach(r => r.status = r.status || (r.open ? "Open" : "Unverified"));
@@ -246,22 +247,27 @@ load().then(D => {
   const nCos = new Set(rows.map(r => r.co)).size;
   const since = new Date(D.posted_from + "T00:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
   document.getElementById("meta").innerHTML =
-    `Data sources: global postings from covered S&amp;P 500 employers*<br>Data last updated: ${lastRun}`;
+    `Data sources: global postings from covered S&amp;P 500 employers*<br>${upstream ? "Upstream snapshot" : "Data last updated"}: ${lastRun}`;
   document.getElementById("n-const").textContent = longDate(D.universe.retrieved);
   document.getElementById("intro").textContent =
     "Explore roles, skills, qualifications and posted pay from official employer career sites. This independent collection covers a subset of S&P 500 employers and does not represent the entire labor market.";
+  if (upstream) {
+    document.getElementById("intro").textContent = "Explore the upstream public inventory: reported roles, skills, qualifications and posted pay from covered employer career sites. These are reported snapshot records, not our local collection history or a representative labor-market sample.";
+    document.getElementById("history-method").textContent = `Source: yimizhao2015/jobmarket-lens commit ${D.source.commit}, snapshot as of ${D.source.asOf}. Posting statuses, posted dates and last-seen dates are upstream reported metadata. Local observation history, description coverage and inventory completeness are unknown. Only primary location is available from the CSV; reported location counts do not supply all locations. No employee, hiring-growth or closure-cause inference is made.`;
+  }
   const latestCoverage = {};
   (D.snapshots || []).forEach(x => latestCoverage[x.company] = x);
   const inScope = D.companies.map(c => latestCoverage[c.ticker]).filter(Boolean);
   const completeCount = inScope.filter(x => x.completeness === "complete").length;
   const partialCount = inScope.filter(x => x.completeness === "partial").length;
   document.getElementById("coverage-summary").textContent =
+    upstream ? `${nCos} employers with reported postings / ${D.companies.length} in scope. Source commit ${D.source.commit.slice(0, 12)} · ${D.source.asOf}. Completeness and local history are unverified; reported open/closed states are not independently confirmed.` :
     `${nCos} employers with observed postings / ${D.companies.length} in scope. Latest collections: ${completeCount} verified complete; ${partialCount} partial; ${inScope.length - completeCount - partialCount} unverified, blocked or failed. Local observation history starts ${since}. Company counts are not comparable when collection is incomplete.`;
 
   // ---- filters
   const defs = [
     ["f-year", "year", "All years", v => v],
-    ["f-status", "status", "All statuses", v => v === "Open" ? "Observed in latest run" : v],
+    ["f-status", "status", "All statuses", v => v === "Open" ? (upstream ? "Upstream reported open" : "Observed in latest run") : (upstream ? "Upstream reported " + v.toLowerCase() : v)],
     ["f-co", "co", "All companies", v => coName[v] || v],
     ["f-soc", "soc", "All groups", v => `${v}-0000 ${socName[v]}`],
     ["f-lvl", "lvl", "All levels", v => v],
@@ -287,14 +293,14 @@ load().then(D => {
   const urlFilters = new URLSearchParams(location.search);
   for (const [id] of defs) {
     const sel = document.getElementById(id);
-    const wanted = urlFilters.get(id) ?? (id === "f-status" ? "Open" : "");
+    const wanted = urlFilters.get(id) ?? (id === "f-status" && !upstream ? "Open" : "");
     if ([...sel.options].some(o => o.value === wanted)) sel.value = wanted;
   }
   document.getElementById("f-q").value = urlFilters.get("q") || "";
   document.getElementById("f-q").addEventListener("input", render);
   document.getElementById("f-reset").addEventListener("click", () => {
     defs.forEach(([id]) => document.getElementById(id).value = "");
-    document.getElementById("f-status").value = rows.some(r => r.status === "Open") ? "Open" : "";
+    document.getElementById("f-status").value = !upstream && rows.some(r => r.status === "Open") ? "Open" : "";
     skillSel.value = "";
     document.getElementById("f-q").value = "";
     render();
@@ -357,8 +363,8 @@ load().then(D => {
     const flagged = R.filter(r => r.pay_flags?.length).length;
     const dates = new Set((D.snapshots || []).map(x => x.run_date));
     document.getElementById("quality-summary").textContent =
-      `Missing: location ${missing("country")}; work arrangement ${missing("arr")}; degree ${missing("deg")}; experience ${missing("yrs")}. ${flagged} pay records need review. ${R.filter(r => !r.posted || r.future_date).length} records have unknown or future source dates. ${dates.size} collection dates available; posting-date bars describe the observed inventory and do not measure hiring growth. Remote/hybrid mentions: ${pct(R.filter(r => ["Remote", "Hybrid"].includes(r.arr)).length, N)} of all postings in view.`;
-    const paid = R.filter(r => r.pay_min && r.pay_cur === "USD" && r.pay_valid === true);
+      `Missing: location ${missing("country")}; work arrangement ${missing("arr")}; degree ${missing("deg")}; experience ${missing("yrs")}. ${flagged} pay records need review. ${R.filter(r => !r.posted || r.future_date).length} records have unknown or future source dates. ${upstream ? "Local collection history and description coverage unknown" : dates.size + " collection dates available"}; posting-date bars describe the observed inventory and do not measure hiring growth. Remote/hybrid mentions: ${pct(R.filter(r => ["Remote", "Hybrid"].includes(r.arr)).length, N)} of all postings in view.`;
+    const paid = R.filter(r => r.pay_min != null && r.pay_max != null && r.pay_cur === "USD" && r.pay_valid === true);
     const mids = paid.map(r => (r.pay_min + r.pay_max) / 2);
     const known = (k) => R.filter(r => r[k] !== NS);
     const arrKnown = known("arr");
@@ -450,7 +456,7 @@ load().then(D => {
     const list = tblList.slice(tblPage * PAGE, (tblPage + 1) * PAGE);
     tb.innerHTML = `<thead><tr><th>Title</th><th>Company</th><th>SOC group</th><th>Level</th><th>Job type</th><th>Location</th><th>Posted</th><th>Pay</th><th>Degree</th><th>Yrs</th><th>Skill mentions</th></tr></thead><tbody>` +
       list.map(r => `<tr><td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a><br><span class="pill pending">${esc(r.status)}</span></td><td>${esc(coName[r.co])}</td><td>${socName[r.soc]}</td><td>${r.lvl}</td><td>${r.sched}</td>
-        <td>${esc([r.city, r.state, r.country !== NS ? r.country : null].filter(Boolean).join(", ") || NS)}${r.nloc > 1 ? `<details><summary>${r.nloc} locations</summary>${(r.locations || []).map(l => esc(l.raw)).join("<br>")}</details>` : ""}</td>
+        <td>${esc([r.city, r.state, r.country !== NS ? r.country : null].filter(Boolean).join(", ") || NS)}${r.nloc > 1 ? (upstream ? `<br><span class="more">${r.nloc} locations reported; primary shown</span>` : `<details><summary>${r.nloc} locations</summary>${(r.locations || []).map(l => esc(l.raw)).join("<br>")}</details>`) : ""}</td>
         <td class="num">${r.posted || "Unknown"}</td><td class="num">${postedPay(r)}${r.pay_flags?.length ? `<br><span class="pill sample">Review pay</span>` : ""}${r.pay_evidence ? `<details><summary>Source text</summary>${esc(r.pay_evidence)}</details>` : ""}</td>
         <td>${r.deg}${r.deg_equiv ? " or equiv." : ""}</td><td class="num">${r.yrs ?? ""}</td><td>${r.skills.length ? `<details><summary>${r.skills.length} dictionary mentions</summary>${r.skills.map(i => esc(skillNames[i])).join("<br>")}</details>` : "No dictionary matches"}</td></tr>`).join("") + "</tbody>";
     pager("tbl-pager", tblList.length, tblPage, p => { tblPage = p; drawTable(); document.getElementById("tbl-h").scrollIntoView({ block: "start" }); });
@@ -474,7 +480,8 @@ load().then(D => {
   const covRows = D.companies.map(c => {
       const s = latest[c.ticker];
       let pill;
-      if (s && s.status === "ok") pill = `<span class="pill ${s.completeness === "complete" ? "ok" : "sample"}">${esc(s.completeness || "unverified")} · ${s.run_date}</span>`;
+      if (upstream) pill = `<span class="pill pending">Upstream reported: ${esc(c.reported_status)}${c.reported_last_collected ? " · " + esc(c.reported_last_collected) : ""}</span>`;
+      else if (s && s.status === "ok") pill = `<span class="pill ${s.completeness === "complete" ? "ok" : "sample"}">${esc(s.completeness || "unverified")} · ${s.run_date}</span>`;
       else if (s && s.status === "blocked") pill = `<span class="pill blocked">Blocked by site</span>`;
       else if (sampleCos.includes(c.ticker)) pill = `<span class="pill sample">Page-read sample</span>`;
       else if (s && s.status === "empty") pill = `<span class="pill pending">No postings returned</span>`;
@@ -482,8 +489,8 @@ load().then(D => {
       else if ((s && s.status === "not_applicable") || c.adapter === "none") pill = `<span class="pill pending">Not collected yet</span>`;
       else pill = `<span class="pill pending">Collector ready, not yet run</span>`;
       const host = c.career_site ? new URL(c.career_site).hostname : "";
-      return `<tr><td class="num">${c.rank}</td><td>${c.name} <span class="more">${c.ticker}</span></td>
-        <td>${c.career_site ? `<a href="${c.career_site}" target="_blank" rel="noopener">${host}</a>` : "–"}</td><td>${c.adapter}</td><td>${pill}</td>
+      return `<tr><td class="num">${c.rank}</td><td>${esc(c.name)} <span class="more">${esc(c.ticker)}</span></td>
+        <td>${c.career_site ? `<a href="${esc(c.career_site)}" target="_blank" rel="noopener">${esc(host)}</a>` : "–"}</td><td>${esc(c.adapter)}</td><td>${pill}</td>
         <td class="num">${fmt(byCo[c.ticker] || 0)}${s ? ` <span class="more">(${fmt(s.collected)} collected; ${s.site_total == null ? "total unknown" : fmt(s.site_total) + " listed"})</span>` : ""}</td></tr>`;
     });
   let covPage = 0;

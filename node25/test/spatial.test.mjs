@@ -8,7 +8,12 @@ import {
   exportSpatialCsv,
 } from "../server/spatial.mjs";
 import { load, query, Request } from "../server/query.mjs";
+import { readFile } from "node:fs/promises";
 const ctx = await load();
+const metrics = JSON.parse(
+  await readFile(new URL("./fixtures/release-metrics.json", import.meta.url), "utf8"),
+);
+assert.equal(ctx.release.datasetVersion, metrics.datasetVersion);
 const req = (extra = {}) => ({
   protocolVersion: "2.5.1",
   datasetVersion: ctx.release.datasetVersion,
@@ -35,16 +40,12 @@ const legacy = (extra = {}) => ({
 });
 
 test("full-size shelves preserve all modes and a complete unknown-inclusive partition", async () => {
-  for (const [mode, count] of [
-    ["combined", 86190],
-    ["upstream", 86144],
-    ["local", 92],
-  ]) {
+  for (const [mode, population] of Object.entries(metrics.populations)) {
     const scene = await spatialScene(req({ sourceMode: mode }));
-    assert.equal(scene.matchedCount, count);
+    assert.equal(scene.matchedCount, population.postings);
     assert.equal(
       scene.data.cells.reduce((n, c) => n + c.count, 0),
-      count,
+      population.postings,
     );
     assert.equal(scene.data.coverage.omittedContributors, 0);
     assert.equal(
@@ -57,7 +58,10 @@ test("full-size shelves preserve all modes and a complete unknown-inclusive part
     const old = await query(legacy({ sourceMode: mode }));
     assert.equal(scene.contributorHash, old.contributorHash);
   }
-  assert.equal((await spatialScene(req({ filter: {} }))).matchedCount, 82851);
+  assert.equal(
+    (await spatialScene(req({ filter: {} }))).matchedCount,
+    metrics.populations.combined.open,
+  );
 });
 test("complete multi-cell selection, duplicate cell IDs and pages preserve exact contributor identity", async () => {
   const scene = await spatialScene(req());
@@ -67,7 +71,7 @@ test("complete multi-cell selection, duplicate cell IDs and pages preserve exact
       cellIds: scene.data.cells.map((c) => c.id),
     }),
   );
-  assert.equal(all.matchedCount, 86190);
+  assert.equal(all.matchedCount, metrics.populations.combined.postings);
   assert.equal(all.contributorHash, scene.contributorHash);
   assert.equal(all.data.rows.length, 100);
   const cells = scene.data.cells.filter((c) => c.count).slice(0, 2);
@@ -157,24 +161,34 @@ test("strict schemas reject injection, stale versions, forged cells and oversize
 test("coverage cube is complete and separates evidence basis from actual availability disagreement", async () => {
   const scene = await spatialScene(req({ lens: "coverage_cube" }));
   const rows = scene.data.companies;
-  assert.equal(rows.length, 311);
+  const combined = metrics.populations.combined;
+  assert.equal(rows.length, combined.employers);
   assert.equal(
     rows.reduce((n, r) => n + r.count, 0),
-    86190,
+    combined.postings,
   );
   assert.equal(
     rows.reduce((n, r) => n + r.knownCountryCount, 0),
-    86190 - 23711,
+    combined.postings - combined.unknownCountry,
   );
   assert.equal(
     rows.reduce((n, r) => n + r.eligiblePayCount, 0),
-    28246,
+    combined.eligibleUsd,
   );
-  assert.equal(scene.data.diagnostics.rawStatusDifferences, 46);
-  assert.equal(scene.data.diagnostics.basisDifferences, 46);
-  assert.equal(scene.data.diagnostics.semanticStateDisagreements, 0);
-  assert.equal(scene.data.diagnostics.dateDifferences, 7);
-  assert.equal(scene.data.diagnostics.locationDifferences, 6);
+  assert.equal(
+    scene.data.diagnostics.rawStatusDifferences,
+    metrics.diagnostics.rawStatusDifferences,
+  );
+  assert.equal(
+    scene.data.diagnostics.basisDifferences,
+    metrics.diagnostics.basisDifferences,
+  );
+  assert.equal(
+    scene.data.diagnostics.semanticStateDisagreements,
+    metrics.diagnostics.semanticStateDisagreements,
+  );
+  assert.equal(scene.data.diagnostics.dateDifferences, metrics.diagnostics.dateDifferences);
+  assert.equal(scene.data.diagnostics.locationDifferences, metrics.diagnostics.locationDifferences);
   const company = rows[0];
   const selected = await spatialSelection(
     envelope(scene, { kind: "cell_union", cellIds: [company.id] }),
@@ -193,17 +207,20 @@ test("graph focus does not filter inventory; caps and omitted contributor union 
       focusSkillId: focus,
     }),
   );
-  assert.equal(graph.matchedCount, 86190);
-  assert.equal(graph.analysisCount, 86190);
-  assert.equal(graph.data.nodes[0].count, 60393);
+  assert.equal(graph.matchedCount, metrics.populations.combined.postings);
+  assert.equal(graph.analysisCount, metrics.populations.combined.postings);
+  assert.equal(graph.data.nodes[0].count, metrics.communicationCount);
   assert.equal(graph.data.nodes.length, 40);
   assert.equal(graph.data.edges.length, 120);
-  assert.equal(graph.data.support.effectiveMinimumCount, 173);
+  assert.equal(
+    graph.data.support.effectiveMinimumCount,
+    Math.max(20, Math.ceil(0.002 * graph.analysisCount)),
+  );
   assert.ok(graph.data.coverage.qualifyingEdges > 120);
   assert.equal(
     graph.data.coverage.representedPostings +
       graph.data.coverage.omittedContributors,
-    86190,
+    metrics.populations.combined.postings,
   );
 });
 test("local graph marginals, intersections, Jaccard and ANY/ALL use independently enumerated posting IDs", async () => {
@@ -275,9 +292,9 @@ test("analyzed-text basis retains original count/hash and reports exclusions ins
       focusSkillId: focus,
     }),
   );
-  assert.equal(upstream.matchedCount, 86144);
+  assert.equal(upstream.matchedCount, metrics.populations.upstream.postings);
   assert.equal(upstream.analysisCount, 0);
-  assert.equal(upstream.basisExcludedCount, 86144);
+  assert.equal(upstream.basisExcludedCount, metrics.populations.upstream.postings);
   assert.equal(upstream.data.nodes.length, 0);
   assert.equal(upstream.data.availability, "empty_analysis_population");
   const combined = await spatialScene(
@@ -287,8 +304,11 @@ test("analyzed-text basis retains original count/hash and reports exclusions ins
       focusSkillId: focus,
     }),
   );
-  assert.equal(combined.analysisCount, 92);
-  assert.equal(combined.basisExcludedCount, 86098);
+  assert.equal(combined.analysisCount, metrics.populations.local.postings);
+  assert.equal(
+    combined.basisExcludedCount,
+    metrics.populations.combined.postings - metrics.populations.local.postings,
+  );
   const selected = await spatialSelection(
     envelope(combined, {
       kind: "skill_set",

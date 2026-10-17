@@ -1,7 +1,7 @@
 # Pulling the 114,932-posting upstream snapshot
 
-Status: successfully downloaded and validated in private staging; no published dataset or production
-application has been switched. Review branch: `data/upstream-refresh-2026-10-16`.
+Status: the staging audit below is historical. The 2026-10-17 activation for Pages and Node
+is described in [the release note](POSTING_RELEASE_2026_10_17.md). React V2 stays frozen.
 
 ## Verified source and counts
 

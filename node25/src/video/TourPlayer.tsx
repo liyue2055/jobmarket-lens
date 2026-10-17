@@ -12,7 +12,11 @@ const clock = (s: number) =>
  * preload="none", so the file downloads only after the viewer presses play.
  * Privacy: same-origin files, no third-party player, no autoplay, no tracking.
  */
-export function TourButton() {
+export function TourButton({
+  currentDatasetVersion,
+}: {
+  currentDatasetVersion?: string;
+}) {
   const [open, setOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -76,6 +80,15 @@ export function TourButton() {
                 <X size={18} />
               </button>
             </div>
+            {currentDatasetVersion &&
+              !currentDatasetVersion.startsWith(TOUR.recordedRelease) && (
+                <p className="tour-note" role="note">
+                  This historical tour was recorded on release {TOUR.recordedRelease}.
+                  The current release is {currentDatasetVersion.slice(0, 8)}; posting
+                  counts and examples in the recording can differ from the current
+                  application.
+                </p>
+              )}
             <video
               ref={video}
               className="tour-video"

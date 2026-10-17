@@ -1,11 +1,14 @@
 import { test, expect, type Download, type Page } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const metrics = JSON.parse(readFileSync(new URL("../fixtures/release-metrics.json", import.meta.url), "utf8"));
 import AxeBuilder from "@axe-core/playwright";
 import { parse } from "csv-parse/sync";
 
 async function openSpatial(page: Page) {
   await page.goto("/spatial");
   await expect(page.getByRole("heading", { name: /Give the question/ })).toBeVisible();
-  await expect(page.locator(".spatial-release")).toContainText("82,851 matching postings");
+  await expect(page.locator(".spatial-release")).toContainText(`${metrics.populations.combined.open.toLocaleString("en-US")} matching postings`);
+  await expect(page.locator(".spatial-release")).toContainText(metrics.datasetVersion.slice(0, 10));
   return page.locator(".spatial-app");
 }
 
@@ -142,16 +145,16 @@ test("coverage and skill lenses preserve the matched population while changing b
   await page.getByRole("tab", { name: /Coverage cube/ }).click();
   const coverageResponse = await coverageWait;
   expect(coverageResponse.status()).toBe(200);
-  expect((await coverageResponse.json()).matchedCount).toBe(82_851);
+  expect((await coverageResponse.json()).matchedCount).toBe(metrics.populations.combined.open);
   await expect(page.locator(".spatial-svg")).toHaveAttribute("role", "img");
   await expect(page.locator("#coverage-title")).toHaveText("Employer coverage comparison");
-  await expect(release).toContainText("82,851 matching postings");
+  await expect(release).toContainText(`${metrics.populations.combined.open.toLocaleString("en-US")} matching postings`);
 
   const skillsWait = nextSceneResponse(page, "skill_neighborhood");
   await page.getByRole("tab", { name: /Skill neighborhood/ }).click();
   const skillsResponse = await skillsWait;
   expect(skillsResponse.status()).toBe(200);
-  expect((await skillsResponse.json()).matchedCount).toBe(82_851);
+  expect((await skillsResponse.json()).matchedCount).toBe(metrics.populations.combined.open);
   await expect(page.locator("#skill-layout-title")).toHaveText("Recorded skill co-mention neighborhood");
   const focus = page.getByLabel("Focus skill");
   const optionCount = await focus.locator("option").count();
@@ -165,20 +168,20 @@ test("coverage and skill lenses preserve the matched population while changing b
   await focus.selectOption(alternate);
   const focusResponse = await focusWait;
   expect(focusResponse.status()).toBe(200);
-  expect((await focusResponse.json()).matchedCount).toBe(82_851);
-  await expect(release).toContainText("82,851 matching postings");
+  expect((await focusResponse.json()).matchedCount).toBe(metrics.populations.combined.open);
+  await expect(release).toContainText(`${metrics.populations.combined.open.toLocaleString("en-US")} matching postings`);
 
   const basisWait = nextSceneResponse(page, "skill_neighborhood");
   await page.getByLabel("Observation basis").selectOption("analyzed_text");
   const basisResponse = await basisWait;
   expect(basisResponse.status()).toBe(200);
   const analyzed = await basisResponse.json();
-  expect(analyzed.matchedCount).toBe(82_851);
+  expect(analyzed.matchedCount).toBe(metrics.populations.combined.open);
   expect(analyzed.analysisCount).toBeLessThan(analyzed.matchedCount);
   expect(analyzed.basisExcludedCount).toBe(analyzed.matchedCount - analyzed.analysisCount);
   await expect(page.locator(".spatial-caution")).toContainText("excluded by basis");
   await expect(page.locator(".spatial-caution")).toContainText("analyzed text");
-  await expect(release).toContainText("82,851 matching postings");
+  await expect(release).toContainText(`${metrics.populations.combined.open.toLocaleString("en-US")} matching postings`);
 });
 
 test("Three renderer stays lazy; WebGL fallback or context loss returns to 2D with cohort intact", async ({ page }) => {
@@ -249,7 +252,7 @@ test("keyboard exact list, scene sharing, reload, mobile layout and accessible c
   const sharedUrl = page.url();
   await page.reload();
   await expect(page).toHaveURL(sharedUrl);
-  await expect(page.locator(".spatial-release")).toContainText("82,851 matching postings");
+  await expect(page.locator(".spatial-release")).toContainText(`${metrics.populations.combined.open.toLocaleString("en-US")} matching postings`);
   await expect(page.locator(".spatial-applied strong")).toHaveText("—");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   await axe(page);

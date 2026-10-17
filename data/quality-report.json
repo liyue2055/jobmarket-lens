@@ -1,36 +1,55 @@
 {
   "generated": "2026-10-16",
-  "history_origin": "Independent local collection; no private upstream history imported",
-  "postings": 92,
-  "employers_with_postings": 7,
-  "employers_in_scope": 499,
-  "collection_dates": [
-    "2026-10-16"
-  ],
-  "latest_completeness": {
-    "partial": 3,
-    "complete": 4
+  "history_origin": "Upstream public snapshot; local observation history and description coverage unknown",
+  "source": {
+    "kind": "upstream_public_snapshot",
+    "commit": "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+    "asOf": "2026-10-16T22:26:25Z",
+    "reportedStatus": true,
+    "localHistoryAvailable": false,
+    "textCoverage": "unknown",
+    "artifacts": {
+      "Job postings.csv": {
+        "sha256": "cd4255a464421319914d0964b24b932bf448097ec43d089c730db0a2f486a8e5",
+        "bytes": 50199841
+      },
+      "data source.csv": {
+        "sha256": "40fe0bb49e4ceacdff8ebf6e8ab77fe2b4526bf09360f05fa29df3af130d0ea7",
+        "bytes": 68914
+      },
+      "index.html": {
+        "sha256": "a7c459ff7a1fcfae2bb55252cdadbd5868d792af38a5f444da67ce20c894ba75",
+        "bytes": 7650003
+      }
+    }
   },
+  "postings": 114932,
+  "employers_with_postings": 412,
+  "employers_in_scope": 499,
   "posting_status": {
-    "Open": 92
+    "Open": 110606,
+    "Closed": 4326
+  },
+  "collection_dates": [],
+  "with_full_text": null,
+  "text_coverage": "unknown",
+  "usable_usd_pay": 37153,
+  "pay_flags": {
+    "ambiguous_csv_currency": 1456,
+    "unknown_currency": 1456,
+    "suspicious_annual_max": 20,
+    "suspicious_range": 21
   },
   "missing_fields": {
-    "country": 47,
-    "arr": 38,
-    "deg": 29,
-    "yrs": 34,
+    "country": 29076,
+    "arr": 61386,
+    "deg": 53394,
+    "yrs": 61030,
     "posted": 0
   },
-  "pay_flags": {
-    "inferred_pay_period": 2,
-    "unknown_currency": 1
-  },
-  "usable_usd_pay": 3,
-  "with_full_text": 92,
-  "future_source_dates": 0,
   "limitations": [
-    "Collected employers are not a representative labor-market sample.",
-    "First discovery is not a new job; disappearance is not a hire.",
-    "Incomplete inventories must not be compared as employer hiring totals."
+    "Upstream reported snapshot; no local collection run or private history imported.",
+    "Reported last-seen dates are upstream metadata, not locally observed dates.",
+    "Unknown text coverage is not negative skill evidence; employer coverage is non-representative."
   ]
 }

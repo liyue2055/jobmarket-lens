@@ -1,7 +1,8 @@
-import {readFile,writeFile,mkdir,rename,mkdtemp,rm,access} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,rename,mkdtemp,rm,access,open} from 'node:fs/promises';
 import {join,resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 import {pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
 import {DuckDBInstance} from '@duckdb/node-api';
 import {ReleaseSchema} from './release-contract.mjs';
 import {HistorySchema} from './history-contract.mjs';
@@ -53,6 +54,7 @@ export async function verifyStore(directory=join(ROOT,'store'),{deep=true}={}){
 export async function deepVerifyStore(directory,release){
   const seed=validateSeed(JSON.parse(await readFile(join(directory,'local-seed.json'),'utf8')));
   const companies=new Set(release.catalog.companies.map(x=>x.id)),occupations=new Set(release.catalog.occupations.map(x=>x.id)),skills=new Set(release.catalog.skills.map(x=>x.id)),sources=new Set(release.catalog.sources.map(x=>x.id)),licenses=new Set(seed.catalog.taxonomy.licenses.map(x=>x.id));
+  const seedLocal=new Map(seed.localPostings.map(row=>[row.id,canonical(row)]));
   const sets={combined:new Set(),upstream:new Set(),local:new Set()},pay={combined:0,upstream:0,local:0};
   const allowed=['mode','id','companyId','title','occupationId','level','arrangement','availability','hasDescription','eligiblePay','annualLow','annualHigh','countries','skillIds','detailJSON'];
   const db=await DuckDBInstance.create(':memory:',{threads:'2',memory_limit:'512MB'});const c=await db.connect();
@@ -62,6 +64,7 @@ export async function deepVerifyStore(directory,release){
     for await(const rows of result.yieldRowObjectJs())for(const entry of rows){
       if(!sets[entry.mode]||sets[entry.mode].has(entry.id))throw Error('Duplicate/invalid physical mode identity');sets[entry.mode].add(entry.id);
       const r=JSON.parse(entry.detailJSON);validate(r,'posting');
+      if(entry.mode==='local'&&canonical(r)!==seedLocal.get(r.id))throw Error('Published local row differs from retained sanitized seed');
       for(const key of ['id','companyId','title','occupationId','level','arrangement','availability','hasDescription'])if(entry[key]!==r[key])throw Error('Physical/detail value mismatch');
       if(!companies.has(r.companyId)||(r.occupationId&&!occupations.has(r.occupationId))||!r.skillIds.every(x=>skills.has(x))||!r.licenseIds.every(x=>licenses.has(x))||!r.sourceIds.every(x=>sources.has(x))||!sources.has(r.availabilitySourceId)||!Object.values(r.provenance).every(x=>sources.has(x))||!Object.values(r.fieldProvenance).every(x=>sources.has(x)))throw Error('Broken public reference');
       if(r.hasDescription===true&&!r.provenance.skills.startsWith('local:'))throw Error('Analyzed-text source mismatch');
@@ -70,24 +73,44 @@ export async function deepVerifyStore(directory,release){
       const eligible=Boolean(r.pay?.valid&&r.pay.currency==='USD'&&Number.isFinite(r.pay.annualLow)&&Number.isFinite(r.pay.annualHigh));if(entry.eligiblePay!==eligible||entry.annualLow!==(r.pay?.annualLow??null)||entry.annualHigh!==(r.pay?.annualHigh??null))throw Error('Physical salary/detail mismatch');if(eligible)pay[entry.mode]++;
     }
     for(const mode of Object.keys(sets))if(sets[mode].size!==release.counts[mode]||pay[mode]!==release.eligiblePayByMode[mode])throw Error('Materialized count/pay mismatch');
+    if(sets.local.size!==seedLocal.size)throw Error('Published local population differs from retained seed');
     const union=new Set([...sets.local,...sets.upstream]);if(union.size!==sets.combined.size||[...union].some(id=>!sets.combined.has(id))||[...sets.local].filter(id=>sets.upstream.has(id)).length!==release.counts.overlap)throw Error('Materialized source union mismatch');
   }finally{c.closeSync();db.closeSync();}
+}
+
+export function semanticIdentity(data){
+  // Exact canonical identity, streamed by row to avoid one giant snapshot string.
+  const hash=createHash('sha256');hash.update('{');
+  const fields={modes:data.modes,catalog:data.catalog,methods:data.methods,asOf:data.asOf};
+  const keys=Object.keys(fields).sort();
+  keys.forEach((key,i)=>{if(i)hash.update(',');hash.update(JSON.stringify(key)+':');
+    if(key!=='modes'){hash.update(canonical(fields[key]));return;}
+    hash.update('{');Object.keys(data.modes).sort().forEach((mode,j)=>{
+      if(j)hash.update(',');hash.update(JSON.stringify(mode)+':[');
+      data.modes[mode].forEach((row,k)=>{if(k)hash.update(',');hash.update(canonical(row));});hash.update(']');
+    });hash.update('}');
+  });hash.update('}');return hash.digest('hex');
 }
 
 export async function materialize(data,directory=join(ROOT,'store')){
   const {counts,pay}=assertPopulations(data);
   await mkdir(directory,{recursive:true});
-  const seedPayload=validateSeed({catalog:data.catalog,asOf:data.asOf,methods:data.methods,limitations:data.limitations,sourceDatasetVersion:data.sourceDatasetVersion,localPostings:data.modes.local});
+  const seedPayload=data.localSeed?validateSeed(data.localSeed):validateSeed({catalog:data.catalog,asOf:data.asOf,methods:data.methods,limitations:data.limitations,sourceDatasetVersion:data.sourceDatasetVersion,localPostings:data.modes.local});
+  if(canonical(seedPayload.localPostings)!==canonical(data.modes.local))throw Error('Local observations differ from the validated sanitized seed');
   try{validateSeed(JSON.parse(await readFile(join(directory,'local-seed.json'),'utf8')));}
   catch(error){if(error.code!=='ENOENT')throw error;await writeFile(join(directory,'local-seed.json'),JSON.stringify(seedPayload)+'\n');}
   const temp=await mkdtemp(join(tmpdir(),'lens-node25-'));await mkdir(directory,{recursive:true});
-  const identity=sha(canonical({modes:data.modes,catalog:data.catalog,methods:data.methods,asOf:data.asOf}));
+  const identity=semanticIdentity(data);
   const release={datasetVersion:identity,sourceDatasetVersion:data.sourceDatasetVersion,counts,catalog:{companies:data.catalog.companies.map(({id,name})=>({id,name})),occupations:data.catalog.taxonomy.occupations.map(({id,name})=>({id,name})),skills:data.catalog.taxonomy.skills.map(({id,name})=>({id,name})),sources:data.catalog.sources},asOf:data.asOf,methods:{...data.methods,nodeMaterializer:'native-parquet-1'},limitations:[...data.limitations,'Node release reuses sanitized local observations; live Node source collection is not scheduled.'],files:[],eligiblePayByMode:pay,collection:{counts:{postings:counts.local,employers:new Set(data.modes.local.map(r=>r.companyId)).size},sources:data.catalog.sources,lastSnapshot:data.modes.local.reduce((last,r)=>r.lastObservedAt>last?r.lastObservedAt:last,'' )||null,scheduled:false,runs:[],limitations:['No Node collector has run. Imported snapshot metadata is not a collection-run ledger.','Existing Python collection adapters are not automatically supported by this separate Node application.']}};
   let db,connection;
   try{
-    const records=[];
-    for(const [mode,rows] of Object.entries(data.modes))for(const row of rows)records.push(JSON.stringify({mode,id:row.id,companyId:row.companyId,title:row.title,occupationId:row.occupationId,level:row.level,arrangement:row.arrangement,availability:row.availability,hasDescription:row.hasDescription,eligiblePay:Boolean(row.pay?.valid&&row.pay.currency==='USD'&&Number.isFinite(row.pay.annualLow)&&Number.isFinite(row.pay.annualHigh)),annualLow:row.pay?.annualLow??null,annualHigh:row.pay?.annualHigh??null,countries:[...new Set(row.locations.map(l=>l.country).filter(Boolean))],skillIds:row.skillIds,detailJSON:JSON.stringify(row)}));
-    const input=join(temp,'public.ndjson');await writeFile(input,records.join('\n'));records.length=0;
+    const input=join(temp,'public.ndjson');const handle=await open(input,'w');
+    try{
+      for(const [mode,rows]of Object.entries(data.modes))for(let start=0;start<rows.length;start+=1000){
+        const batch=rows.slice(start,start+1000).map(row=>JSON.stringify({mode,id:row.id,companyId:row.companyId,title:row.title,occupationId:row.occupationId,level:row.level,arrangement:row.arrangement,availability:row.availability,hasDescription:row.hasDescription,eligiblePay:Boolean(row.pay?.valid&&row.pay.currency==='USD'&&Number.isFinite(row.pay.annualLow)&&Number.isFinite(row.pay.annualHigh)),annualLow:row.pay?.annualLow??null,annualHigh:row.pay?.annualHigh??null,countries:[...new Set(row.locations.map(l=>l.country).filter(Boolean))],skillIds:row.skillIds,detailJSON:JSON.stringify(row)}));
+        await handle.write(batch.join('\n')+'\n');
+      }
+    }finally{await handle.close();}
     db=await DuckDBInstance.create(':memory:',{threads:'2',memory_limit:'512MB'});connection=await db.connect();
     const columns={mode:'VARCHAR',id:'VARCHAR',companyId:'VARCHAR',title:'VARCHAR',occupationId:'VARCHAR',level:'VARCHAR',arrangement:'VARCHAR',availability:'VARCHAR',hasDescription:'BOOLEAN',eligiblePay:'BOOLEAN',annualLow:'DOUBLE',annualHigh:'DOUBLE',countries:'VARCHAR[]',skillIds:'VARCHAR[]',detailJSON:'VARCHAR'};
     const columnSql=Object.entries(columns).map(([k,v])=>`'${k}':'${v}'`).join(',');

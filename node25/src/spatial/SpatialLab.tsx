@@ -171,6 +171,7 @@ const initial = readShared();
 export default function SpatialLab() {
   const [catalog, setCatalog] = useState<Catalog | null>(null),
     [catalogError, setCatalogError] = useState(""),
+    [acceptedCurrentRelease, setAcceptedCurrentRelease] = useState(false),
     [mode, setMode] = useState<Mode>(initial?.mode || "combined"),
     [filter, setFilter] = useState<Filter>(
       initial?.filter || { availability: "open" },
@@ -214,19 +215,46 @@ export default function SpatialLab() {
             ? old
             : value.skills[0]?.id || "",
         );
-        if (
-          initial?.datasetVersion &&
-          initial.datasetVersion !== value.datasetVersion
-        )
-          setNotice(
-            "The shared study release has changed. Its cohorts were not restored; the current release is shown.",
-          );
       })
       .catch((e) => {
         if (!c.signal.aborted) setCatalogError(e.message);
       });
     return () => c.abort();
   }, []);
+  const blocked =
+    !!catalog &&
+    !!initial?.datasetVersion &&
+    initial.datasetVersion !== catalog.datasetVersion &&
+    !acceptedCurrentRelease;
+  function startFreshStudy() {
+    importSequence.current++;
+    setMode("combined");
+    setFilter({ availability: "open" });
+    setSearch("");
+    setLens("demand_shelves");
+    setBasis("recorded_mentions");
+    setFocusSkill(catalog?.skills[0]?.id || "");
+    setSupport(20);
+    setShelf("All arrangements");
+    setInteraction("inspect");
+    setView("2d");
+    setDraft([]);
+    setSkillDraft([]);
+    setPair(null);
+    setCommitted(null);
+    setA(null);
+    setB(null);
+    setDetail(null);
+    setOffset(0);
+    setInspected("");
+    setInspectedIds([]);
+    setLasso(false);
+    setNotice(
+      "A fresh study is open on the current release. Previous selections and cohorts were not carried over.",
+    );
+    history.replaceState(null, "", "/spatial");
+    setAcceptedCurrentRelease(true);
+  }
   const request = useMemo<SceneRequest>(
     () => ({
       protocolVersion: "2.5.1",
@@ -249,7 +277,7 @@ export default function SpatialLab() {
   const sceneQuery = useSpatial<Scene>(
     "/api/spatial",
     request,
-    !!catalog && (lens !== "skill_neighborhood" || !!focusSkill),
+    !!catalog && !blocked && (lens !== "skill_neighborhood" || !!focusSkill),
   );
   const scene =
     sceneQuery.data &&
@@ -261,7 +289,7 @@ export default function SpatialLab() {
   const selected = useSpatial<SelectedResponse>(
     "/api/spatial/selection",
     { ...committed, page: { offset, limit: 100 } },
-    !!committed,
+    !!committed && !blocked,
   );
   const selectedData =
     selected.data &&
@@ -272,7 +300,7 @@ export default function SpatialLab() {
   const comparison = useSpatial<{ data: Comparison }>(
     "/api/spatial/compare",
     { a: a?.request, b: b?.request },
-    !!a && !!b,
+    !!a && !!b && !blocked,
   );
   useEffect(() => {
     setDraft([]);
@@ -674,7 +702,7 @@ export default function SpatialLab() {
             THREE DIMENSIONS. EXACT EVIDENCE.
           </span>
         </nav>
-        <button className="button" onClick={share} disabled={!catalog}>
+        <button className="button" onClick={share} disabled={!catalog || blocked}>
           <Share2 size={15} />
           Share scene
         </button>
@@ -722,12 +750,32 @@ export default function SpatialLab() {
             <button onClick={() => location.reload()}>Reload</button>
           </div>
         )}
+        {blocked && (
+          <section className="spatial-exact-card" aria-labelledby="stale-scene-heading">
+            <div className="spatial-card-heading">
+              <div>
+                <p className="eyebrow">SAVED SCENE / RELEASE UNAVAILABLE</p>
+                <h2 id="stale-scene-heading">This scene belongs to a different release.</h2>
+              </div>
+            </div>
+            <p role="alert">
+              The link references release {String(initial?.datasetVersion).slice(0, 10)}.
+              Its filters, selections and cohorts have not been applied to the current
+              release. Start a fresh study explicitly to explore current postings.
+            </p>
+            <div className="spatial-selection-bar">
+              <button className="button primary" onClick={startFreshStudy}>
+                Start a fresh study
+              </button>
+            </div>
+          </section>
+        )}
         {!catalog && !catalogError ? (
           <div className="spatial-loading" role="status">
             Opening the bounded research service…
           </div>
         ) : (
-          catalog && (
+          catalog && !blocked && (
             <>
               <form
                 className="spatial-filters"
