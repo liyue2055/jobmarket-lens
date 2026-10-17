@@ -3,7 +3,7 @@
 List:   POST https://{host}/wday/cxs/{tenant}/{site}/jobs   {"limit":20,"offset":N,"searchText":"","appliedFacets":{}}
 Detail: GET  https://{host}/wday/cxs/{tenant}/{site}{externalPath}
 """
-from .common import html_to_text, raw_posting
+from .common import html_to_text, raw_posting, seen_before
 
 
 def collect(company, params, http, max_jobs, stats):
@@ -13,6 +13,9 @@ def collect(company, params, http, max_jobs, stats):
     public = f"https://{host}/recruiting/{tenant}/{site}" if host.startswith("wd") else f"https://{host}/{site}"
     offset, seen = 0, 0
     while seen < max_jobs:
+        if stats.get("site_total") is not None and offset >= stats["site_total"]:
+            stats["exhausted"] = True
+            break
         r = http.post(base + "/jobs", json={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": ""})
         data = r.json()
         if offset == 0:
@@ -24,6 +27,17 @@ def collect(company, params, http, max_jobs, stats):
         for p in posts:
             path = p.get("externalPath")
             if not path:
+                continue
+            # The record's id (jobReqId) comes from the detail response, so a stored posting is matched by its url.
+            rec = seen_before(company, http, url=public + path)
+            if rec:  # already in the history: no detail request
+                yield rec
+                seen += 1
+                if seen == stats.get("site_total"):
+                    stats["exhausted"] = True
+                    return
+                if seen >= max_jobs:
+                    return
                 continue
             try:
                 d = http.get(base + path).json().get("jobPostingInfo", {})

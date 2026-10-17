@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 import requests
 
-from .common import html_to_text, raw_posting
+from .common import html_to_text, raw_posting, seen_before
 
 
 def _iso(ts):
@@ -25,6 +25,13 @@ def _v2(company, host, domain, http, max_jobs, stats):
             stats["exhausted"] = True
             break
         for p in pos:
+            rec = seen_before(company, http, source_id=p.get("display_job_id") or p["id"])
+            if rec:  # already in the history: no detail request
+                yield rec
+                seen += 1
+                if seen >= max_jobs:
+                    return
+                continue
             d = http.get(f"https://{host}/api/apply/v2/jobs/{p['id']}", params={"domain": domain}).json()
             yield raw_posting(
                 company, p.get("display_job_id") or p["id"], p.get("canonicalPositionUrl") or f"https://{host}/careers/job/{p['id']}",
@@ -58,6 +65,13 @@ def _pcsx(company, host, domain, http, max_jobs, stats):
             stats["exhausted"] = True
             break
         for p in pos:
+            rec = seen_before(company, http, source_id=p.get("displayJobId") or p["id"])
+            if rec:  # already in the history: no detail request
+                yield rec
+                seen += 1
+                if seen >= max_jobs:
+                    return
+                continue
             try:
                 d = http.get(f"https://{host}/api/pcsx/position_details",
                              params={"position_id": p["id"], "domain": domain}).json()
