@@ -30,37 +30,68 @@ def connect(root):
     return db
 
 
+def known_postings(root):
+    """Read cached full records and last successful run sizes without creating/migrating history."""
+    path = Path(root) / "data/lens.db"
+    if not path.exists():
+        return {}, {}
+    db = sqlite3.connect(path.resolve().as_uri() + "?mode=ro", uri=True)
+    try:
+        known = {}
+        for company, sid, raw in db.execute("SELECT company, source_id, raw FROM postings"):
+            record = json.loads(raw)
+            if record.get("title") and not record.get("seen_only"):
+                known.setdefault(company, {})[sid] = record.get("url")
+        last = dict(db.execute("""SELECT company, collected FROM snapshots s
+            WHERE status IN ('ok','empty') AND run_date =
+            (SELECT MAX(run_date) FROM snapshots WHERE company=s.company AND status IN ('ok','empty'))"""))
+        return known, last
+    finally:
+        db.close()
+
+
 def ingest_run(root, run_date):
     run_dir = Path(root) / "data/raw" / run_date
     log = json.loads((run_dir / "run_log.json").read_text())
     db = connect(root)
-    with db:
-        for company, entry in log.items():
-            db.execute("INSERT OR REPLACE INTO snapshots VALUES (?,?,?,?,?,?,?)",
-                       (run_date, company, entry.get("status"), entry.get("collected", 0),
-                        entry.get("site_total"), entry.get("detail"), json.dumps(entry)))
-            f = run_dir / f"{company}.jsonl"
-            if not f.exists():
-                continue
-            db.execute("DELETE FROM observations WHERE run_date=? AND company=?", (run_date, company))
-            for line in f.read_text().splitlines():
-                record = json.loads(line)
-                sid = record["source_id"]
-                raw = json.dumps(record, sort_keys=True, ensure_ascii=False)
-                content = {k: v for k, v in record.items() if k != "collected_at"}
-                digest = hashlib.sha256(json.dumps(content, sort_keys=True).encode()).hexdigest()
-                db.execute("""INSERT INTO postings VALUES (?,?,?,?,?)
-                    ON CONFLICT(company, source_id) DO UPDATE SET
-                    first_seen=MIN(first_seen, excluded.first_seen),
-                    last_seen=MAX(last_seen, excluded.last_seen),
-                    raw=CASE WHEN excluded.last_seen >= last_seen THEN excluded.raw ELSE raw END""",
-                           (company, sid, run_date, run_date, raw))
-                db.execute("""INSERT INTO posting_versions VALUES (?,?,?,?,?,?)
-                    ON CONFLICT(company, source_id, content_hash) DO UPDATE SET
-                    first_seen=MIN(first_seen, excluded.first_seen), last_seen=MAX(last_seen, excluded.last_seen)""",
-                           (company, sid, digest, run_date, run_date, raw))
-                db.execute("INSERT OR IGNORE INTO observations VALUES (?,?,?)", (run_date, company, sid))
-    db.close()
+    try:
+        with db:
+            for company, entry in log.items():
+                db.execute("INSERT OR REPLACE INTO snapshots VALUES (?,?,?,?,?,?,?)",
+                           (run_date, company, entry.get("status"), entry.get("collected", 0),
+                            entry.get("site_total"), entry.get("detail"), json.dumps(entry)))
+                f = run_dir / f"{company}.jsonl"
+                if not f.exists():
+                    continue
+                db.execute("DELETE FROM observations WHERE run_date=? AND company=?", (run_date, company))
+                for line in f.read_text().splitlines():
+                    record = json.loads(line)
+                    sid = record["source_id"]
+                    if record.get("seen_only") is True:
+                        found = db.execute("SELECT 1 FROM postings WHERE company=? AND source_id=?",
+                                           (company, sid)).fetchone()
+                        if not found:
+                            raise ValueError("Cached sighting has no stored full record; rerun with --full")
+                        db.execute("UPDATE postings SET last_seen=MAX(last_seen,?) WHERE company=? AND source_id=?",
+                                   (run_date, company, sid))
+                        db.execute("INSERT OR IGNORE INTO observations VALUES (?,?,?)", (run_date, company, sid))
+                        continue
+                    raw = json.dumps(record, sort_keys=True, ensure_ascii=False)
+                    content = {k: v for k, v in record.items() if k != "collected_at"}
+                    digest = hashlib.sha256(json.dumps(content, sort_keys=True).encode()).hexdigest()
+                    db.execute("""INSERT INTO postings VALUES (?,?,?,?,?)
+                        ON CONFLICT(company, source_id) DO UPDATE SET
+                        first_seen=MIN(first_seen, excluded.first_seen),
+                        last_seen=MAX(last_seen, excluded.last_seen),
+                        raw=CASE WHEN excluded.last_seen >= last_seen THEN excluded.raw ELSE raw END""",
+                               (company, sid, run_date, run_date, raw))
+                    db.execute("""INSERT INTO posting_versions VALUES (?,?,?,?,?,?)
+                        ON CONFLICT(company, source_id, content_hash) DO UPDATE SET
+                        first_seen=MIN(first_seen, excluded.first_seen), last_seen=MAX(last_seen, excluded.last_seen)""",
+                               (company, sid, digest, run_date, run_date, raw))
+                    db.execute("INSERT OR IGNORE INTO observations VALUES (?,?,?)", (run_date, company, sid))
+    finally:
+        db.close()
 
 
 def load_postings(root):

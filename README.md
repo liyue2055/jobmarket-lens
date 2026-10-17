@@ -74,6 +74,21 @@ Use `--max 20` for a bounded development run. `--date` must be an ISO date; snap
 so rerunning a company on the same date replaces that day's snapshot rather than adding a second one.
 Use a balanced employer panel before drawing conclusions across sectors.
 
+## Incremental collection
+
+Known postings discovered in supported active career-site listings can reuse stored details. The run
+records a new listing observation and advances last-seen time while retaining the earlier text and
+content versions. `collected` counts sightings; `fetched` counts full records received, including
+refreshes, and does not count new jobs or HTTP requests. Sitemap-only discovery still checks the
+job page/status, because a stale sitemap entry is not enough to reopen a posting.
+
+Use `python -m collector.run --full` to refresh known postings' descriptions, pay and other content.
+Incremental sightings do not establish that those fields are unchanged. The existing 24-worker default,
+per-site pacing, record caps and conservative completeness/closure rules remain in place. Companies
+are scheduled by estimated cost from earlier successful runs. See the
+[October 17 upstream integration review](docs/UPSTREAM_INTEGRATION_2026_10_17.md) for compatibility
+choices and posting-ID repair limits. No collection is scheduled by merging these changes.
+
 ## Data and evidence
 
 - `data/lens.db`: local SQLite database with current records, collection metadata, observations,
