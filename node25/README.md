@@ -34,6 +34,13 @@ evidence and stable 100-row record pages. The browser never needs a full posting
 operate. Safe CSV exports stream from the server. Nulls, source dates, eligibility and limited coverage
 remain explicit; these are observed postings rather than a census of vacancies, hires or available workers.
 
+## Pull a newer source snapshot
+
+`npm run data:pull-candidate` fetches and validates the audited public 114,932-posting snapshot into
+ignored private staging. `npm run data:pull-candidate -- --offline` revalidates cached files without
+network fallback. Neither command changes the published release. See the
+[refresh guide](../docs/UPSTREAM_POSTING_REFRESH.md) for exact scopes, receipts and activation gates.
+
 ## Owner console
 
 Generate local access without printing the password:

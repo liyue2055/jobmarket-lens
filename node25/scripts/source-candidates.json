@@ -1,0 +1,64 @@
+{
+  "repository": "yimizhao2015/jobmarket-lens",
+  "candidates": {
+    "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8": {
+      "asOf": "2026-10-16T22:26:25Z",
+      "expected": {
+        "postings": 114932,
+        "postingCompanies": 412,
+        "sourceCompanies": 499
+      },
+      "files": {
+        "Job postings.csv": {
+          "path": "data/Job postings.csv",
+          "bytes": 50199841,
+          "sha256": "cd4255a464421319914d0964b24b932bf448097ec43d089c730db0a2f486a8e5"
+        },
+        "data source.csv": {
+          "path": "data/data source.csv",
+          "bytes": 68914,
+          "sha256": "40fe0bb49e4ceacdff8ebf6e8ab77fe2b4526bf09360f05fa29df3af130d0ea7"
+        },
+        "index.html": {
+          "path": "web/index.html",
+          "bytes": 7650003,
+          "sha256": "a7c459ff7a1fcfae2bb55252cdadbd5868d792af38a5f444da67ce20c894ba75"
+        }
+      },
+      "typedFields": [
+        "id",
+        "co",
+        "title",
+        "url",
+        "posted",
+        "year",
+        "month",
+        "open",
+        "soc",
+        "sched",
+        "arr",
+        "deg",
+        "deg_equiv",
+        "yrs",
+        "yrs_b",
+        "lvl",
+        "pay_min",
+        "pay_max",
+        "pay_lo",
+        "pay_hi",
+        "pay_period",
+        "pay_cur",
+        "country",
+        "state",
+        "city",
+        "nloc",
+        "src",
+        "first_seen",
+        "last_seen",
+        "skills",
+        "lic"
+      ],
+      "typedDecodedBytes": 47409986
+    }
+  }
+}
