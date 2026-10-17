@@ -400,7 +400,7 @@ export function Studio() {
                 : "Reading the source catalog"}
             </div>
             <div className="intro-actions">
-              <TourButton />
+              <TourButton currentDatasetVersion={catalog?.datasetVersion} />
               <button
                 className="button secondary"
                 onClick={share}

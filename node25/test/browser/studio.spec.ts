@@ -1,9 +1,12 @@
 import { test, expect, type Page } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const metrics = JSON.parse(readFileSync(new URL("../fixtures/release-metrics.json", import.meta.url), "utf8"));
 import AxeBuilder from "@axe-core/playwright";
 import { parse } from "csv-parse/sync";
 import fs from "node:fs";
 async function localStudy(page: Page, workspace = "canvas") {
   const catalog = await (await page.request.get("/api/catalog")).json();
+  expect(catalog.datasetVersion).toBe(metrics.datasetVersion);
   return {
     v: "2.5",
     datasetVersion: catalog.datasetVersion,
@@ -19,7 +22,7 @@ async function openLocal(page: Page, workspace = "canvas") {
   await page.goto(
     "/" + workspace + "?study=" + encodeURIComponent(JSON.stringify(study)),
   );
-  await expect(page.getByTestId("matched-count")).toHaveText("92");
+  await expect(page.getByTestId("matched-count")).toHaveText(metrics.populations.local.open.toLocaleString("en-US"));
   return study;
 }
 async function audit(page: Page) {
@@ -57,7 +60,7 @@ test("real canvas requests aggregates and bounded pages; exact group selection, 
     .first()
     .click();
   await page.getByLabel("Search titles, employers or skills").fill("engineer");
-  await expect(page.getByTestId("matched-count")).not.toHaveText("92");
+  await expect(page.getByTestId("matched-count")).not.toHaveText(metrics.populations.local.open.toLocaleString("en-US"));
   const selected = Number(
     (await page.getByTestId("matched-count").innerText()).replaceAll(",", ""),
   );
@@ -69,7 +72,7 @@ test("real canvas requests aggregates and bounded pages; exact group selection, 
   await expect(page.locator(".overlap-summary")).toContainText(
     selected.toLocaleString("en-US"),
   );
-  await expect(page.locator(".pin-card.a .pin-card-count")).toContainText("92");
+  await expect(page.locator(".pin-card.a .pin-card-count")).toContainText(metrics.populations.local.open.toLocaleString("en-US"));
   await expect(page.locator(".pin-card.b .pin-card-count")).toContainText(
     String(selected),
   );
@@ -110,7 +113,7 @@ test("paging, shared links and frozen cohorts survive navigation and reload", as
     .first()
     .click();
   await page.getByLabel("Add work arrangement filter").selectOption("Remote");
-  await expect(page.getByTestId("matched-count")).not.toHaveText("92");
+  await expect(page.getByTestId("matched-count")).not.toHaveText(metrics.populations.local.open.toLocaleString("en-US"));
   const count = await page.getByTestId("matched-count").innerText();
   await page
     .getByRole("button", { name: /Pin view$/ })
@@ -261,7 +264,7 @@ test("owner authentication protects real admin status and never stores passwords
   await expect(
     page.getByRole("heading", { name: "A snapshot, with an audit trail." }),
   ).toBeVisible();
-  await expect(page.locator(".admin-summary")).toContainText("86,190");
+  await expect(page.locator(".admin-summary")).toContainText(metrics.counts.combined.toLocaleString("en-US"));
   await expect(page.locator(".admin-summary")).toContainText("Unavailable");
   await expect(
     page.getByRole("heading", { name: "Reporting is not connected." }),
@@ -392,4 +395,21 @@ test("owner view labels provider supplied reporting window and last check", asyn
   await expect(dates).toContainText("UTC");
   await expect(dates).toContainText("Last checked");
   await expect(dates).toContainText("available");
+});
+
+test("historical tour identifies a different current dataset without changing its recorded content", async ({ page }) => {
+  const catalog = await (await page.request.get("/api/catalog")).json();
+  expect(catalog.datasetVersion).toBe(metrics.datasetVersion);
+  await page.goto("/canvas");
+  await page.getByRole("button", { name: /Watch the tour/ }).click();
+  const dialog = page.getByRole("dialog", { name: /90-second tour/ });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText("recorded on release 2d18d6d0");
+  const notice = dialog.getByRole("note");
+  if (!catalog.datasetVersion.startsWith("2d18d6d0")) {
+    await expect(notice).toContainText("This historical tour was recorded on release 2d18d6d0");
+    await expect(notice).toContainText(catalog.datasetVersion.slice(0, 8));
+    await expect(notice).toContainText("counts and examples in the recording can differ");
+  } else await expect(notice).toHaveCount(0);
+  await expect(dialog.locator('source')).toHaveAttribute("src", "/video/tour-v2-720.mp4");
 });

@@ -1,11 +1,11 @@
 {
-  "datasetVersion": "2d18d6d0d99a370a7ebc6a7d0d637cbca917682b504110427727ba76a339041b",
-  "sourceDatasetVersion": "9bd992ecffd1bb6fad5a0715ca8c38a75b1bb4416df342c49abbb02a38b8de28",
+  "datasetVersion": "2a8dae031624f082dbaff7540e2dd92ce3643562f6835e6151d386f018831960",
+  "sourceDatasetVersion": "780cab2f81ea83caf7f267bf7435d39eee7bdd8eaf4c8d9e8bcb64fde8c9559b",
   "counts": {
-    "combined": 86190,
-    "upstream": 86144,
+    "combined": 114968,
+    "upstream": 114932,
     "local": 92,
-    "overlap": 46,
+    "overlap": 56,
     "rejected": 0
   },
   "catalog": {
@@ -2433,11 +2433,11 @@
     ],
     "sources": [
       {
-        "asOf": "2026-10-16T12:53:22Z",
-        "commit": "7e415fe62d0597e9c6c806bf813b30f8e8c88c98",
-        "completeness": "unknown",
-        "id": "upstream:7e415fe62d0597e9c6c806bf813b30f8e8c88c98",
-        "kind": "upstream"
+        "id": "upstream:2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+        "kind": "upstream",
+        "asOf": "2026-10-16T22:26:25Z",
+        "commit": "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+        "completeness": "unknown"
       },
       {
         "asOf": "2026-10-16",
@@ -2490,11 +2490,11 @@
       }
     ]
   },
-  "asOf": "2026-10-16T12:53:22Z",
+  "asOf": "2026-10-16T22:26:25Z",
   "methods": {
     "import": "csv-1",
     "merge": "freshness-groups-1",
-    "pay": "csv-audited-typed-currency-1",
+    "pay": "csv-audited-typed-currency-2",
     "nodeMaterializer": "native-parquet-1"
   },
   "limitations": [
@@ -2503,13 +2503,15 @@
     "No hiring-growth or employee-supply conclusions; one release is not a historical panel.",
     "Unknown upstream text coverage makes skill denominators source-dependent.",
     "Upstream CSV dollar signs also represent missing currencies; ambiguous ranges are excluded from pay comparisons.",
+    "Upstream commit time is release provenance; retained local observation dates and detail freshness remain separate.",
+    "This Node snapshot is refreshed independently of the preserved V2 React release.",
     "Node release reuses sanitized local observations; live Node source collection is not scheduled."
   ],
   "files": [
     {
       "path": "postings.parquet",
-      "sha256": "e5e4ddaece24bafd53801f7c78bcde594ef2206b13d6867ffec23651fdbef792",
-      "bytes": 15987880
+      "sha256": "314344b9b5f140496e19d3296fc1386f9631ec6ced76ca64a8863820d5784743",
+      "bytes": 21095118
     },
     {
       "path": "collection-history.json",
@@ -2518,8 +2520,8 @@
     }
   ],
   "eligiblePayByMode": {
-    "combined": 28246,
-    "upstream": 28246,
+    "combined": 37153,
+    "upstream": 37153,
     "local": 3
   },
   "collection": {
@@ -2529,11 +2531,11 @@
     },
     "sources": [
       {
-        "asOf": "2026-10-16T12:53:22Z",
-        "commit": "7e415fe62d0597e9c6c806bf813b30f8e8c88c98",
-        "completeness": "unknown",
-        "id": "upstream:7e415fe62d0597e9c6c806bf813b30f8e8c88c98",
-        "kind": "upstream"
+        "id": "upstream:2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+        "kind": "upstream",
+        "asOf": "2026-10-16T22:26:25Z",
+        "commit": "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+        "completeness": "unknown"
       },
       {
         "asOf": "2026-10-16",

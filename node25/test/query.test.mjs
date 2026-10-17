@@ -13,26 +13,26 @@ const req = (extra = {}) => ({
 const reference = JSON.parse(
   await readFile(new URL("../store/release.json", import.meta.url)),
 );
+const metrics = JSON.parse(
+  await readFile(new URL("./fixtures/release-metrics.json", import.meta.url), "utf8"),
+);
 test("actual three-mode distinct populations, pay eligibility and complete matrix reconciliation", async () => {
-  for (const [mode, count, pay] of [
-    ["combined", 86190, 28246],
-    ["upstream", 86144, 28246],
-    ["local", 92, 3],
-  ]) {
+  assert.equal(reference.datasetVersion, metrics.datasetVersion);
+  for (const [mode, population] of Object.entries(metrics.populations)) {
     const r = await query(req({ sourceMode: mode }));
-    assert.equal(r.matchedCount, count);
-    assert.equal(r.data.eligiblePayCount, pay);
+    assert.equal(r.matchedCount, population.postings);
+    assert.equal(r.data.eligiblePayCount, population.eligibleUsd);
     assert.equal(
       r.data.matrix.cells.reduce((a, b) => a + b.count, 0) +
         r.data.matrix.otherCount,
-      count,
+      population.postings,
     );
     assert.equal(r.datasetVersion, reference.datasetVersion);
   }
 });
 test("default availability excludes reported closed without asserting closure from absence", async () => {
   const r = await query(req({ filter: {} }));
-  assert.equal(r.matchedCount, 82851);
+  assert.equal(r.matchedCount, metrics.populations.combined.open);
 });
 test("record pages are bounded, stable and do not duplicate contributors", async () => {
   const a = await query(

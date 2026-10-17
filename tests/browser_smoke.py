@@ -1,4 +1,7 @@
 """Optional browser checks: pip install playwright; python -m playwright install chromium."""
+import base64
+import gzip
+import re
 import csv
 import json
 from functools import partial
@@ -17,9 +20,11 @@ class QuietHandler(SimpleHTTPRequestHandler):
 
 
 def main():
-    data = json.loads((ROOT / 'web/data.json').read_text())
+    embedded = re.search(r'const EMBEDDED = ("[^"\n]+")', (ROOT / 'web/index.html').read_text())
+    data = json.loads(gzip.decompress(base64.b64decode(json.loads(embedded.group(1))))) if embedded else json.loads((ROOT / 'web/data.json').read_text())
+    upstream = data.get('source', {}).get('kind') == 'upstream_public_snapshot'
     records = [dict(zip(data['fields'], r)) for r in data['rows']]
-    observed = [r for r in records if r['status'] == 'Open']
+    observed = records if upstream else [r for r in records if r['status'] == 'Open']
     assert observed, 'Build a fresh pilot dataset first'
     company = observed[0]['co']
     count = sum(r['co'] == company for r in observed)
@@ -34,8 +39,15 @@ def main():
             page.goto(f'http://127.0.0.1:{server.server_port}/')
             page.wait_for_selector('#tbl tbody tr')
             assert page.locator('#tbl tbody tr').count() == min(25, len(observed))
-            assert page.locator('#f-status').input_value() == 'Open'
-            assert 'verified complete' in page.locator('#coverage-summary').inner_text()
+            assert page.locator('#f-status').input_value() == ('' if upstream else 'Open')
+            assert ('Source commit' if upstream else 'verified complete') in page.locator('#coverage-summary').inner_text()
+            if upstream:
+                assert page.locator('#kpis .v').first.inner_text() == f'{len(records):,}'
+                page.select_option('#f-status', 'Open')
+                assert page.locator('#kpis .v').first.inner_text() == f'{sum(r["status"] == "Open" for r in records):,}'
+                page.select_option('#f-status', 'Closed')
+                assert page.locator('#kpis .v').first.inner_text() == f'{sum(r["status"] == "Closed" for r in records):,}'
+                page.click('#f-reset')
             assert 'Missing:' in page.locator('#quality-summary').inner_text()
             page.select_option('#f-co', company)
             assert page.locator('#tbl tbody tr').count() == min(25, count)

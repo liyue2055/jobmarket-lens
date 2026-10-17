@@ -26,8 +26,8 @@ export function parseCsv(bytes,kind){
     if(reasons.length)rejects.push({line:index+2,reasons,record:row});else{ids.add(id);rows.push(row);}
   });return {rows,rejects};
 }
-export function decodeSupplement(bytes,rows){
-  if(sha(bytes)!==HASHES['index.html'])throw Error('Supplement checksum mismatch');
+export function decodeSupplement(bytes,rows,{expectedHash=HASHES['index.html']}={}){
+  if(sha(bytes)!==expectedHash)throw Error('Supplement checksum mismatch');
   const match=bytes.toString('utf8').match(/const EMBEDDED = ("[^"\n]+")/);if(!match)throw Error('Missing typed payload');
   const data=JSON.parse(gunzipSync(Buffer.from(JSON.parse(match[1]),'base64')));const typed=new Map();
   if(new Set(data.fields).size!==data.fields.length)throw Error('Duplicate typed fields');

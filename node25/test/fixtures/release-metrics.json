@@ -1,0 +1,57 @@
+{
+  "datasetVersion": "2a8dae031624f082dbaff7540e2dd92ce3643562f6835e6151d386f018831960",
+  "sourceCommit": "2fc50364f3056b1dfa930e8dfeba576a5b28a3c8",
+  "counts": {
+    "combined": 114968,
+    "upstream": 114932,
+    "local": 92,
+    "overlap": 56,
+    "rejected": 0
+  },
+  "populations": {
+    "local": {
+      "mode": "local",
+      "postings": 92,
+      "employers": 7,
+      "open": 92,
+      "openEmployers": 7,
+      "eligibleUsd": 3,
+      "openEligibleUsd": 3,
+      "unknownCountry": 47,
+      "unknownArrangement": 38
+    },
+    "combined": {
+      "mode": "combined",
+      "postings": 114968,
+      "employers": 413,
+      "open": 110642,
+      "openEmployers": 412,
+      "eligibleUsd": 37153,
+      "openEligibleUsd": 35507,
+      "unknownCountry": 29101,
+      "unknownArrangement": 61404
+    },
+    "upstream": {
+      "mode": "upstream",
+      "postings": 114932,
+      "employers": 412,
+      "open": 110606,
+      "openEmployers": 411,
+      "eligibleUsd": 37153,
+      "openEligibleUsd": 35507,
+      "unknownCountry": 29076,
+      "unknownArrangement": 61386
+    }
+  },
+  "diagnostics": {
+    "totalPairs": 56,
+    "comparablePairs": 56,
+    "rawStatusDifferences": 56,
+    "basisDifferences": 56,
+    "semanticStateDisagreements": 0,
+    "uncomparablePairs": 0,
+    "dateDifferences": 7,
+    "locationDifferences": 7
+  },
+  "communicationCount": 81401
+}

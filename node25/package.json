@@ -19,7 +19,8 @@
     "data:parity": "node scripts/audit-parity.mjs",
     "data:migrate": "node scripts/migrate-history.mjs",
     "check": "tsc --noEmit",
-    "data:pull-candidate": "node scripts/pull-snapshot.mjs"
+    "data:pull-candidate": "node scripts/pull-snapshot.mjs",
+    "data:refresh-release": "node scripts/refresh-release.mjs"
   },
   "dependencies": {
     "@duckdb/node-api": "1.5.6-r.1",

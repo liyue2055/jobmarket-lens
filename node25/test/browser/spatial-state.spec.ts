@@ -1,9 +1,12 @@
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const metrics = JSON.parse(readFileSync(new URL("../fixtures/release-metrics.json", import.meta.url), "utf8"));
 
 test("saved studies recompute frozen counts, restore exact selectors and reject stale releases", async ({
   page,
 }) => {
   const catalog = await (await page.request.get("/api/catalog")).json();
+  expect(catalog.datasetVersion).toBe(metrics.datasetVersion);
   const sceneRequest = {
     protocolVersion: "2.5.1",
     datasetVersion: catalog.datasetVersion,
@@ -43,7 +46,7 @@ test("saved studies recompute frozen counts, restore exact selectors and reject 
   };
   await page.goto("/spatial");
   await expect(page.locator(".spatial-release")).toContainText(
-    "82,851 matching",
+    `${metrics.populations.combined.open.toLocaleString("en-US")} matching`,
   );
   const input = page.getByLabel("Restore full study JSON");
   await input.setInputFiles({
@@ -110,7 +113,7 @@ test("failed selection stays unavailable and cannot be frozen or exported as zer
 }) => {
   await page.goto("/spatial");
   await expect(page.locator(".spatial-release")).toContainText(
-    "82,851 matching",
+    `${metrics.populations.combined.open.toLocaleString("en-US")} matching`,
   );
   await page.route("**/api/spatial/selection", (route) =>
     route.fulfill({
@@ -138,7 +141,7 @@ test("isolated shelf lasso selects the complete orthographic population only aft
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/spatial");
   await expect(page.locator(".spatial-release")).toContainText(
-    "82,851 matching",
+    `${metrics.populations.combined.open.toLocaleString("en-US")} matching`,
   );
   await page.getByLabel("Arrangement layer").selectOption("Remote");
   await page.getByRole("button", { name: "Lasso isolated layer" }).click();
@@ -191,4 +194,45 @@ test("isolated shelf lasso selects the complete orthographic population only aft
   await expect(page.locator(".spatial-applied strong")).toHaveText(
     expected.toLocaleString("en-US"),
   );
+});
+
+test("stale scene links make no analytical requests until an explicit fresh study", async ({ page }) => {
+  const catalog = await (await page.request.get("/api/catalog")).json();
+  expect(catalog.datasetVersion).toBe(metrics.datasetVersion);
+  const stale = {
+    version: "2.5.1",
+    datasetVersion: "0".repeat(64),
+    mode: "local",
+    filter: { availability: "all", search: "outdated-scene-do-not-apply" },
+    lens: "coverage_cube",
+    basis: "recorded_mentions",
+    support: 20,
+  };
+  const requests: { path: string; body: any }[] = [];
+  page.on("request", (request) => {
+    const path = new URL(request.url()).pathname;
+    if (path.startsWith("/api/spatial") && request.method() === "POST")
+      requests.push({ path, body: request.postDataJSON() });
+  });
+  await page.goto("/spatial?study=" + encodeURIComponent(Buffer.from(JSON.stringify(stale)).toString("base64")));
+  await expect(page.getByRole("heading", { name: "This scene belongs to a different release." })).toBeVisible();
+  await expect(page.getByRole("alert")).toContainText("have not been applied");
+  await expect(page.getByRole("button", { name: "Share scene" })).toBeDisabled();
+  await expect(page.locator(".spatial-filters")).toHaveCount(0);
+  await expect(page.locator(".spatial-release")).toHaveCount(0);
+  await page.waitForTimeout(150);
+  expect(requests).toEqual([]);
+  const response = page.waitForResponse((result) => new URL(result.url()).pathname === "/api/spatial" && result.request().method() === "POST");
+  await page.getByRole("button", { name: "Start a fresh study", exact: true }).click();
+  const fresh = await (await response).json();
+  expect(requests[0].body.datasetVersion).toBe(catalog.datasetVersion);
+  expect(requests[0].body.sourceMode).toBe("combined");
+  expect(requests[0].body.lens).toBe("demand_shelves");
+  expect(requests[0].body.filter).toEqual({ availability: "open" });
+  await expect(page.locator(".spatial-release")).toContainText(`${fresh.matchedCount.toLocaleString("en-US")} matching postings`);
+  await expect(page.getByRole("combobox", { name: "Source basis", exact: true })).toHaveValue("combined");
+  await expect(page.getByRole("textbox", { name: "Search recorded fields" })).toHaveValue("");
+  await expect(page.locator(".spatial-applied strong")).toHaveText("—");
+  await expect(page.locator(".spatial-cohort-cards > div strong")).toHaveText(["—", "—"]);
+  expect(new URL(page.url()).searchParams.has("study")).toBe(false);
 });
